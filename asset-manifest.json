@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/belfarz/crypto-exchange/static/css/main.8ea897a5.css",
+    "main.js": "/belfarz/crypto-exchange/static/js/main.6ef4f805.js",
+    "index.html": "/belfarz/crypto-exchange/index.html",
+    "main.8ea897a5.css.map": "/belfarz/crypto-exchange/static/css/main.8ea897a5.css.map",
+    "main.6ef4f805.js.map": "/belfarz/crypto-exchange/static/js/main.6ef4f805.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8ea897a5.css",
+    "static/js/main.6ef4f805.js"
+  ]
+}
