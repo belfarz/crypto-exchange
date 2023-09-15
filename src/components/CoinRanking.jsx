@@ -25,7 +25,7 @@ export default function CoinRanking() {
     // ];
 
   return (
-    <div className='text'>
+    <div className='text '>
          <table className="min-w-full" id='table'>
       <thead>
         <tr>

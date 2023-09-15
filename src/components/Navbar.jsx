@@ -4,18 +4,15 @@ import { FaReact } from "react-icons/fa"
 
 export default function Navbar() {
 
-  function Openbar() {
-    document.querySelector('.sidebar').classList.toggle('left-[-300px]')
-  }
+ 
 
   return (
     // sidebar
-    <div className='sidebar fixed top-0 bottom-0 lg:left-0 w-[250px] text-center shadow h-screen overflow-y-auto ' id='sidebar'>
+    <div className='sidebar fixed top-0 bottom-0 lg:left-0 w-[250px]  text-center shadow h-screen overflow-y-auto hidden lg:block' id='sidebar'>
       <div className="p-2.5 m-5 pb-10 flex items-center " id='side-border'>
         {/* <i className="bi bi-app-indicator px-2 py-1 bg-blue-600 rounded-md"></i> */}
         <HiOutlineUserCircle style={{ fontSize: '25px', color: 'white'}}/>
         <h1 className="text-[15px]  ml-3  text-gray-200 ">Login / Register</h1>
-        <i className="bi bi-x ml-20 cursor-pointer lg:hidden" onclick={Openbar}></i>
       </div>
       {/* <hr className="my-2 text-gray-100 " id='hr1'></hr> */}
       <div >

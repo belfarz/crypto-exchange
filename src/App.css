@@ -32,7 +32,7 @@ body{
 }
 .text{
   background-color: rgb(20,21,23);
-  min-width: 1140px;
+  position: relative;
 }
 #outlet{
   background-color: rgb(20,21,23);
