@@ -29,7 +29,7 @@ export default function Layout() {
     <div className='relative'>
     <div className="fixed top-0 left-0 right-0 p-2 bg-blue-900 flex justify-between " id='topbar'>
         <div className='p-1 flex items-center rounded-md '>
-            <GiRabbit style={{ fontSize: '35px', color: 'white'}}/> <span className='text-[15px]  ml-3 text-xl text-gray-200 font-100'>MOONTOK</span>
+            <GiRabbit style={{ fontSize: '35px', color: 'white'}}/> <span className='text-[15px]  ml-3 text-xl text-gray-200 font-100'>KOJO CALLS</span>
         </div>
 
         <div class="p-1 flex items-center rounded-md px-4 duration-300 cursor-pointer lg:bg-gray-700 w-auto bg-transparent ml-auto lg:ml-0">
