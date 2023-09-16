@@ -39,7 +39,7 @@ export default function Layout() {
         </div>
         <div className="flex items-center ">
           {/* <GiHamburgerMenu style={{ fontSize: '25px', color: 'white'}} className='m-2 lg:hidden' onClick={Openbar}/> */}
-          <button className='bg-blue-500 hover:bg-blue-600 text-white font-semibold py-1 px-6 rounded lg:block hidden'>Add Coin</button>
+          <button className='bg-gradient-to-bl from-amber-500 to-black text-white font-semibold py-1 px-6 rounded lg:block hidden'>Add Coin</button>
         </div>
         
 
