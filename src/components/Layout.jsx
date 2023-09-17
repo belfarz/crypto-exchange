@@ -26,7 +26,7 @@ export default function Layout() {
 
   return (
     // top nav bar
-    <div className='relative'>
+    <div >
     <div className="fixed top-0 left-0 right-0 p-2 bg-blue-900 flex justify-between " id='topbar'>
         <div className='p-1 flex items-center rounded-md '>
             <BsBuildings style={{ fontSize: '35px', color: 'white'}}/> <span className='text-[15px]  ml-3 text-xl text-gray-200 font-100'>KOJO CALLS</span>

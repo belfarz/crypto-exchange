@@ -90,15 +90,30 @@ export default function CoinRanking() {
                 <p>{crypto.name}</p>
               </div>
             </td>
-            <td className="px-6 py-4 whitespace-no-wrap text-white-500">
-              {crypto.price_change_percentage_1h_in_currency.toFixed(2)}
-            </td>
-            <td className="px-6 py-4 whitespace-no-wrap text-white-500">
-              {crypto.price_change_percentage_24h_in_currency.toFixed(2)}
-            </td>
-            <td className="px-6 py-4 whitespace-no-wrap text-white-500">
-              {crypto.price_change_percentage_7d_in_currency.toFixed(2)}
-            </td>
+            {crypto.price_change_percentage_1h_in_currency > 0 ? 
+                  <td className="px-6 py-4 whitespace-no-wrap text-green-500 text-right">
+                  {crypto.price_change_percentage_1h_in_currency.toFixed(2)}
+                  </td> : 
+                  <td className="px-6 py-4 whitespace-no-wrap text-red-500 text-right">
+                  {crypto.price_change_percentage_1h_in_currency.toFixed(2)}
+                  </td>
+            }
+            {crypto.price_change_percentage_24h_in_currency > 0 ? 
+                  <td className="px-6 py-4 whitespace-no-wrap text-green-500 text-right">
+                  {crypto.price_change_percentage_24h_in_currency.toFixed(2)}
+                  </td> : 
+                  <td className="px-6 py-4 whitespace-no-wrap text-red-500 text-right">
+                  {crypto.price_change_percentage_24h_in_currency.toFixed(2)}
+                  </td>
+            }
+            {crypto.price_change_percentage_7d_in_currency > 0 ? 
+                  <td className="px-6 py-4 whitespace-no-wrap text-green-500 text-right">
+                  {crypto.price_change_percentage_7d_in_currency.toFixed(2)}
+                  </td> : 
+                  <td className="px-6 py-4 whitespace-no-wrap text-red-500 text-right">
+                  {crypto.price_change_percentage_7d_in_currency.toFixed(2)}
+                  </td>
+            }
             <td className="px-6 py-4 whitespace-no-wrap text-white-500">
               ${crypto.current_price.toLocaleString()}
             </td>
@@ -121,3 +136,6 @@ export default function CoinRanking() {
     </div>
   )
 }
+
+
+
