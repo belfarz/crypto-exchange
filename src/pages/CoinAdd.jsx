@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Form } from 'react-router-dom'
+import { AiFillFileImage } from "react-icons/ai"
+import { MdDelete } from "react-icons/md"
 
 export default function CoinAdd() {
+
+    const [image ,setImage] = useState(null)
+    const [fileName ,setFileName] = useState(null)
+
+    function showPreview({target:{files}}) {
+        files[0] && setFileName(files[0].name)
+        if (files) {
+            setImage(URL.createObjectURL(files[0]))
+        }
+    }
+
+    function deleteFile() {
+        setFileName("No Selected File")
+        setImage(null)
+    }
+
   return (
     <div>
-        <Form className=' pb-2 pl-2 lg:flex w-full'>
+        <Form className=' pb-2 pl-2 lg:flex w-full pr-2'>
            <div className='lg:w-1/2'>
            <h1 className="text-[25px] text-gray-300 mt-8 mb-8">Contract Details</h1>
             <div className='flex mb-5'>
@@ -50,15 +68,30 @@ export default function CoinAdd() {
             <textarea type="time" name="address" id="address" className="w-full p-2 border border-gray-300 rounded text-gray-400" ></textarea>
            </div>
 
-           <div className='m-3 w-1/2'>
+           <div className='m-3 lg:w-1/2 w-full'>
            <h1 className="text-[25px] text-gray-300 mt-8 mb-8">Contract Details</h1>
-            <div id="imageContainer" className='p-4  w-[250px] h-[100px] cursor-pointer flex-col align' onClick={()=> document.querySelector("#imageUpload").click()}>
+            <div id="imageContainer" className='p-4  cursor-pointer flex-col items-center justify-center  max-w-[300px] max-h-[100px]' onClick={()=> document.querySelector("#imageUpload").click()}>
+            {image ? (
+            <img src={image} alt="" width={100} height={80} className='m-auto mb-2' />
+            ) : (
+            <>
                 <span className="block mb-2 text-gray-400 text-[20px]">Click To Upload Logo</span>
-                <span className="block mb-2 text-gray-200 text-[12px]">File should not exceed 1mb</span>
-                <input type="file" id="imageUpload" name="imageUpload" accept="image/*" className='hidden'/>
+                <span className="block mb-2 text-gray-200 text-[12px]">File should not exceed 1MB</span>
+            </>
+            )}
+                        
+            
+                <input type="file" id="imageUpload" name="imageUpload" accept="image/*" className='hidden' onChange={showPreview}/>
+            </div>
+            <div className="flex w-full mt-2">
+                <AiFillFileImage className='text-white' />
+                <span className='flex'>
+                    <span className='text-[8px] lg:text-[12px] text-gray-300 '>{fileName}</span>
+                    <MdDelete onClick={deleteFile} className='text-white'  />
+                </span>
             </div>
             <h1 className="text-[25px] text-gray-300 mt-8 mb-8">Links</h1>  
-            <div className='flex mb-5'>
+            <div className='flex mb-5 w-full'>
                 <div className='w-1/2 pr-4'>
                     <label htmlFor="fruit" className="block mb-2 text-gray-400">Chain</label>
                     <select id="chain" name="fruit" className="w-full p-2 border border-gray-300 rounded text-gray-400">
