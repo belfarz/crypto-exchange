@@ -29,11 +29,14 @@ body{
   border: .1px solid #2C2E33;
 }
 
-#chain,#address,#imageUpload{
+#chain,#address{
   background: rgb(26,27,30);
   border: .1px solid #2C2E33;
 }
-
+#imageContainer{
+  background: rgb(26,27,30);
+  border: 2px dashed #2C2E33;
+}
 #table{
   color: white;
   background-color: rgb(20,21,23);

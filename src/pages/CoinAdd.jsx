@@ -52,7 +52,12 @@ export default function CoinAdd() {
 
            <div className='m-3 w-1/2'>
            <h1 className="text-[25px] text-gray-300 mt-8 mb-8">Contract Details</h1>
-            <input type="file" id="imageUpload" name="imageUpload" accept="image/*" className='p-4 ' />
+            <div id="imageContainer" className='p-4  w-[250px] h-[100px] cursor-pointer flex-col align' onClick={()=> document.querySelector("#imageUpload").click()}>
+                <span className="block mb-2 text-gray-400 text-[20px]">Click To Upload Logo</span>
+                <span className="block mb-2 text-gray-200 text-[12px]">File should not exceed 1mb</span>
+                <input type="file" id="imageUpload" name="imageUpload" accept="image/*" className='hidden'/>
+            </div>
+            <h1 className="text-[25px] text-gray-300 mt-8 mb-8">Links</h1>  
             <div className='flex mb-5'>
                 <div className='w-1/2 pr-4'>
                     <label htmlFor="fruit" className="block mb-2 text-gray-400">Chain</label>
