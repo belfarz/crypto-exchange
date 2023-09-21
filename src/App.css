@@ -63,30 +63,18 @@ body{
 
 /* sirdiss promote coin css */
 .col-4 {
-
-  float: left;
-  height:fit-content ;
-  width: fit-content;
   background-color:rgba(26,27,30,255);
   margin:20px; 
   color: white;
   border-radius: 10px;
   }
   .buttonck{
-     
-    
-    width: 200px;
     padding: 10px;
-      background-color: orange;
-      color: white;
-      border-radius: 10px;
-     
+    background-color: orange;
+    color: white;
+    border-radius: 10px; 
   }
-  .checkbox{
-      text-align: center;
-      margin: 90PX;
-      
-  }
+
   .ppp{
       text-align: center;
       color: white;

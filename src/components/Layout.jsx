@@ -14,13 +14,13 @@ export default function Layout() {
     if (element.classList.contains(style)) {
       element.classList.remove("hidden")
       element.classList.add("block")
-      document.querySelector('#outlet').classList.remove("ml-5")
+      document.querySelector('#outlet').classList.remove("ml-2")
       document.querySelector('#outlet').classList.add("ml-64")
     }else{
       element.classList.remove("block")
       element.classList.add("hidden")
       document.querySelector('#outlet').classList.remove("ml-64")
-      document.querySelector('#outlet').classList.add("ml-5")
+      document.querySelector('#outlet').classList.add("ml-2")
     }
   }
 
@@ -47,7 +47,7 @@ export default function Layout() {
 
     <div className='flex '>
           <Navbar />
-        <div className='relative flex-1 ml-5 lg:ml-64  overflow-x-auto' id='outlet'>
+        <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto' id='outlet'>
           {/* Content */}
         <div className='' >
             {/* Outlet content */}
