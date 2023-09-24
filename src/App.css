@@ -31,7 +31,7 @@ body{
   border: .1px solid #2C2E33;
 }
 
-#chain,#address,#scan,#name,#symbol,#launch_time,#launch_date,#description{
+#chain,#address,#scan,#name,#symbol,#launch_time,#launch_date,#description,#link{
   background: rgb(26,27,30);
   border: .1px solid #2C2E33;
 }
