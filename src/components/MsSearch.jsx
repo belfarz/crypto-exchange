@@ -18,11 +18,10 @@ export default function MsSearch() {
     }, []);
 
   return (
-    <div className=" w-150 font-medium h-80">
+    <div className=" w-200 font-medium ">
     <div
       onClick={() => {
         setOpen(!open)
-        document.querySelector("#searchParam").click()
       }}
       className={`bg-black w-full p-2 flex items-center justify-between rounded-full ${
         !selected && "text-gray-700"
@@ -52,8 +51,8 @@ export default function MsSearch() {
       </div>
     </div>
     <ul
-      className={`bg-black text-white mt-2 overflow-y-auto ${
-        open ? "max-h-60" : "max-h-0"
+      className={`bg-black text-white mt-2 overflow-y-auto ${window.innerWidth < 769 ? 'absolute w-full' : ''} ${
+        open ? "max-h-60 " : "max-h-0"
       } `}
     >
       {/* <div className="flex items-center px-2 sticky top-0 bg-white">

@@ -13,10 +13,17 @@ export default function Layout() {
     const style = "hidden"
 
     if (element.classList.contains(style)) {
-      element.classList.remove("hidden")
-      element.classList.add("block")
-      document.querySelector('#outlet').classList.remove("ml-2")
-      document.querySelector('#outlet').classList.add("ml-64")
+      if (window.innerWidth > 765 ) {
+        element.classList.remove("hidden")
+        element.classList.remove("z-[99]")
+        element.classList.add("block")
+        document.querySelector('#outlet').classList.remove("ml-2")
+        document.querySelector('#outlet').classList.add("ml-64")
+      }else{
+        element.classList.remove("hidden")
+        element.classList.add("block")
+        element.classList.add("w-full")
+      }
     }else{
       element.classList.remove("block")
       element.classList.add("hidden")
@@ -27,15 +34,15 @@ export default function Layout() {
 
   return (
     // top nav bar
-    <div className='flex flex-col'>
-    <div className="fixed top-0 left-0 right-0 p-2 bg-blue-900 flex justify-between " id='topbar'>
+    <div>
+    <div className="fixed top-0 left-0 right-0 p-2 bg-blue-900 flex justify-between z-[99] " id='topbar'>
         <div className='p-1 flex items-center rounded-md '>
             <BsBuildings style={{ fontSize: '35px', color: 'white'}}/> <span className='text-[15px]  ml-3 text-xl text-gray-200 font-100'>KOJO CALLS</span>
         </div>
 
-        <div class="p-1 flex items-center rounded-md px-4 duration-300 cursor-pointer lg:bg-gray-700 w-auto bg-transparent ml-auto lg:ml-0">
+        <div className="p-1 flex items-center rounded-md px-4 duration-300 cursor-pointer lg:bg-gray-700 w-auto bg-transparent ml-auto lg:ml-0">
           <HiOutlineSearch className='bi bi-search ' style={{ fontSize: '25px', color: 'white'}}/>
-          <input class="text-[16px] lg:ml-4 m-1 p-0 bg-transparent focus:outline-none lg:w-[410px] w-[0px] ml-0"  id='place' placeholder='Search by coin name, symbol or contract address'/>
+          <input className="text-[16px] lg:ml-4 m-1 p-0 bg-transparent focus:outline-none lg:w-[410px] w-[0px] ml-0"  id='place' placeholder='Search by coin name, symbol or contract address'/>
           <GiHamburgerMenu style={{ fontSize: '25px', color: 'white'}} className='m-2 lg:hidden' onClick={Openbar}/>
         </div>
         <div className="flex items-center ">
@@ -47,7 +54,7 @@ export default function Layout() {
     </div> 
 
     <div className='flex '>
-          <Navbar />
+          <Navbar toggle={Openbar} />
         <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto' id='outlet'>
           {/* Content */}
         <div className='' >
@@ -57,7 +64,7 @@ export default function Layout() {
         </div>
     </div>
     
-      <Footer />
+      <Footer className='mt-auto' />
     
     </div>
   )

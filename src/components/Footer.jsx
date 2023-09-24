@@ -1,9 +1,42 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <div className='bg-white text-center bottom-0'>
-      <h1>footer page goes here</h1>
+    <footer className='w-full lg:pl-64'> 
+    <div className="footer-col">
+    <h4> Pages</h4>
+    <ul>
+    <li><Link to="#">Coin Ranking</Link></li>
+    <li><Link to="#">Add Coin</Link></li>
+    <li><Link to="#">Promote Coin</Link></li>
+        </ul>
     </div>
+    <div className="footer-col">
+      <h4>Company</h4>
+      <ul>
+      <li><Link to="#">kojo Verify</Link></li>
+      <li><Link to="#">Partnerships</Link></li>
+      <li><Link to="#">Disclaimer</Link></li>
+      <li><Link to="#">Privacy Policy</Link></li>
+          </ul>
+      </div>
+    <div className="footer-col">
+    <h4>Follow Us</h4>
+    <div className="links"> 
+     
+     <Link to="#"><i className="fa-brands fa-telegram"></i></Link>
+    <Link to="#"><i className="fa-brands fa-twitter"></i></Link>
+      
+    </div>
+    </div>
+    <div className="footer-col">
+      <h4><i className="fa-solid fa-building"></i>Kojo.io</h4>
+      <ul className="co">
+      <li >The number 1 crypto index site for global communities
+       .</li>
+          </ul>
+      </div>
+      </footer>
   )
 }

@@ -3,11 +3,10 @@ import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } 
 import Layout from './components/Layout';
 import CoinRanking from './components/CoinRanking';
 import MoonSheet from './pages/MoonSheet';
-import MoonPulse from './pages/MoonPulse';
 import Scan from './pages/Scan';
 import AddCoin from './pages/AddCoin';
 import Promote from './pages/Promote';
-import CoinAdd from './pages/CoinAdd';
+import CoinAdd,{action as coinAction} from './pages/CoinAdd';
 import PresaleAdd from './pages/PresaleAdd';
 
 function App() {
@@ -16,10 +15,13 @@ function App() {
     <Route path='/' element={<Layout />}>
       <Route index element={<CoinRanking />}/> 
       <Route path='moonsheet' element={<MoonSheet />} />
-      <Route path='moonpulse' element={<MoonPulse />} />
       <Route path='scan' element={<Scan />} />
       <Route path='addcoin' element={<AddCoin />} >
-        <Route index element={<CoinAdd />}/>
+        <Route 
+          index 
+          element={<CoinAdd />}
+          action={coinAction}
+        />
         <Route path='presale' element={<PresaleAdd />} />
       </Route>
       <Route path='promote' element={<Promote />} />
