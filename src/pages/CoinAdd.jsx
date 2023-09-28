@@ -1,11 +1,31 @@
 import React, { useState } from 'react'
-import { Form } from 'react-router-dom'
+import { Form, useActionData } from 'react-router-dom'
 import { AiFillFileImage } from "react-icons/ai"
 import { MdDelete } from "react-icons/md"
 import axios from 'axios'
 
-export async function action(){
-    console.log("an action occoured")
+export async function action({request}){
+    const formData = await request.formData()
+   
+    const coinId = formData.get("id")
+    const address = formData.get("address")
+
+    // Create an object with the coinId and address
+  const dataToSend = {
+    coinId,
+    address,
+  };
+
+  console.log(dataToSend);
+
+  // Make a POST request to your API endpoint with the data
+  try {
+    const response = await axios.post('https://kojocalls.onrender.com/api/customers', dataToSend);
+    console.log('POST request successful:', response.data);
+  } catch (error) {
+    console.error('POST request failed:', error);
+  }
+
     return null
 }
 
@@ -14,7 +34,9 @@ export default function CoinAdd() {
     const [image ,setImage] = useState(null)
     const [fileName ,setFileName] = useState(null)
     const [address , setAddress] = useState('')
+    // const promoted = useActionData()
 
+   
 
     function handleChange(e) {
         setAddress(e.target.value)
@@ -24,9 +46,27 @@ export default function CoinAdd() {
         const url = `https://api.coingecko.com/api/v3/coins/belfarz/contract/${address}`
         
         axios.get(url).then((response)=>{
+            document.querySelector("#id").value = response.data.id 
             document.querySelector("#name").value = response.data.name 
             document.querySelector("#symbol").value = response.data.symbol 
+            document.querySelector("#description").value = response.data.description.en
+            console.log( response.data.description.en)
             setImage(response.data.image.small)
+
+
+            const secondApiUrl = `https://api.coingecko.com/api/v3/coins/${response.data.id}?localization=false&tickers=false&market_data=false&community_data=true`;
+
+            // Make the second API call
+            axios.get(secondApiUrl)
+              .then((secondApiResponse) => {
+                // You can now use data from the second API response
+                document.querySelector("#launch_date").value = secondApiResponse.data.genesis_date
+                console.log(secondApiResponse.data.genesis_date)
+                
+              })
+              .catch((secondApiError) => {
+                console.error(secondApiError);
+              });
            
         }).catch((Error)=>{
             console.log(Error)
@@ -52,16 +92,17 @@ export default function CoinAdd() {
             method="post" 
             className=' pb-2 pl-2 lg:flex w-full pr-2'
         >
+            <input type="text" name='id' id='id' className='hidden' />
            <div className='lg:w-1/2'>
            <h1 className="text-[25px] text-gray-300 mt-8 mb-8">Contract Details</h1>
             <div className='flex mb-5'>
                 <div className='w-1/2 pr-4'>
                     <label htmlFor="fruit" className="block mb-2 text-gray-400">Chain</label>
                     <select id="chain" name="fruit" className="w-full p-2 border  text-gray-400">
-                    <option value="apple" className='text-gray-400 p-2 bg-white'>Apple</option>
-                    <option value="banana" className='text-gray-400 p-2 bg-white'>Banana</option>
-                    <option value="cherry" className='text-gray-400 p-2 bg-white'>Cherry</option>
-                    <option value="orange" className='text-gray-400 p-2 bg-white'>Orange</option>
+                    <option value="BSC" className='text-gray-400 p-2 '>BSC</option>
+                    <option value="ETH" className='text-gray-400 p-2 '>ETH</option>
+                    <option value="cherry" className='text-gray-400 p-2 '>Cherry</option>
+                    <option value="orange" className='text-gray-400 p-2 '>Orange</option>
                     </select>
                 </div>
                 <div className='w-1/2'>
@@ -81,27 +122,27 @@ export default function CoinAdd() {
             <h1 className="text-[25px] text-gray-300 mt-8 mb-8">Coin Details</h1>
             <div className='flex mb-5'>
                 <div className='w-1/2 pr-4'>
-                    <label htmlFor="address" className="block mb-2 text-gray-400">Name</label>
-                    <input type="text" name="address" id="name" className="w-full p-2 border  text-gray-400" />
+                    <label htmlFor="address" className="block mb-2 text-gray-400">Name <span className="text-red-500">*</span></label>
+                    <input type="text" name="address" id="name" className="w-full p-2 border  text-gray-400" required/>
                 </div>
                 <div className='w-1/2'>
-                    <label htmlFor="address" className="block mb-2 text-gray-400">Symbol</label>
-                    <input type="text" name="address" id="symbol" className="w-full p-2 border  text-gray-400" />
+                    <label htmlFor="address" className="block mb-2 text-gray-400">Symbol <span className="text-red-500">*</span></label>
+                    <input type="text" name="address" id="symbol" className="w-full p-2 border  text-gray-400" required/>
                 </div>
             </div>
 
             <div className='flex mb-5'>
                 <div className='w-1/2 pr-4'>
-                    <label htmlFor="address" className="block mb-2 text-gray-400">Launch Date</label>
-                    <input type="date" name="address" id="launch_date" className="w-full p-2 border  text-gray-400" />
+                    <label htmlFor="address" className="block mb-2 text-gray-400">Launch Date <span className="text-red-500">*</span></label>
+                    <input type="date" name="address" id="launch_date" className="w-full p-2 border  text-gray-400" required/>
                 </div>
                 <div className='w-1/2'>
-                    <label htmlFor="address" className="block mb-2 text-gray-400">Launch Time</label>
-                    <input type="time" name="address" id="launch_time" className="w-full p-2 border  text-gray-400" />
+                    <label htmlFor="address" className="block mb-2 text-gray-400">Launch Time <span className="text-red-500">*</span></label>
+                    <input type="time" name="address" id="launch_time" className="w-full p-2 border  text-gray-400" required/>
                 </div>
             </div>
-            <label htmlFor="address" className="block mb-2 text-gray-400">Coin Overview</label>
-            <textarea type="time" name="address" id="description" className="w-full p-2 border  text-gray-400" ></textarea>
+            <label htmlFor="address" className="block mb-2 text-gray-400">Coin Overview <span className="text-red-500">*</span></label>
+            <textarea type="time" name="address" id="description" className="w-full p-2 border  text-gray-400"required ></textarea>
            </div>
 
            <div className='m-3 lg:w-1/2 w-full'>
@@ -131,10 +172,10 @@ export default function CoinAdd() {
                 <div className='w-1/2 pr-4'>
                     <label htmlFor="fruit" className="block mb-2 text-gray-400">Chain</label>
                     <select id="chain" name="fruit" className="w-full p-2 border  text-gray-400">
-                    <option value="apple" className='text-gray-400 p-2 bg-white'>Apple</option>
-                    <option value="banana" className='text-gray-400 p-2 bg-white'>Banana</option>
-                    <option value="cherry" className='text-gray-400 p-2 bg-white'>Cherry</option>
-                    <option value="orange" className='text-gray-400 p-2 bg-white'>Orange</option>
+                    <option value="apple" className='text-gray-400 p-2 bg-white'>Twitter</option>
+                    <option value="banana" className='text-gray-400 p-2 bg-white'>Instagram</option>
+                    <option value="cherry" className='text-gray-400 p-2 bg-white'>Telegram</option>
+                    <option value="orange" className='text-gray-400 p-2 bg-white'>Discord</option>
                     </select>
                 </div>
                 <div className='w-1/2'>
@@ -145,7 +186,7 @@ export default function CoinAdd() {
             <span className='p-2 pl-5 pr-5 bg-orange-400 rounded-md text-white font-bold text-[14px]'>Add Chain</span>
            </div>
 
-           <button type="submit" className='p-5 rounded-md bg-gradient-to-bl from-amber-500 to-black text-white'>Submit</button>
+           <button type="submit" className='p-5 rounded-md bg-gradient-to-bl from-amber-500 to-black text-white' >Submit</button>
          </Form>
     </div>
   )

@@ -12,6 +12,7 @@ export default function CoinRanking() {
         axios.get(url).then((response)=>{
             setCoin(response.data)
             console.log(response.data[0])
+            
         }).catch((Error)=>{
             console.log(Error)
         })

@@ -35,6 +35,9 @@ body{
   background: rgb(26,27,30);
   border: .1px solid #2C2E33;
 }
+#chain,#address,#scan,#name,#symbol,#launch_time,#launch_date,#description,#link:active{
+  background: rgb(26,27,30);
+}
 #imageContainer{
   background: rgb(26,27,30);
   border: 2px dashed #2C2E33;
