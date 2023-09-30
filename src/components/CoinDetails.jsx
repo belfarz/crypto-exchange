@@ -28,6 +28,10 @@ export default function CoinDetails() {
         </div>
       </div>
 
+      <div>
+        <p className='text-white'>{coinData.description.en}</p>
+      </div>
+
       <Chart />
     </div>
   )
