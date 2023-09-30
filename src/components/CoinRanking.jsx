@@ -44,7 +44,7 @@ export default function CoinRanking() {
     }).catch((Error)=>{
         console.log(Error)
     })
-    },[idsString])
+    },[idsString,promUrl])
 
     //----------------------------------------------------//
   const [itemOffset, setItemOffset] = useState(0);
