@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import {TbBrandTelegram} from "react-icons/tb"
+import { RiTwitterXFill } from "react-icons/ri"
 
 export default function Footer() {
   return (
@@ -25,8 +27,8 @@ export default function Footer() {
     <h4>Follow Us</h4>
     <div className="links"> 
      
-     <Link to="#"><i className="fa-brands fa-telegram"></i></Link>
-    <Link to="#"><i className="fa-brands fa-twitter"></i></Link>
+     <Link to="#"><TbBrandTelegram /></Link>
+    <Link to="#"><RiTwitterXFill /></Link>
       
     </div>
     </div>

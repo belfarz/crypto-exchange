@@ -62,7 +62,7 @@ export default function Coin(props) {
       </thead>
       <tbody className=" ">
         {coin.map((crypto) => (
-          <Link to={`coin/${crypto.name}`}>
+          <Link to={`coin/${crypto.id}`}>
           <tr key={crypto?.market_cap_rank ? crypto.market_cap_rank : "-"}>
             
             <td className="px-6 py-4 whitespace-no-wrap text-white-500">
