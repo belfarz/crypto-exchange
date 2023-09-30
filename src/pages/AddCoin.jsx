@@ -7,7 +7,7 @@ export default function AddCoin() {
   }
   
   return (
-    <div className='mt-20'>
+    <div className='mt-20 relative flex-1 ml-2 lg:ml-64  overflow-x-auto'>
       <h1 className="text-[40px] text-gray-300">List Your Coin For Free</h1>
 
       <div className="flex">

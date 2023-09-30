@@ -190,3 +190,18 @@ body{
 #search_container,#scan_container{
   height: 100vh !important;
 }  
+
+/* pagination styles */
+
+.page-num{
+  background: rgb(26,27,30);
+  border: .1px solid #2C2E33;
+}
+.page-active{
+  background-color: orange;
+}
+
+.tradingview-widget-container,#tradingview35089{
+  width: 600px;
+  height: 600px !important;
+}

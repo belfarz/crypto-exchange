@@ -2,8 +2,10 @@ import React from 'react'
 import testImg from "../image/test.png"
 
 export default function Promote() {
+
+    
   return (
-    <div className='mt-24'>
+    <div className='mt-24 relative flex-1 ml-2 lg:ml-64  overflow-x-auto'>
     <h1 className="ppp">Promote Packages Prices</h1>
     <div className="flex flex-wrap justify-center">
         <div className="col-4 md:w-1/2 lg:w-1/3 xl:w-1/4 mb-4 p-2 ">

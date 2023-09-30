@@ -55,13 +55,13 @@ export default function Layout() {
 
     <div className='flex '>
           <Navbar toggle={Openbar} />
-        <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto' id='outlet'>
+        
           {/* Content */}
-        <div className='' >
+        
             {/* Outlet content */}
             <Outlet />
-        </div>
-        </div>
+       
+        
     </div>
     
       <Footer className='mt-auto' />

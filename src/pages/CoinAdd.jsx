@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, useActionData } from 'react-router-dom'
+import { Form } from 'react-router-dom'
 import { AiFillFileImage } from "react-icons/ai"
 import { MdDelete } from "react-icons/md"
 import axios from 'axios'
@@ -10,20 +10,36 @@ export async function action({request}){
     const coinId = formData.get("id")
     const address = formData.get("address")
 
+    if (!coinId || !address) {
+        throw new Error("Invalid input. Please check your data.");
+      }
+
     // Create an object with the coinId and address
   const dataToSend = {
     coinId,
-    address,
+    address
   };
 
   console.log(dataToSend);
 
   // Make a POST request to your API endpoint with the data
   try {
-    const response = await axios.post('https://kojocalls.onrender.com/api/customers', dataToSend);
-    console.log('POST request successful:', response.data);
+    console.log(dataToSend);
+    const response = await axios.post('https://kojocalls.onrender.com/api/customers', {coinId, address},{headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      }});
+    console.log('POST request successful:', response);
   } catch (error) {
-    console.error('POST request failed:', error);
+    if (error.response && error.response.status === 400) {
+        // Handle 400 Bad Request errors
+        console.error('Bad Request:', error.response.error);
+        throw new Error('Invalid input. Please check your data.'); // Throw a custom error message
+      } else {
+        // Handle other errors
+        console.error('POST request failed:', error);
+        throw error;
+      }
   }
 
     return null

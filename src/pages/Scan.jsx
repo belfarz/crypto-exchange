@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Scan() {
   return (
-    <div className='mt-64 h-full' id='scan_container'>
+    <div className='mt-64 h-full relative flex-1 ml-2 lg:ml-64  overflow-x-auto' id='scan_container'>
       <div className="flex flex-col md:flex-row">
         <div className="flex ">
           <select name="scan" id="scan" className='p-1 rounded text-gray-400 focus:outline-none'>
