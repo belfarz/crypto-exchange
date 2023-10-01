@@ -12,7 +12,7 @@ export default function CoinDetails() {
     const coinData = useLoaderData()
     console.log(coinData)
   return (
-    <div className='flex flex-col  lg:ml-64 mt-[100px] '> 
+    <div className='flex flex-col justify-start items-start lg:ml-64 mt-[100px] w-full  p-2'> 
 
       <div className="flex">
         <div className="flex mr-10">

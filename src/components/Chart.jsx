@@ -30,7 +30,8 @@ export default function TradingViewWidget() {
       function createWidget() {
         if (document.getElementById('tradingview_35089') && 'TradingView' in window) {
           new window.TradingView.widget({
-            autosize: true,
+            width: window.innerWidth < 765 ? window.innerWidth-15 : window.innerWidth/2,
+            height: 500,
             symbol: "GATEIO:TONUSDT",
             timezone: "Etc/UTC",
             theme: "dark",
@@ -41,9 +42,6 @@ export default function TradingViewWidget() {
             range: "YTD",
             hide_side_toolbar: false,
             allow_symbol_change: true,
-            details: true,
-            hotlist: true,
-            calendar: true,
             container_id: "tradingview_35089"
           });
         }
