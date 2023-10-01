@@ -14,6 +14,8 @@ import doge from "../image/doge.jpg"
 
 export default function CoinRanking() {
 
+  
+
     const [coin, setCoin] = useState([])
     const [idsString, setIdsString] = useState('');
    // const [promoted, setPromoted] = useState([])

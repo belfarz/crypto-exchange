@@ -13,6 +13,7 @@ import CoinDetails,{loader as CoinDetailsLoader} from './components/CoinDetails'
 
 function App() {
 
+  
 
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/' element={<Layout />}>
