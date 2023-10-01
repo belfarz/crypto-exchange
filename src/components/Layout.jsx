@@ -5,6 +5,7 @@ import {BsBuildings} from "react-icons/bs"
 import {HiOutlineSearch} from "react-icons/hi"
 import { GiHamburgerMenu } from "react-icons/gi"
 import Footer from './Footer'
+// import Sticker from './Sticker'
 export default function Layout() {
 
   function Openbar() {
@@ -52,13 +53,12 @@ export default function Layout() {
         
 
     </div> 
+    {/* <Sticker />  */}
 
     <div className='flex '>
           <Navbar toggle={Openbar} />
         
-          {/* Content */}
-        
-            {/* Outlet content */}
+          
             <Outlet />
        
         

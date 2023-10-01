@@ -15,7 +15,9 @@ body{
   padding-top: 70px;
   height: 100%;
 }
-
+#footer_icon{
+  background-color: rgb(20,21,23);
+}
 #side-border{
   border-bottom: .1px solid #2C2E33; 
 }
@@ -91,7 +93,7 @@ body{
       display: flex;
       flex-direction: column;
       height: 100vh;
-     ;
+     
  }
  footer{
     display: flex;

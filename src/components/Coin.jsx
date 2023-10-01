@@ -11,51 +11,51 @@ export default function Coin(props) {
       <thead>
         <Link>
         <tr>
-        <th className="px-6 py-3  text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider ">
+        <th className="px-6 py-4  text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider ">
             #
           </th>
-          <th className="px-6 py-3  text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider sticky left-0 min-w-[250px]" id='coin-1-row'>
+          <th className="px-6 py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider sticky left-0 min-w-[250px]" id='coin-1-row'>
             <div className="flex text-18">
             {list}
             {<PiArrowsDownUpDuotone style={{ fontSize: '18px' }}/>}
             </div>
           </th>
-          <th className="px-6 py-3  text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider ">
-            <div className="flex text-18">
+          <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
+            <div className="flex justify-end text-18">
             1H
             {<PiArrowsDownUpDuotone style={{ fontSize: '18px' }}/>}
             </div>
           </th>
-          <th className="px-6 py-3  text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider ">
-           <div className="flex text-18"> 24H
+          <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
+           <div className="flex  justify-end text-18"> 24H
             {<PiArrowsDownUpDuotone style={{ fontSize: '18px' }}/>}</div>
           </th>
-          <th className="px-6 py-3  text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider ">
-            <div className="flex text-18">
+          <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
+            <div className="flex justify-end text-18">
             7d
             {<PiArrowsDownUpDuotone style={{ fontSize: '18px' }}/>}
             </div>
           </th>
-          <th className="px-6 py-3  text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider ">
-            <div className="flex text-18">
+          <th className=" py-4 pr-6 text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
+            <div className="flex text-18 justify-start pl-3 ">
             Price
             {<PiArrowsDownUpDuotone style={{ fontSize: '18px' }}/>}
             </div>
           </th>
-          <th className="px-6 py-3  text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider ">
-            <div className="flex text-18">
+          <th className=" py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[150px] ">
+            <div className="flex text-18 pl-3 text-right">
             Market Cap
             {<PiArrowsDownUpDuotone style={{ fontSize: '18px' }}/>}
             </div>
           </th>
-          <th className="px-6 py-3  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider">
-            Social
+          <th className=" py-4  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px]">
+            <div className="flex text-18  ">Social</div>
           </th>
-          <th className="px-6 py-3  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider">
-            Links
+          <th className=" py-4  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px]">
+            <div className="flex text-18  ">Links</div>
           </th>
-          <th className="px-6 py-3  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider">
-            Launch Date
+          <th className=" py-4  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px]">
+            <div className="flex text-18  ">Launch Date</div>
           </th>
         </tr>
         </Link>
@@ -81,44 +81,44 @@ export default function Coin(props) {
             </td>
             {crypto && crypto.price_change_percentage_1h_in_currency ?
             crypto.price_change_percentage_1h_in_currency > 0 ? 
-                  <td className="px-6 py-4 whitespace-no-wrap text-green-500 text-right">
+                  <td className="px-6 py-4 whitespace-no-wrap text-green-500 text-right min-w-[100px]">
                   {crypto.price_change_percentage_1h_in_currency.toFixed(2)}
                   </td> : 
-                  <td className="px-6 py-4 whitespace-no-wrap text-red-500 text-right">
+                  <td className="px-6 py-4 whitespace-no-wrap text-red-500 text-right min-w-[100px]">
                   {crypto.price_change_percentage_1h_in_currency.toFixed(2)}
                   </td> : null
             }
             {crypto && crypto.price_change_percentage_24h_in_currency ?
             crypto.price_change_percentage_24h_in_currency > 0 ? 
-                  <td className="px-6 py-4 whitespace-no-wrap text-green-500 text-right">
+                  <td className="px-6 py-4 whitespace-no-wrap text-green-500 text-right min-w-[100px]">
                   {crypto.price_change_percentage_24h_in_currency.toFixed(2)}
                   </td> : 
-                  <td className="px-6 py-4 whitespace-no-wrap text-red-500 text-right">
+                  <td className="px-6 py-4 whitespace-no-wrap text-red-500 text-right min-w-[100px]">
                   {crypto.price_change_percentage_24h_in_currency.toFixed(2)}
                   </td> :null
             }
             {crypto && crypto.price_change_percentage_7d_in_currency ?
             crypto.price_change_percentage_7d_in_currency > 0 ? 
-                  <td className="px-6 py-4 whitespace-no-wrap text-green-500 text-right">
+                  <td className="px-6 py-4 whitespace-no-wrap text-green-500 text-right min-w-[100px]">
                   {crypto.price_change_percentage_7d_in_currency.toFixed(2)}
                   </td> : 
-                  <td className="px-6 py-4 whitespace-no-wrap text-red-500 text-right">
+                  <td className="px-6 py-4 whitespace-no-wrap text-red-500 text-right min-w-[100px]">
                   {crypto.price_change_percentage_7d_in_currency.toFixed(2)}
                   </td> : null
             }
-            <td className="px-6 py-4 whitespace-no-wrap text-white-500">
+            <td className="pr-6 py-4 whitespace-no-wrap text-white-500 flex text-right min-w-[100px]" >
               ${crypto?.current_price ? crypto.current_price.toLocaleString() : null}
             </td>
-            <td className="px-6 py-4 whitespace-no-wrap text-white-500">
+            <td className="pr-6 py-4 whitespace-no-wrap text-white-500 text-right  min-w-[100px]">
               ${crypto?.market_cap ? crypto.market_cap.toLocaleString() : null}
             </td>
-            <td className="px-6 py-4 whitespace-no-wrap text-white-500">
+            <td className="pr-6 py-4 whitespace-no-wrap text-white-500 text-right  min-w-[100px]">
               {crypto?.symbol ? crypto.symbol : null}
             </td>
-            <td className="px-6 py-4 whitespace-no-wrap text-white-500">
+            <td className="pr-6 py-4 whitespace-no-wrap text-white-500 text-right  min-w-[100px]">
               ${crypto?.price ? crypto.price : null}
             </td>
-            <td className="px-6 py-4 whitespace-no-wrap text-white-500">
+            <td className="pr-6 py-4 whitespace-no-wrap text-white-500 text-right  min-w-[100px]">
               ${crypto?.price ? crypto.price : null}
             </td>
           </tr>
