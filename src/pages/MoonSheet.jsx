@@ -7,26 +7,28 @@ import axios from "axios";
 
 export default function MoonSheet() {
 
-  const [firstCoin, setFirstCoin] = useState(''); 
-  const [secondCoin, setSecondCoin] = useState("")
-  const [nameOne, setNameOne] = useState("")
+  const [totalSupply, setTotalSupply] = useState(''); 
+  const [secondMarketCap, setSecondMarketCap] = useState("")
   
-  function Coin_one(coinId,coinName) {
-    const url = `https://api.coingecko.com/api/v3/simple/price?ids=${coinId}&vs_currencies=usd&include_market_cap=true`
+  function Coin_one(coinId) {
+    const url = `https://api.coingecko.com/api/v3/coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false`
 
     axios.get(url).then((response)=>{
-      setFirstCoin(response.data)
-      setNameOne(coinName)
-      
+      setTotalSupply(response.data.market_data.total_supply)
   }).catch((Error)=>{
       console.log(Error)
   })
-  console.log(firstCoin)
+  // console.log(firstCoin.market_cap.usd)
   }
 
-  function Coin_two(data) {
-    setSecondCoin(data)
-    console.log("second passed function is working")
+  function Coin_two(coinId) {
+    const url = `https://api.coingecko.com/api/v3/coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false`
+
+    axios.get(url).then((response)=>{
+      setSecondMarketCap(response.data.market_data.market_cap.usd)
+  }).catch((Error)=>{
+      console.log(Error)
+  })
   }
 
   return (
@@ -41,10 +43,9 @@ export default function MoonSheet() {
     </div>
 
     <div className="flex justify-center ">
-      <div className="h-[100px] bg-white p-5 m-4">
+      <div className="h-[100px] bg-transparrent p-5 m-4">
         <span><img src="" alt="" /></span>
-        <h1>{firstCoin[nameOne]}</h1>
-        <h1>{secondCoin}</h1>
+        <h1>{secondMarketCap ? secondMarketCap/totalSupply : ""}</h1>
       </div>
       <strong></strong>
     </div> 

@@ -98,7 +98,7 @@ export default function MsSearch({coin}) {
               setSelected(country?.name);
               setOpen(false);
               setInputValue("");
-              coin(country?.id,country?.name)
+              coin(country?.id)
             }
             
           }}

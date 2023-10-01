@@ -35,12 +35,19 @@ body{
   border: .1px solid #2C2E33;
 }
 
-#chain,#address,#scan,#name,#symbol,#launch_time,#launch_date,#description,#link{
+#chain,#address,#scan,#name,#symbol,#launch_time,#launch_date,#description,#link,#login-container{
   background: rgb(26,27,30);
   border: .1px solid #2C2E33;
 }
 #chain,#address,#scan,#name,#symbol,#launch_time,#launch_date,#description,#link:active{
   background: rgb(26,27,30);
+}
+#login-input{
+  background: rgb(37,38,43);
+  border: .1px solid #2C2E33;
+}
+#login-bottom{
+  border-top: 1px solid #2C2E33;
 }
 #imageContainer{
   background: rgb(26,27,30);

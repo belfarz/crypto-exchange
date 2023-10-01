@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { HiOutlineUserCircle } from "react-icons/hi"
 import { FaTrophy } from "react-icons/fa"
 import {FaRocket } from "react-icons/fa"
@@ -6,16 +6,18 @@ import {FaCreditCard } from "react-icons/fa"
 import {HiOutlineDocumentAdd } from "react-icons/hi"
 import {BsFillMegaphoneFill } from "react-icons/bs"
 import { Link } from 'react-router-dom'
+import Login from './Login'
 export default function Navbar(props) {
 
   // const {toggle} = props
- 
+  const [showMyModal, setShowMyModal] = useState(false)
+  const handleOnClose =()=> setShowMyModal(false)
 
   return (
     // sidebar
     <div className='sidebar fixed top-0 bottom-0 lg:left-0 w-full md:w-[250px] z-[90] text-center shadow h-screen overflow-y-auto hidden lg:block' id='sidebar'>
       {/* <div className="flex justify-end"><MdClose  onClick={toggle} style={{ fontSize: '25px', color: 'white'}}/></div> */}
-      <Link><div className="p-2.5 m-5 pb-10 flex items-center " id='side-border'>
+      <Link><div className="p-2.5 m-5 pb-10 flex items-center " id='side-border' onClick={()=> setShowMyModal(true)}>
         {/* <i className="bi bi-app-indicator px-2 py-1 bg-blue-600 rounded-md"></i> */}
         <HiOutlineUserCircle id='circle23' className='bg-blue-600 w-[25px] h-[25px] p-1 rounded-md bg-gradient-to-bl from-amber-500 to-black ' style={{ fontSize: '25px', color: 'white'}}/>
         <h1 className="text-[14px]  ml-3  text-gray-200 ">Login / Register</h1>
@@ -49,7 +51,7 @@ export default function Navbar(props) {
         </div></Link>
 
       </div>
-
+      <Login visible={showMyModal} onClose={handleOnClose} />
     </div>
   )
 }
