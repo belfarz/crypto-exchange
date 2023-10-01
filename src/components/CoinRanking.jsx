@@ -3,6 +3,14 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Coin from './Coin';
 import ReactPaginate from 'react-paginate';
+import { NavLink } from 'react-router-dom';
+import eth from "../image/eth1.jpg"
+import bnb from "../image/bnb.jpg"
+import base from "../image/eth.jpg"
+import sol from "../image/sol.jpg"
+import cro from "../image/cro.jpg"
+import doge from "../image/doge.jpg"
+
 
 export default function CoinRanking() {
 
@@ -63,13 +71,27 @@ export default function CoinRanking() {
  
    
   return (
-    <div className='flex-col overflow-x-auto w-full'>
+    <div className='flex-col overflow-x-auto w-full pt-24'>
 
     <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto mb-10' id='outlet'>
       <Coin  coin={verifyPromoted} list="Promoted"/>
     </div>
-
-    <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto' id='outlet'>
+    <div className='lg:ml-64 text-gray-400'>
+      <div>
+        <NavLink className=' px-3 pb-3 pt-2' id='trait'>New Listing</NavLink>
+        <NavLink className=' px-3 pb-3 pt-2' id='trait'>New Launches</NavLink>
+        <NavLink className=' px-3 pb-3 pt-2' >New Trending</NavLink>
+      </div>
+      <div className='my-5 flex'>
+        <div className=' px-2 py-1 rounded-lg mr-2 flex' id='trait-button'><img src={eth} alt="" width={19} className='py-1 pr-1'/>ETH</div> 
+        <div className=' px-2 py-1 rounded-lg mr-2 flex' id='trait-button'><img src={bnb} alt="" width={19} className='py-1 pr-1'/>BSC</div> 
+        <div className=' px-2 py-1 rounded-lg mr-2 flex' id='trait-button'><img src={base} alt="" width={19} className='py-1 pr-1'/>BASE</div> 
+        <div className=' px-2 py-1 rounded-lg mr-2 flex' id='trait-button'><img src={sol} alt="" width={19} className='py-1 pr-1'/>SOL</div> 
+        <div className=' px-2 py-1 rounded-lg mr-2 flex' id='trait-button'><img src={cro} alt="" width={19} className='py-1 pr-1'/>CRO</div> 
+        <div className=' px-2 py-1 rounded-lg mr-2 flex' id='trait-button'><img src={doge} alt="" width={19} className='py-1 pr-1'/>DOGE</div>
+      </div>
+    </div>
+    <div className='relative flex ml-2 lg:ml-64 mt-[0px]  overflow-x-auto' id='outlet'>
       <Coin  coin={currentItems} list="Coin"/>
     </div>
 

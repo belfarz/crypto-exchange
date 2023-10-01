@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom'
 import {BsBuildings} from "react-icons/bs"
 import {HiOutlineSearch} from "react-icons/hi"
 import { GiHamburgerMenu } from "react-icons/gi"
+import { Link } from 'react-router-dom'
 import Footer from './Footer'
 // import Sticker from './Sticker'
 export default function Layout() {
@@ -48,7 +49,7 @@ export default function Layout() {
         </div>
         <div className="flex items-center ">
           {/* <GiHamburgerMenu style={{ fontSize: '25px', color: 'white'}} className='m-2 lg:hidden' onClick={Openbar}/> */}
-          <button className='bg-gradient-to-bl from-amber-500 to-black text-white font-semibold py-1 px-6 rounded lg:block hidden'>Add Coin</button>
+       <Link to="addCoin"><span className='bg-gradient-to-bl from-amber-500 to-black text-white font-semibold py-2 px-8 rounded lg:block hidden'>Add Coin</span></Link> 
         </div>
         
 
