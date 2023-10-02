@@ -75,9 +75,6 @@ export default function CoinRanking() {
   return (
     <div className='flex-col overflow-x-auto w-full pt-24'>
 
-    <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto mb-10' id='outlet'>
-      <Coin  coin={verifyPromoted} list="Promoted"/>
-    </div>
     <div className='lg:ml-64 text-gray-400'>
       <div>
         <NavLink className=' px-3 pb-3 pt-2' id='trait'>New Listing</NavLink>
@@ -95,6 +92,10 @@ export default function CoinRanking() {
     </div>
     <div className='relative flex ml-2 lg:ml-64 mt-[0px]  overflow-x-auto' id='outlet'>
       <Coin  coin={currentItems} list="Coin"/>
+    </div>
+
+    <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto mt-20' id='outlet'>
+      <Coin  coin={verifyPromoted} list="Promoted Coin"/>
     </div>
 
     <div className="mx-auto w-full">
