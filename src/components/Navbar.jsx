@@ -13,6 +13,8 @@ export default function Navbar(props) {
   const [showMyModal, setShowMyModal] = useState(false)
   const handleOnClose =()=> setShowMyModal(false)
 
+  
+
   return (
     // sidebar
     <div className='sidebar fixed top-0 bottom-0 lg:left-0 w-full md:w-[250px] z-[90] text-center shadow h-screen overflow-y-auto hidden lg:block' id='sidebar'>
