@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react';
 
 let tvScriptLoadingPromise;
 
-export default function TradingViewWidget() {
+export default function Chart({name}) {
   const onLoadScriptRef = useRef();
 
   useEffect(
@@ -32,7 +32,7 @@ export default function TradingViewWidget() {
           new window.TradingView.widget({
             width: window.innerWidth < 765 ? window.innerWidth-15 : window.innerWidth/2,
             height: 500,
-            symbol: "GATEIO:TONUSDT",
+            symbol: name,
             timezone: "Etc/UTC",
             theme: "dark",
             style: "1",
@@ -47,7 +47,7 @@ export default function TradingViewWidget() {
         }
       }
     },
-    []
+    [name]
   );
 
   return (
