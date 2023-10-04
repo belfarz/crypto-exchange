@@ -1,6 +1,16 @@
 import React from 'react'
+import { getData } from '../components/api'
+import { useLoaderData } from 'react-router-dom'
+import Coin from '../components/Coin'
+
+export function loader() {
+
+  return  getData()
+           
+}
 
 export default function Scan() {
+  const data = useLoaderData()
   return (
     <div className=' pt-20 h-full relative flex-1 lg:ml-64  overflow-x-auto' id='scan_container'>
       <div className="flex flex-col md:flex-row">
@@ -20,6 +30,10 @@ export default function Scan() {
         <button className='bg-purple-800 px-10 py-2 rounded-full text-[12px] text-white font-bold  mt-4 md:mt-0'>Check</button>
         </div>
       </div>
+
+      <div className='relative flex-1 ml-2  overflow-x-auto mt-20' id='outlet'>
+      {data ? <Coin  coin={data} list="Promoted Coin"/> : null}
+    </div>
     </div>
   )
 }

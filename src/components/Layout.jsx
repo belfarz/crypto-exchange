@@ -57,12 +57,14 @@ export default function Layout() {
     </div> 
 
     {/* <Sticker />  */}
-    <div className='flex flex-col justify-center'>
-      <div>
-        <div>TOP ADVERT </div>
+    <div className='flex flex-col justify-center mt-28 mb-6 lg:ml-64'>
+      <div className='flex justify-center'>
+        <div className=' w-full md:w-1/3 h-32 bg-white flex justify-center items-center rounded-lg' ><h1>TOP ADVERT</h1> </div>
       </div>
-      <div>
-        
+      <div className='flex justify-center my-5 overflow-x-auto'>
+      <div className='w-full md:w-1/4  h-28 bg-white flex justify-center items-center m-4 rounded-lg' ><h1>Left ADVERT</h1> </div>
+      <div className=' md:block w-1/4 hidden h-28 bg-white lg:flex justify-center items-center m-4 rounded-lg' ><h1>Middle ADVERT</h1> </div>
+      <div className=' md:block w-1/4 hidden  h-28 bg-white lg:flex justify-center items-center m-4 rounded-lg' ><h1> ADVERT</h1> </div>
       </div>
     </div>
 

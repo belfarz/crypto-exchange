@@ -12,9 +12,9 @@ import cro from "../image/cro.jpg"
 import doge from "../image/doge.jpg"
 
 
+
 export default function CoinRanking() {
 
-  
 
     const [coin, setCoin] = useState([])
     const [idsString, setIdsString] = useState('');

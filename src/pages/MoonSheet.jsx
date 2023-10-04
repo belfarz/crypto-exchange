@@ -2,11 +2,19 @@ import React, { useState } from "react";
 import MsSearch from "../components/MsSearch";
 import { FiArrowDownCircle } from "react-icons/fi"
 import axios from "axios";
+import { getData } from '../components/api'
+import { useLoaderData } from 'react-router-dom'
+import Coin from '../components/Coin'
 
+export function loader() {
 
+  return getData()
+  
+}
 
 export default function MoonSheet() {
 
+  const data = useLoaderData()
   const [totalSupply, setTotalSupply] = useState(''); 
   const [secondMarketCap, setSecondMarketCap] = useState("")
   
@@ -32,7 +40,7 @@ export default function MoonSheet() {
   }
 
   return (
-    <div className=' h-full relative flex-1 lg:ml-64 rounded overflow-x-auto' id="search_container">
+    <div className=' h-full relative flex-1 lg:ml-64 rounded overflow-y-none overflow-x-auto' id="search_container">
       <h1 className="text-[35px] text-gray-300 mt-8 mb-8" align="center">MoonSheet</h1>
       <h3 className="text-[16px] text-gray-300 mt-8 mb-8" align="center">Calculate the price of A with the market cap of B</h3>
 
@@ -49,6 +57,10 @@ export default function MoonSheet() {
       </div>
       <strong></strong>
     </div> 
+
+    <div className='relative flex-1 ml-2  overflow-x-auto mt-20' id='outlet'>
+    {data ? <Coin  coin={data} list="Promoted Coin"/> : null}
+    </div>
 
     </div>
   )
