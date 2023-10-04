@@ -6,7 +6,10 @@
   line-height: 1,2;
 }
 body{
-  background-color: rgb(20,21,23);
+  /* background-color: rgb(20,21,23); */
+  background: url(../src/image/sirdissBackground.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 } 
 
 #sidebar{
@@ -31,21 +34,24 @@ body{
   border-right: .1px solid #2C2E33;
 }
 #addcoin-type{
-  background: rgb(26,27,30);
+  /* background: rgb(26,27,30); */
+  background: transparent;
   border: .1px solid #2C2E33;
 }
 
-#chain,#address,#scan,#name,#symbol,#launch_time,#launch_date,#description,#link,#login-container{
-  background: rgb(26,27,30);
+#chain,#address,#scan,#name,#symbol,#launch_time,#launch_date,#description,#link{
+  /* background: rgb(26,27,30); */
+  background: transparent;
   border: .1px solid #2C2E33;
 }
 #chain,#address,#scan,#name,#symbol,#launch_time,#launch_date,#description,#link:active{
-  background: rgb(26,27,30);
+  /* background: rgb(26,27,30); */
+  background: transparent;
 }
-#login-input{
+/* #login-input{
   background: rgb(37,38,43);
   border: .1px solid #2C2E33;
-}
+} */
 #login-bottom{
   border-top: 1px solid #2C2E33;
 }
@@ -55,7 +61,8 @@ body{
 }
 #table{
   color: white;
-  background-color: rgb(20,21,23);
+  /* background: transparent; */
+  background-color: rgb(20,21,23,0.8); 
   min-width: 1024px;
 }
 .text{
@@ -66,8 +73,9 @@ body{
   background: rgb(26,27,30);
 }
 #outlet{
-  background-color: rgb(20,21,23);
+  /* background-color: rgb(20,21,23); */
   /* overflow-x: scroll; */
+  background: transparent;
 }
 .coin_image{
   width: 50px;
@@ -75,7 +83,8 @@ body{
 }
 
 #coin-1-row{
-  background-color: rgb(20,21,23);
+  /* background-color: rgb(20,21,23); */
+  background: transparent;
 }
 
 
@@ -212,6 +221,137 @@ body{
 }
 .page-active{
   background-color: orange;
+}
+
+
+/* sirdiss css */
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+#customerss {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+
+#customers td, #customers th {
+  border: 1px solid #222020;
+  padding: 8px;
+}
+#customerss td, #customerss th {
+  border: 1px solid #222020;
+  padding: 8px;
+}
+
+
+#customers tr:nth-child(even){ background-color:rgba(26,27,30,255);
+    }
+    
+#customerss tr:nth-child(even){ background-color:rgba(26,27,30,255);
+    }
+
+
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+ 
+  color: white;
+}
+#customerss th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+ 
+  color: white;
+}
+td{
+    color: white;
+}
+h3{
+    color: white;  
+}
+h2{
+    color: white;  
+}
+.h1n,.h1s{
+    color: rgb(255, 153, 0);
+    font-size: 150%;
+ 
+    
+}
+.p1n,.p1s{
+    color: red;
+}
+.cen{
+    align-content: center;
+}
+#cars{
+  width: 45%;
+  padding: 1%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid ;
+  border-radius: 3px;
+  background: #2C2E33;
+}
+input[type="Username"] {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 3px;
+  background: #2C2E33;
+}
+input[type="ContractAddress"] {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 3px;
+  background: #2C2E33;
+}
+input[type="Name"] {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 3px;
+  background: #2C2E33;
+}
+.str12{
+  color: white;
+}
+.container{
+  text-align: center;
+       
+      
+}
+input[type="submit"]{
+        cursor: pointer;
+    }
+.vgv{
+  color: rgba(230, 34, 34, 0.925);
+}
+ #co{
+  background-color:rgb(26,27,30);
+  width:50%;
+ }
+
+ /* Slideshow container */
+.slideshow-container {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
 }
 
 

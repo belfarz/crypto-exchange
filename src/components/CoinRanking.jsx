@@ -94,10 +94,6 @@ export default function CoinRanking() {
       <Coin  coin={currentItems} list="Coin"/>
     </div>
 
-    <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto mt-20' id='outlet'>
-      <Coin  coin={verifyPromoted} list="Promoted Coin"/>
-    </div>
-
     <div className="mx-auto w-full">
       <ReactPaginate
         breakLabel="..."
@@ -114,6 +110,10 @@ export default function CoinRanking() {
         nextLinkClassName='page-num p-1 pl-3 pr-3 m-1 rounded-md hover:pl-3 hover:pr-3 hover:pt-1 hover:pb-1'
         activeLinkClassName='page-active'
      />
+    </div>
+
+    <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto mt-20' id='outlet'>
+      <Coin  coin={verifyPromoted} list="Promoted Coin"/>
     </div>
   </div>
   )

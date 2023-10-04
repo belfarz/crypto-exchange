@@ -115,10 +115,10 @@ export default function CoinAdd() {
                 <div className='w-1/2 pr-4'>
                     <label htmlFor="fruit" className="block mb-2 text-gray-400">Chain</label>
                     <select id="chain" name="fruit" className="w-full p-2 border  text-gray-400">
-                    <option value="BSC" className='text-gray-400 p-2 '>BSC</option>
+                    <option value="BSC" className='text-gray-400 p-2 m-2'>BTC</option>
                     <option value="ETH" className='text-gray-400 p-2 '>ETH</option>
-                    <option value="cherry" className='text-gray-400 p-2 '>Cherry</option>
-                    <option value="orange" className='text-gray-400 p-2 '>Orange</option>
+                    <option value="cherry" className='text-gray-400 p-2 '>SOL</option>
+                    <option value="orange" className='text-gray-400 p-2 '>BNB</option>
                     </select>
                 </div>
                 <div className='w-1/2'>

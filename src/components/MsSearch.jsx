@@ -9,9 +9,9 @@ export default function MsSearch({coin}) {
     const [inputValue, setInputValue] = useState("");
     const [selected, setSelected] = useState("");
     const [open, setOpen] = useState(false);
-  
+
     useEffect(() => {
-      axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false&locale=en',{
+      axios.get('https://api.coingecko.com/api/v3/coins/list?include_platform=true',{
         method: 'GET', // This is optional for GET requests as GET is the default method.
         mode: 'cors',
         cache: 'no-cache',
@@ -22,16 +22,29 @@ export default function MsSearch({coin}) {
         },
       })
         .then((response) => {
-          setCountries(response.data);
-          console.log(response.data);
+          const shuffledCountries = response.data.slice(); // Create a shallow copy of the array
+          for (let i = shuffledCountries.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledCountries[i], shuffledCountries[j]] = [shuffledCountries[j], shuffledCountries[i]];
+          }
+          
+          setCountries(shuffledCountries);
+          
         })
         .catch((error) => {
           console.error('Error fetching data:', error);
         });
     }, []);
 
+    
+
+
+
     // const display = selected ? countries : (countries ? countries.slice(0, 200) : null)
-    const display = countries
+    const display = countries.filter((country) =>
+    country.name.toLowerCase().includes(inputValue.toLowerCase())
+  );
+    console.log(display)
   return (
     <div className=" w-200 font-medium ">
     <div
@@ -88,11 +101,7 @@ export default function MsSearch({coin}) {
             country?.name?.toLowerCase() === selected?.toLowerCase() &&
             "bg-sky-600 text-white"
           }
-          ${
-            country?.name?.toLowerCase().startsWith(inputValue)
-              ? "block"
-              : "hidden"
-          }`}
+          `}
           onClick={() => {
             if (country?.name?.toLowerCase() !== selected.toLowerCase()) {
               setSelected(country?.name);
