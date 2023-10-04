@@ -11,7 +11,7 @@ export default function Scan() {
             <option value="arbitrum">Arbitrum</option>
             <option value="polygon">Polygon</option>
             <option value="heco">Heco</option>
-            <option value="harmonyOn">HarmonyOn</option>
+            <option value="harmonyOn">Harmony</option>
             <option value="cronos">Cronos</option>
           </select>
           <input type="text" id='scan' className='focus:outline-none p-1 rounded text-gray-400 ml-5 mr-5 w-full  md:w-96'/>
