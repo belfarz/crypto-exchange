@@ -32,7 +32,7 @@ export default function MoonSheet() {
   }
 
   return (
-    <div className='mt-24 h-full relative flex-1 ml-2 lg:ml-64  overflow-x-auto' id="search_container">
+    <div className=' h-full relative flex-1 lg:ml-64 rounded overflow-x-auto' id="search_container">
       <h1 className="text-[35px] text-gray-300 mt-8 mb-8" align="center">MoonSheet</h1>
       <h3 className="text-[16px] text-gray-300 mt-8 mb-8" align="center">Calculate the price of A with the market cap of B</h3>
 

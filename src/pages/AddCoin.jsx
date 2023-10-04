@@ -3,11 +3,11 @@ import { NavLink, Outlet } from 'react-router-dom'
 
 export default function AddCoin() {
     const IsActive = {
-      border: "1px solid orange"
+      border: "1px solid #7d2ae8"
   }
   
   return (
-    <div className='mt-20 relative flex-1 ml-2 lg:ml-64  overflow-x-auto'>
+    <div className='mt-20 relative flex-1 lg:ml-64  overflow-x-auto' id='addcoin_container'>
       <h1 className="text-[40px] text-gray-300">List Your Coin For Free</h1>
 
       <div className="flex">

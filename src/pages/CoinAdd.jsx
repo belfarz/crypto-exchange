@@ -114,8 +114,8 @@ export default function CoinAdd() {
             <div className='flex mb-5'>
                 <div className='w-1/2 pr-4'>
                     <label htmlFor="fruit" className="block mb-2 text-gray-400">Chain</label>
-                    <select id="chain" name="fruit" className="w-full p-2 border  text-gray-400">
-                    <option value="BSC" className='text-gray-400 p-2 m-2'>BTC</option>
+                    <select id="chain" name="fruit" className="w-full p-2 border rounded-full  text-gray-400">
+                    <option value="BSC" className='text-gray-400 p-2 '>BTC</option>
                     <option value="ETH" className='text-gray-400 p-2 '>ETH</option>
                     <option value="cherry" className='text-gray-400 p-2 '>SOL</option>
                     <option value="orange" className='text-gray-400 p-2 '>BNB</option>
@@ -127,38 +127,38 @@ export default function CoinAdd() {
                         type="text" 
                         name="address" 
                         id="address" 
-                        className="w-full p-2 border  text-gray-400" 
+                        className="w-full p-2 border rounded-full  text-gray-400" 
                         onBlur={getCoin} 
                         onChange={handleChange}
                     />
                 </div>
             </div>
-            <span className='p-2 pl-5 pr-5 bg-orange-400 rounded-md text-white font-bold text-[14px]'>Add Chain</span>
+           
 
             <h1 className="text-[25px] text-gray-300 mt-8 mb-8">Coin Details</h1>
             <div className='flex mb-5'>
                 <div className='w-1/2 pr-4'>
                     <label htmlFor="address" className="block mb-2 text-gray-400">Name <span className="text-red-500">*</span></label>
-                    <input type="text" name="address" id="name" className="w-full p-2 border  text-gray-400" required/>
+                    <input type="text" name="address" id="name" className="w-full p-2 border rounded-full  text-gray-400" required/>
                 </div>
                 <div className='w-1/2'>
                     <label htmlFor="address" className="block mb-2 text-gray-400">Symbol <span className="text-red-500">*</span></label>
-                    <input type="text" name="address" id="symbol" className="w-full p-2 border  text-gray-400" required/>
+                    <input type="text" name="address" id="symbol" className="w-full p-2 border rounded-full  text-gray-400" required/>
                 </div>
             </div>
 
             <div className='flex mb-5'>
                 <div className='w-1/2 pr-4'>
                     <label htmlFor="address" className="block mb-2 text-gray-400">Launch Date <span className="text-red-500">*</span></label>
-                    <input type="date" name="address" id="launch_date" className="w-full p-2 border  text-gray-400" required/>
+                    <input type="date" name="address" id="launch_date" className="w-full p-2 border rounded-full  text-gray-400" required/>
                 </div>
                 <div className='w-1/2'>
                     <label htmlFor="address" className="block mb-2 text-gray-400">Launch Time <span className="text-red-500">*</span></label>
-                    <input type="time" name="address" id="launch_time" className="w-full p-2 border  text-gray-400" required/>
+                    <input type="time" name="address" id="launch_time" className="w-full p-2 border rounded-full  text-gray-400" required/>
                 </div>
             </div>
             <label htmlFor="address" className="block mb-2 text-gray-400">Coin Overview <span className="text-red-500">*</span></label>
-            <textarea type="time" name="address" id="description" className="w-full p-2 border  text-gray-400"required ></textarea>
+            <textarea type="time" name="address" id="description" className="w-full p-2 border rounded-full  text-gray-400"required ></textarea>
            </div>
 
            <div className='m-3 lg:w-1/2 w-full'>
@@ -187,7 +187,7 @@ export default function CoinAdd() {
             <div className='flex mb-5 w-full'>
                 <div className='w-1/2 pr-4'>
                     <label htmlFor="fruit" className="block mb-2 text-gray-400">Chain</label>
-                    <select id="chain" name="fruit" className="w-full p-2 border  text-gray-400">
+                    <select id="chain" name="fruit" className="w-full p-2 border rounded-full  text-gray-400">
                     <option value="apple" className='text-gray-400 p-2 bg-white'>Twitter</option>
                     <option value="banana" className='text-gray-400 p-2 bg-white'>Instagram</option>
                     <option value="cherry" className='text-gray-400 p-2 bg-white'>Telegram</option>
@@ -196,13 +196,13 @@ export default function CoinAdd() {
                 </div>
                 <div className='w-1/2'>
                     <label htmlFor="address" className="block mb-2 text-gray-400">Link</label>
-                    <input type="text" name="address" id="link" className="w-full p-2 border  text-gray-400" />
+                    <input type="text" name="address" id="link" className="w-full p-2 border rounded-full  text-gray-400" />
                 </div>
             </div>
-            <span className='p-2 pl-5 pr-5 bg-orange-400 rounded-md text-white font-bold text-[14px]'>Add Chain</span>
+            
            </div>
 
-           <button type="submit" className='p-5 rounded-md bg-gradient-to-bl from-amber-500 to-black text-white' >Submit</button>
+           <button type="submit" className='p-5 rounded-md bg-purple-800 text-white' >Submit</button>
          </Form>
     </div>
   )

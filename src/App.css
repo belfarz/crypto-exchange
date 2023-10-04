@@ -11,7 +11,14 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
 } 
-
+@media(max-width:765px){
+  body{
+    /* background-color: rgb(20,21,23); */
+    background: url(../src/image/sirdissBackground.jpg);
+    
+    background-size: cover;
+  } 
+}
 #sidebar{
   background: rgb(26,27,30);
   border-right: .1px solid #2C2E33;
@@ -42,7 +49,7 @@ body{
 #chain,#address,#scan,#name,#symbol,#launch_time,#launch_date,#description,#link{
   /* background: rgb(26,27,30); */
   background: transparent;
-  border: .1px solid #2C2E33;
+  border: .1px solid white;
 }
 #chain,#address,#scan,#name,#symbol,#launch_time,#launch_date,#description,#link:active{
   /* background: rgb(26,27,30); */
@@ -56,8 +63,11 @@ body{
   border-top: 1px solid #2C2E33;
 }
 #imageContainer{
-  background: rgb(26,27,30);
-  border: 2px dashed #2C2E33;
+ 
+  border: 2px dashed white;
+}
+#addcoin_container{
+  background-color: rgb(20,21,23,0.8); 
 }
 #table{
   color: white;
@@ -210,6 +220,7 @@ body{
 
 #search_container,#scan_container{
   height: 100vh !important;
+  background: rgb(20,21,23,0.8) ;
 }  
 
 /* pagination styles */

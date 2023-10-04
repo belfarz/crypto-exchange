@@ -90,7 +90,7 @@ export default function CoinRanking() {
         <div className=' px-2 py-1 rounded-full mr-2 flex' id='trait-button'><img src={doge} alt="" width={19} className='py-1 pr-1'/>DOGE</div>
       </div>
     </div>
-    <div className='relative flex ml-2 lg:ml-64 mt-[0px]  overflow-x-auto' id='outlet'>
+    <div className='relative flex ml-2 mr-2 lg:ml-64 mt-[0px] rounded overflow-x-auto' id='outlet'>
       <Coin  coin={currentItems} list="Coin"/>
     </div>
 
