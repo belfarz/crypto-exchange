@@ -118,7 +118,7 @@ export default function MyModal({visible, onClose}) {
 
 
   
-          <button className="buttonck w-full" >BOOK YOUR AD</button>
+          <button className="buttonck w-1/2 rounded-full" >BOOK YOUR AD</button>
    
         
         

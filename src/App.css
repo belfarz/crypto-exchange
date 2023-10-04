@@ -70,7 +70,7 @@ body{
   position: relative;
 }
 #trait-button{
-  background: rgb(26,27,30);
+  background: rgb(125, 42, 232,0.8);
 }
 #outlet{
   /* background-color: rgb(20,21,23); */
@@ -90,16 +90,15 @@ body{
 
 /* sirdiss promote coin css */
 .col-4 {
-  background-color:rgba(26,27,30,255);
+  background-color:rgb(20,21,23,0.8);
   margin:20px; 
   color: white;
   border-radius: 10px;
   }
   .buttonck{
     padding: 10px;
-    background-color: orange;
+    background-color: #7d2ae8;
     color: white;
-    border-radius: 10px; 
   }
 
   .ppp{
@@ -220,7 +219,7 @@ body{
   border: .1px solid #2C2E33;
 }
 .page-active{
-  background-color: orange;
+  background-color: #7d2ae8;
 }
 
 
@@ -343,7 +342,7 @@ input[type="submit"]{
   color: rgba(230, 34, 34, 0.925);
 }
  #co{
-  background-color:rgb(26,27,30);
+  background-color:rgb(20,21,23,0.8);
   width:50%;
  }
 
