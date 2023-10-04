@@ -106,8 +106,9 @@ export default function CoinAdd() {
     <div>
         <Form 
             method="post" 
-            className=' pb-2 pl-2 lg:flex w-full pr-2'
+            className='flex flex-col '
         >
+            <div className="pb-2 pl-2 lg:flex w-full pr-2">
             <input type="text" name='id' id='id' className='hidden' />
            <div className='lg:w-1/2'>
            <h1 className="text-[25px] text-gray-300 mt-8 mb-8">Contract Details</h1>
@@ -201,8 +202,11 @@ export default function CoinAdd() {
             </div>
             
            </div>
+            </div>
 
-           <button type="submit" className='p-5 rounded-md bg-purple-800 text-white' >Submit</button>
+           <div className="flex justify-center mb-5">
+           <button type="submit" className='p-5 rounded-full bg-purple-800 text-white w-2/3' >Submit</button>
+           </div>
          </Form>
     </div>
   )
