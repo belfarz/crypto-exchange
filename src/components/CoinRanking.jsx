@@ -10,6 +10,8 @@ import base from "../image/eth.jpg"
 import sol from "../image/sol.jpg"
 import cro from "../image/cro.jpg"
 import doge from "../image/doge.jpg"
+import CoinAds from './CoinAds';
+
 
 
 
@@ -75,6 +77,8 @@ export default function CoinRanking() {
   return (
     <div className='flex-col overflow-x-auto w-full pt-24'>
 
+    <CoinAds />      
+
     <div className='lg:ml-64 text-gray-400'>
       <div>
         <NavLink className=' px-3 pb-3 pt-2' id='trait'>New Listing</NavLink>
@@ -90,11 +94,16 @@ export default function CoinRanking() {
         <div className=' px-2 py-1 rounded-full mr-2 flex' id='trait-button'><img src={doge} alt="" width={19} className='py-1 pr-1'/>DOGE</div>
       </div>
     </div>
-    <div className='relative flex ml-2 mr-2 lg:ml-64 mt-[0px] rounded overflow-x-auto' id='outlet'>
+
+    <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto mt-20' id='outlet'>
+      <Coin  coin={verifyPromoted} list="Promoted Coin"/>
+    </div>
+
+    <div className='relative flex ml-2 mr-2 lg:ml-64 mt-20 rounded overflow-x-auto' id='outlet'>
       <Coin  coin={currentItems} list="Coin"/>
     </div>
 
-    <div className="mx-auto w-full">
+    <div className="mx-auto w-full ">
       <ReactPaginate
         breakLabel="..."
         nextLabel=">"
@@ -112,9 +121,7 @@ export default function CoinRanking() {
      />
     </div>
 
-    <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto mt-20' id='outlet'>
-      <Coin  coin={verifyPromoted} list="Promoted Coin"/>
-    </div>
+    
   </div>
   )
 }

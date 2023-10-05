@@ -7,15 +7,16 @@
 }
 body{
   /* background-color: rgb(20,21,23); */
-  background: url(../src/image/sirdissBackground.jpg);
+  /* background: url(../src/image/sirdissBackground.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
+  background-color: black;
 } 
 @media(max-width:765px){
   body{
     /* background-color: rgb(20,21,23); */
-    background: url(../src/image/sirdissBackground.jpg);
-    
+    /* background: url(../src/image/sirdissBackground.jpg); */
+    background-color: black;
     background-size: cover;
   } 
 }
@@ -72,7 +73,7 @@ body{
 #table{
   color: white;
   /* background: transparent; */
-  background-color: rgb(20,21,23,0.8); 
+  background-color: rgb(20,21,23); 
   min-width: 1024px;
 }
 .text{
@@ -85,7 +86,7 @@ body{
 #outlet{
   /* background-color: rgb(20,21,23); */
   /* overflow-x: scroll; */
-  background: transparent;
+  /* background: transparent; */
 }
 .coin_image{
   width: 50px;
@@ -93,8 +94,8 @@ body{
 }
 
 #coin-1-row{
-  /* background-color: rgb(20,21,23); */
-  background: transparent;
+  background-color: rgb(20,21,23);
+  /* background: transparent; */
 }
 
 

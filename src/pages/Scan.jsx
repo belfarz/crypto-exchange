@@ -2,6 +2,7 @@ import React from 'react'
 import { getData } from '../components/api'
 import { useLoaderData } from 'react-router-dom'
 import Coin from '../components/Coin'
+import CoinAds from '../components/CoinAds'
 
 export function loader() {
 
@@ -13,6 +14,9 @@ export default function Scan() {
   const data = useLoaderData()
   return (
     <div className=' pt-20 h-full relative flex-1 lg:ml-64  overflow-x-auto' id='scan_container'>
+
+    <CoinAds />
+
       <div className="flex flex-col md:flex-row">
         <div className="flex ">
           <select name="scan" id="scan" className='p-1 rounded-full text-gray-400 focus:outline-none'>
