@@ -6,17 +6,17 @@
   line-height: 1,2;
 }
 body{
-  /* background-color: rgb(20,21,23); */
-  /* background: url(../src/image/sirdissBackground.jpg);
+  background-color: rgb(20,21,23);
+  background: url(../src/image/sirdissBackground.jpg);
   background-repeat: no-repeat;
-  background-size: cover; */
-  background-color: black;
+  background-size: cover;
+  /* background-color: black; */
 } 
 @media(max-width:765px){
   body{
-    /* background-color: rgb(20,21,23); */
-    /* background: url(../src/image/sirdissBackground.jpg); */
-    background-color: black;
+    background-color: rgb(20,21,23);
+     background: url(../src/image/sirdissBackground.jpg); 
+    /* background-color: black; */
     background-size: cover;
   } 
 }

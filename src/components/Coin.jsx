@@ -1,6 +1,6 @@
 import React from 'react'
 import { CiStar } from "react-icons/ci";
-import { PiArrowsDownUpDuotone } from 'react-icons/pi';
+import { PiArrowsDownUpBold } from 'react-icons/pi';
 import testImg from "../image/test.png"
 import { Link } from 'react-router-dom';
 export default function Coin(props) {
@@ -17,35 +17,35 @@ export default function Coin(props) {
           <th className="px-6 py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider sticky left-0 min-w-[250px]" id='coin-1-row'>
             <div className="flex text-18">
             {list}
-            {<PiArrowsDownUpDuotone style={{ fontSize: '18px' }}/>}
+            {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
           <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
             <div className="flex justify-end text-18">
             1H
-            {<PiArrowsDownUpDuotone style={{ fontSize: '18px' }}/>}
+            {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
           <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
            <div className="flex  justify-end text-18"> 24H
-            {<PiArrowsDownUpDuotone style={{ fontSize: '18px' }}/>}</div>
+            {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}</div>
           </th>
           <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
             <div className="flex justify-end text-18">
             7d
-            {<PiArrowsDownUpDuotone style={{ fontSize: '18px' }}/>}
+            {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
           <th className=" py-4 pr-6 text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
             <div className="flex text-18 justify-start pl-3 ">
             Price
-            {<PiArrowsDownUpDuotone style={{ fontSize: '18px' }}/>}
+            {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
           <th className=" py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[150px] ">
             <div className="flex text-18 pl-3 text-right">
             Market Cap
-            {<PiArrowsDownUpDuotone style={{ fontSize: '18px' }}/>}
+            {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
           <th className=" py-4  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px]">
