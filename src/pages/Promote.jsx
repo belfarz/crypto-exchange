@@ -24,9 +24,9 @@ export default function Promote() {
         <div className="col-4 md:w-1/2 lg:w-1/3 xl:w-1/4 mb-4 p-2 ">
             <div className=" flex flex-col p-2 ">
                 <div className=' flex justify-center mb-4'><img src={testImg} alt="" className="w-full max-w-full h-auto" /></div>
-                <span><input type="radio" name="options" id="option7"/>$130 - 1 DAY </span>
-                <span><input type="radio" name="options" id="option8"/> $630 - 7 DAYS</span>
-                <span><input type="radio" name="options" id="option9"/> $630 - 7 DAYS  </span>
+                <span><input type="radio" name="options" id="option7" className='m-2'/>$130 - 1 DAY </span>
+                <span><input type="radio" name="options" id="option8" className='m-2'/> $630 - 7 DAYS</span>
+                <span><input type="radio" name="options" id="option9" className='m-2'/> $630 - 7 DAYS  </span>
                 <button className="buttonck rounded-full w-full" onClick={()=> setShowMyModal(true)}>BOOK YOUR AD</button>
             </div>
         </div>
