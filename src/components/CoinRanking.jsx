@@ -79,6 +79,10 @@ export default function CoinRanking() {
 
     <CoinAds />      
 
+    <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto pt-10 mb-20 mt-20' id='outlet'>
+      <Coin  coin={verifyPromoted} list="Promoted Coin"/>
+    </div>
+
     <div className='lg:ml-64 text-gray-400'>
       <div>
         <NavLink className=' px-3 pb-3 pt-2' id='trait'>New Listing</NavLink>
@@ -95,11 +99,7 @@ export default function CoinRanking() {
       </div>
     </div>
 
-    <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto mt-20' id='outlet'>
-      <Coin  coin={verifyPromoted} list="Promoted Coin"/>
-    </div>
-
-    <div className='relative flex ml-2 mr-2 lg:ml-64 mt-20 rounded overflow-x-auto' id='outlet'>
+    <div className='relative flex ml-2 mr-2 lg:ml-64 mt-10 rounded overflow-x-auto' id='outlet'>
       <Coin  coin={currentItems} list="Coin"/>
     </div>
 

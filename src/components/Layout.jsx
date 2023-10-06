@@ -1,23 +1,45 @@
 import React from 'react'
 import Navbar from './Navbar'
-import { Outlet, useLoaderData } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 // import {HiOutlineSearch} from "react-icons/hi"
 import { GiHamburgerMenu } from "react-icons/gi"
 // import { Link } from 'react-router-dom'
 import Footer from './Footer'
 import Scroll from './Scroll'
-import { getData } from './api'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import axios from 'axios'
 // import Sticker from './Sticker'
 
-export function loader() {
 
-  return getData()
-  
-}
 
 export default function Layout() {
 
-  const scrollData = useLoaderData()
+  const [scrollData, setScrollData]= useState([])
+
+  useEffect(()=>{
+    async function getData() {
+      try {
+          const responsePromoted = await axios.get("https://kojocalls.onrender.com/api/promoted");
+          const idsString = responsePromoted.data.map(item => item.coinId).join('%2C');
+  
+          console.log("Promoted IDs:", idsString);
+  
+          const promUrl = idsString
+              ? `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${idsString}&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en`
+              : null;
+  
+          const responseVerifyPromoted = await axios.get(promUrl);
+          const verifyPromoted = responseVerifyPromoted.data;
+          setScrollData(verifyPromoted)
+      } catch (error) {
+          console.error(error);
+      }
+  }
+  getData()  
+  },[])
+
+
 
   function Openbar() {
     

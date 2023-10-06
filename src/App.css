@@ -219,6 +219,11 @@ body{
 
 }
 
+#promote-plan{
+  border-right: .1px solid #2C2E33;
+}
+
+
 #search_container,#scan_container{
   height: 100vh !important;
   background: rgb(20,21,23,0.8) ;
