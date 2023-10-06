@@ -79,7 +79,7 @@ export default function CoinRanking() {
 
     <CoinAds />      
 
-    <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto pt-10 mb-20 mt-20' id='outlet'>
+    <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto pt-10 mb-20 mt-10' id='outlet'>
       <Coin  coin={verifyPromoted} list="Promoted Coin"/>
     </div>
 
