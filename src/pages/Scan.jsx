@@ -18,7 +18,7 @@ export default function Scan() {
 
       <div className="flex flex-col md:flex-row">
         <div className="flex ">
-          <select name="scan" id="scan" className='p-1 rounded-full text-gray-400 focus:outline-none'>
+          <select name="scan" id="scan" className='p-1 ml-2 rounded-full text-gray-400 focus:outline-none'>
             <option value="bsc">Bsc</option>
             <option value="eth">Eth</option>
             <option value="arbitrum">Arbitrum</option>

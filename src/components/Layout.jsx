@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
 import { Outlet, useLoaderData } from 'react-router-dom'
-import {BsBuildings} from "react-icons/bs"
 // import {HiOutlineSearch} from "react-icons/hi"
 import { GiHamburgerMenu } from "react-icons/gi"
 // import { Link } from 'react-router-dom'
@@ -50,7 +49,7 @@ export default function Layout() {
     <div>
     <div className="fixed top-0 left-0 right-0 p-2 bg-blue-900 flex justify-center z-[99] " id='topbar'>
         <div className='p-1 flex items-center rounded-md '>
-            <BsBuildings style={{ fontSize: '35px', color: 'white'}}/> <span className='text-[15px]  ml-3 text-xl text-gray-200 font-100'>KOJO CALLS</span>
+            <span className='text-[15px]  ml-3 text-xl text-gray-200 font-100'>KOJO CALLS</span>
         </div>
 
         <div className="p-1 flex items-center rounded-md px-4 duration-300 cursor-pointerw-auto bg-transparent ml-auto lg:ml-0">
