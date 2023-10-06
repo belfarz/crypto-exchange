@@ -6,17 +6,17 @@
   line-height: 1,2;
 }
 body{
-  background-color: rgb(20,21,23);
-  background: url(../src/image/sirdissBackground.jpg);
+  /* background-color: rgb(20,21,23); */
+  /* background: url(../src/image/sirdissBackground.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
-  /* background-color: black; */
+  background-size: cover; */
+  background-color: black;
 } 
 @media(max-width:765px){
   body{
     background-color: rgb(20,21,23);
-     background: url(../src/image/sirdissBackground.jpg); 
-    /* background-color: black; */
+     /* background: url(../src/image/sirdissBackground.jpg);  */
+    background-color: black;
     background-size: cover;
   } 
 }
@@ -358,11 +358,40 @@ input[type="submit"]{
   width:50%;
  }
 
- /* Slideshow container */
-.slideshow-container {
-  display: flex;
+
+
+
+/* (D) ANIMATION - MOVE ITEMS FROM RIGHT TO LEFT */
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
   overflow: hidden;
-  width: 100%;
+  padding: 6px 0;
+  background: rgb(20,21,23,0.8);
+  white-space: nowrap;
+  position: relative;
 }
 
 
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: flex;
+  animation: 35s slide infinite linear;
+}
+
+.logos-slide div {
+  height: 50px;
+  margin: 0 40px;
+}

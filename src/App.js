@@ -1,6 +1,6 @@
 import './App.css';
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
-import Layout from './components/Layout';
+import Layout,{loader as scrollData} from './components/Layout';
 import CoinRanking from './components/CoinRanking';
 import MoonSheet,{loader as MoonCoinRankingLoader} from './pages/MoonSheet';
 import Scan,{loader as CoinRankingLoader} from './pages/Scan';
@@ -16,7 +16,7 @@ function App() {
   
 
   const router = createBrowserRouter(createRoutesFromElements(
-    <Route path='/' element={<Layout />}>
+    <Route path='/' element={<Layout />}  loader={scrollData}>
       <Route index element={<CoinRanking />}/> 
       <Route path='coin/:id' element={<CoinDetails />} loader={CoinDetailsLoader}/>
       <Route path='moonsheet' element={<MoonSheet />} loader={MoonCoinRankingLoader} />

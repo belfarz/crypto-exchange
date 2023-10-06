@@ -1,13 +1,24 @@
 import React from 'react'
 import Navbar from './Navbar'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLoaderData } from 'react-router-dom'
 import {BsBuildings} from "react-icons/bs"
 // import {HiOutlineSearch} from "react-icons/hi"
 import { GiHamburgerMenu } from "react-icons/gi"
 // import { Link } from 'react-router-dom'
 import Footer from './Footer'
+import Scroll from './Scroll'
+import { getData } from './api'
 // import Sticker from './Sticker'
+
+export function loader() {
+
+  return getData()
+  
+}
+
 export default function Layout() {
+
+  const scrollData = useLoaderData()
 
   function Openbar() {
     
@@ -57,7 +68,7 @@ export default function Layout() {
     </div> 
 
     {/* <Sticker />  */}
-    
+    <div className="lg:ml-64 mt-16"><Scroll data={scrollData}/></div>
 
     <div className='flex '>
           <Navbar toggle={Openbar} />

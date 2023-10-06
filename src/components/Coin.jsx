@@ -43,19 +43,19 @@ export default function Coin(props) {
             </div>
           </th>
           <th className=" py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[150px] ">
-            <div className="flex text-18 pl-3 text-right">
+            <div className="flex text-18  justify-end">
             Market Cap
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
           <th className=" py-4  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px]">
-            <div className="flex text-18  ">Social</div>
+            <div className="flex text-18 justify-end ">Social</div>
           </th>
           <th className=" py-4  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px]">
-            <div className="flex text-18  ">Links</div>
+            <div className="flex text-18  justify-end">Links</div>
           </th>
           <th className=" py-4  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px]">
-            <div className="flex text-18  ">Launch Date</div>
+            <div className="flex text-18  justify-end">Launch Date</div>
           </th>
         </tr>
         </Link>
@@ -109,7 +109,7 @@ export default function Coin(props) {
             <td className="pr-6 py-4 whitespace-no-wrap text-white-500 flex text-right min-w-[100px]" >
               ${crypto?.current_price ? crypto.current_price.toLocaleString() : null}
             </td>
-            <td className="pr-6 py-4 whitespace-no-wrap text-white-500 text-right  min-w-[100px]">
+            <td className="pr-6 py-4 whitespace-no-wrap text-white-500 text-left  min-w-[100px]">
               ${crypto?.market_cap ? crypto.market_cap.toLocaleString() : null}
             </td>
             <td className="pr-6 py-4 whitespace-no-wrap text-white-500 text-right  min-w-[100px]">
