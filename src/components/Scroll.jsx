@@ -13,9 +13,9 @@ export default function Scroll({ data }) {
                 <img src={item.image} alt="" width={19} className='py-1 pr-1 inline-block m-2'/>
                 {item.name} 
                 {item.price_change_percentage_24h > 0 ? (
-                    <span className='text-green-500'>{item.price_change_percentage_24h.toFixed(2)}</span>
+                    <span className='text-green-500 mx-2'>{item.price_change_percentage_24h.toFixed(2)}</span>
                 ) : (
-                    <span className='text-red-500'>{item.price_change_percentage_24h.toFixed(2)}</span>
+                    <span className='text-red-500 mx-2'>{item.price_change_percentage_24h.toFixed(2)}</span>
                 )}
             </div>
         ))
@@ -29,9 +29,9 @@ export default function Scroll({ data }) {
                 <img src={item.image} alt="" width={19} className='py-1 pr-1 inline-block m-2'/>
                 {item.name} 
                 {item.price_change_percentage_24h > 0 ? (
-                    <span className='text-green-500'>{item.price_change_percentage_24h.toFixed(2)}</span>
+                    <span className='text-green-500 mx-2'>{item.price_change_percentage_24h.toFixed(2)}</span>
                 ) : (
-                    <span className='text-red-500'>{item.price_change_percentage_24h.toFixed(2)}</span>
+                    <span className='text-red-500 mx-2'>{item.price_change_percentage_24h.toFixed(2)}</span>
                 )}
             </div>
         ))

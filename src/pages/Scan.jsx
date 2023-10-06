@@ -13,9 +13,8 @@ export function loader() {
 export default function Scan() {
   const data = useLoaderData()
   return (
+    <div className='flex flex-col overflow-x-auto'> <CoinAds />
     <div className=' pt-20 h-full relative flex-1 lg:ml-64  overflow-x-auto' id='scan_container'>
-
-    <CoinAds />
 
       <div className="flex flex-col md:flex-row">
         <div className="flex ">
@@ -37,6 +36,7 @@ export default function Scan() {
 
       <div className='relative flex-1 ml-2  overflow-x-auto mt-20' id='outlet'>
       {data ? <Coin  coin={data} list="Promoted Coin"/> : null}
+    </div>
     </div>
     </div>
   )
