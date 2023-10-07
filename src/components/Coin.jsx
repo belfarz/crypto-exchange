@@ -36,13 +36,13 @@ export default function Coin(props) {
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
-          <th className=" py-4 pr-6 text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
-            <div className="flex text-18 justify-start pl-3 ">
+          <th className=" py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
+            <div className="flex text-18 justify-end pl-3 ">
             Price
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
-          <th className=" py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[150px] ">
+          <th className=" py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[200px] ">
             <div className="flex text-18  justify-end">
             Market Cap
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
@@ -106,20 +106,20 @@ export default function Coin(props) {
                   {crypto.price_change_percentage_7d_in_currency.toFixed(2)}
                   </td> : null
             }
-            <td className="pr-6 py-4 whitespace-no-wrap text-white-500 flex text-right min-w-[100px]" >
+            <td className="pr-6 py-4 whitespace-no-wrap text-white-500  text-right min-w-[100px]" >
               ${crypto?.current_price ? crypto.current_price.toLocaleString() : null}
             </td>
-            <td className="pr-6 py-4 whitespace-no-wrap text-white-500 text-left  min-w-[100px]">
+            <td className="pr-6 py-4 whitespace-no-wrap text-white-500 text-right  min-w-[200px]">
               ${crypto?.market_cap ? crypto.market_cap.toLocaleString() : null}
             </td>
             <td className="pr-6 py-4 whitespace-no-wrap text-white-500 text-right  min-w-[100px]">
-              {crypto?.symbol ? crypto.symbol : null}
+              coming soon
             </td>
             <td className="pr-6 py-4 whitespace-no-wrap text-white-500 text-right  min-w-[100px]">
-              ${crypto?.price ? crypto.price : null}
+             coming soon
             </td>
             <td className="pr-6 py-4 whitespace-no-wrap text-white-500 text-right  min-w-[100px]">
-              ${crypto?.price ? crypto.price : null}
+              coming soon
             </td>
           </tr>
           </Link>

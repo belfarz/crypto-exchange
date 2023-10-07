@@ -83,10 +83,8 @@ body{
 #trait-button{
   background: rgb(125, 42, 232,0.8);
 }
-#outlet{
-  /* background-color: rgb(20,21,23); */
-  /* overflow-x: scroll; */
-  /* background: transparent; */
+#ad-1{
+  background: url(../src/image/ad-1.jpg);
 }
 .coin_image{
   width: 50px;
