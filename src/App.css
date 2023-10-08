@@ -316,33 +316,11 @@ h2{
   border-radius: 3px;
   background: #2C2E33;
 }
-input[type="Username"] {
-  width: 25%;
-  padding: 12px 20px;
-  margin: 5px 0;
-  box-sizing: border-box;
-  border: 1px solid black;
-  border-radius: 3px;
-  background: #2C2E33;
+
+.radio{
+  accent-color: #7d2ae8;
 }
-input[type="ContractAddress"] {
-  width: 25%;
-  padding: 12px 20px;
-  margin: 5px 0;
-  box-sizing: border-box;
-  border: 1px solid black;
-  border-radius: 3px;
-  background: #2C2E33;
-}
-input[type="Name"] {
-  width: 25%;
-  padding: 12px 20px;
-  margin: 5px 0;
-  box-sizing: border-box;
-  border: 1px solid black;
-  border-radius: 3px;
-  background: #2C2E33;
-}
+
 .str12{
   color: white;
 }

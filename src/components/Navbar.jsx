@@ -7,13 +7,18 @@ import {HiOutlineDocumentAdd } from "react-icons/hi"
 import {BsFillMegaphoneFill } from "react-icons/bs"
 import { Link } from 'react-router-dom'
 import Login from './Login'
+import Register from './Register'
 export default function Navbar(props) {
 
   // const {toggle} = props
   const [showMyModal, setShowMyModal] = useState(false)
   const handleOnClose =()=> setShowMyModal(false)
 
+  const [currentForm, setCurrentForm] = useState("register")
   
+  const toggleForm = (forname)=>{
+    setCurrentForm(forname)
+  }
 
   return (
     // sidebar
@@ -22,7 +27,7 @@ export default function Navbar(props) {
       <div className="p-2.5 m-5 flex items-center " onClick={()=> setShowMyModal(true)}>
         {/* <i className="bi bi-app-indicator px-2 py-1 bg-blue-600 rounded-md"></i> */}
         <HiOutlineUserCircle id='circle23' className='bg-purple-800 w-[25px] h-[25px] p-1 rounded-md ' style={{ fontSize: '25px', color: 'white'}}/>
-        <h1 className="text-[14px]  ml-3  text-gray-200 ">Login / Register</h1>
+        <h1 className="text-[14px]  ml-4  text-gray-200 ">Login / Register</h1>
       </div>
       {/* <hr className="my-2 text-gray-100 " id='hr1'></hr> */}
       <div >
@@ -53,7 +58,9 @@ export default function Navbar(props) {
         </div></Link>
 
       </div>
-      <Login visible={showMyModal} onClose={handleOnClose} />
+      {
+        currentForm === "login" ? <Login visible={showMyModal} onClose={handleOnClose} onFormSwitch={toggleForm}/> : <Register visible={showMyModal} onClose={handleOnClose} onFormSwitch={toggleForm}/>
+      }
     </div>
   )
 }
