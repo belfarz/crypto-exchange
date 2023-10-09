@@ -1,9 +1,10 @@
 import React from "react";
+import { AiOutlineClose } from "react-icons/ai";
 
 export default function MyModal({visible, onClose}) {
 
     const handleClose =(e)=>{
-        if(e.target.id === "modal-container"){
+        if(e.target.id === "modal-container" || e.target.id === "close"){
         onClose()
     }
     }
@@ -14,12 +15,17 @@ export default function MyModal({visible, onClose}) {
   return (
     <div 
         id="modal-container"
-        className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-[99]"
+        className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-[99] overflow-y-scroll"
         onClick={handleClose}
     >
-      <form id="co">
-      <h1 class="h1n" >Normal Package</h1>
-      <p class="p1n">Normal package cannot be combined with special package</p>
+      <form id="co" className="w-full lg:w-2/3 p-4 mt-72">
+      <div className="flex justify-between">
+        <div>
+          <h1 class="h1n" >Normal Package</h1>
+          <p class="p1n">Normal package cannot be combined with special package</p>
+        </div>
+        <AiOutlineClose className="text-white w-6 h-6" onClick={handleClose} id="close" />
+      </div>
       
       <table id="customers">
         <tr>

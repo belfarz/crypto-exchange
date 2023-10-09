@@ -14,7 +14,7 @@ export default function Navbar(props) {
   const [showMyModal, setShowMyModal] = useState(false)
   const handleOnClose =()=> setShowMyModal(false)
 
-  const [currentForm, setCurrentForm] = useState("register")
+  const [currentForm, setCurrentForm] = useState("login")
   
   const toggleForm = (forname)=>{
     setCurrentForm(forname)
