@@ -20,6 +20,31 @@ export default function Navbar(props) {
     setCurrentForm(forname)
   }
 
+  function Openbar() {
+    
+    const element = document.querySelector('#sidebar')
+    const style = "hidden"
+
+    if (element.classList.contains(style)) {
+      if (window.innerWidth > 765 ) {
+        element.classList.remove("hidden")
+        element.classList.remove("z-[99]")
+        element.classList.add("block")
+        // document.querySelector('#outlet').classList.remove("ml-2")
+        // document.querySelector('#outlet').classList.add("ml-64")
+      }else{
+        element.classList.remove("hidden")
+        element.classList.add("block")
+        element.classList.add("w-full")
+      }
+    }else{
+      element.classList.remove("block")
+      element.classList.add("hidden")
+      // document.querySelector('#outlet').classList.remove("ml-64")
+      // document.querySelector('#outlet').classList.add("ml-2")
+    }
+  }
+
   return (
     // sidebar
     <div className='sidebar fixed top-0 bottom-0 lg:left-0 w-full md:w-[250px] z-[90] text-center shadow h-screen overflow-y-auto hidden lg:block' id='sidebar'>
@@ -30,7 +55,7 @@ export default function Navbar(props) {
         <h1 className="text-[14px]  ml-4  text-gray-200 ">Login / Register</h1>
       </div>
       {/* <hr className="my-2 text-gray-100 " id='hr1'></hr> */}
-      <div >
+      <div  onClick={Openbar}>
         <Link to="/"><div className="p-2.5 mt-2 m-5 flex items-center rounded-md px-4 duration-300 cursor-pointer  ">
           <FaTrophy style={{ fontSize: '25px', color: 'white'}} className='w-[25px] h-[25px] p-1 rounded-md bg-purple-800'/>
           <span className="text-[14px] ml-4 text-gray-200">Coin Ranking</span>
