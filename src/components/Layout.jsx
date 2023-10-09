@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import { Outlet } from 'react-router-dom'
 // import {HiOutlineSearch} from "react-icons/hi"
 import { GiHamburgerMenu } from "react-icons/gi"
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Footer from './Footer'
 import Scroll from './Scroll'
 import { useEffect } from 'react'
@@ -69,7 +69,7 @@ export default function Layout() {
   return (
     // top nav bar
     <div>
-    <div className="fixed top-0 left-0 right-0 p-2 bg-blue-900 flex justify-center z-[99] " id='topbar'>
+    <div className="fixed top-0 left-0 right-0 p-2 bg-blue-900 flex justify-between z-[99] " id='topbar'>
         <div className='p-1 flex items-center rounded-md '>
             <span className='text-[15px]  ml-3 text-xl text-gray-200 font-100'>KOJO CALLS</span>
         </div>
@@ -80,10 +80,11 @@ export default function Layout() {
           <GiHamburgerMenu style={{ fontSize: '25px', color: 'white'}} className='m-2 lg:hidden' onClick={Openbar}/>
         </div>
 
-        {/* <div className="flex items-center ">
+        <div className="flex items-center ">
         
-       <Link to="addCoin"><span className='bg-purple-800 text-white font-semibold py-2 px-8 rounded lg:block hidden'>Add Coin</span></Link> 
-        </div> */}
+       <Link to="addCoin" className='bg-purple-800 text-white font-semibold py-2 px-8 rounded mx-2 lg:block hidden'>Add Coin</Link> 
+       <Link to="promote" className='bg-purple-800 text-white font-semibold py-2 px-8 rounded mx-2 lg:block hidden'>Promote Coin</Link> 
+        </div>
         
 
     </div> 
