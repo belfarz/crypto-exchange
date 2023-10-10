@@ -27,14 +27,6 @@ export default function Register({visible, onClose,onFormSwitch}) {
 
         <div className="flex flex-col justify-start items-start">
 
-        <label htmlFor="" className='text-white text-sm my-2'>Name <span className="text-red-500">*</span></label>
-        <input
-            id='login-input'
-            type="text"
-            className="border  p-2 rounded-full mb-3 w-full "
-            required
-        />
-
             <label htmlFor="" className='text-white text-sm my-2'>Email Address <span className="text-red-500">*</span></label>
         <input
             id='login-input'

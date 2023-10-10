@@ -1,6 +1,24 @@
-import React from 'react'
+import React,{useState} from 'react'
+import { useNavigate } from 'react-router-dom'
+import { loginUser } from './api'
+
 
 export default function Login({visible, onClose,onFormSwitch}) {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate()
+
+  const handleLogin = async () => {
+    try {
+      const data = await loginUser({email,password})
+      console.log(data)
+      navigate("/promote")
+  } catch (error) {
+      return error.message
+  }
+  };
 
     const handleClose =(e)=>{
         if(e.target.id === "modal-container"){
@@ -25,21 +43,25 @@ export default function Login({visible, onClose,onFormSwitch}) {
     <div className="flex flex-col justify-start items-start">
         <label htmlFor="" className='text-white text-sm my-2'>Email Address <span className="text-red-500">*</span></label>
       <input
-        id='login-input'
+        
         type="text"
-        className="border  p-2 rounded-full mb-3 w-full "
+        className="border  p-2 rounded-full mb-3 w-full pl-3"
         required
+        value={email} 
+        onChange={(e) => setEmail(e.target.value)}
       />
       <label htmlFor="" className='text-white text-sm my-2'>Password <span className="text-red-500">*</span></label>
       <input
-        id='login-input'
+        
         type="password"
-        className="border  p-2 rounded-full mb-6 w-full"
+        className="border  p-2 rounded-full mb-6 w-full pl-3 "
         required
+        value={password} 
+        onChange={(e) => setPassword(e.target.value)}
       />
     </div>
     <div className="text-center ">
-      <button className="px-5 py-2 rounded-full bg-yellow-400 mb-6 w-1/4 text-white ">
+      <button className="px-5 py-2 rounded-full bg-yellow-400 mb-6 w-1/4 text-white " onClick={handleLogin}>
         Sign in
       </button>
     </div>
