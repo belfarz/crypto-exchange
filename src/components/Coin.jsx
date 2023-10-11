@@ -1,12 +1,12 @@
-import  React, { useState } from 'react'
+import  React from 'react'
 import { CiStar } from "react-icons/ci";
 import { PiArrowsDownUpBold } from 'react-icons/pi';
 import testImg from "../image/test.png"
 import { Link} from 'react-router-dom';
 export default function Coin(props) {
 
-  const [width, setWidth] = useState(50);
-  const maxWidth = 100; // Set your maximum width here
+  // const [width, setWidth] = useState(50);
+  // const maxWidth = 100; // Set your maximum width here
 
   const { coin, list } = props;
 
@@ -28,7 +28,7 @@ export default function Coin(props) {
             </div>
           </th>
           <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
-            <div className="flex justify-end text-18">
+            <div className="flex justify-end text-18 pr-2">
             1H
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
@@ -38,7 +38,7 @@ export default function Coin(props) {
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}</div>
           </th>
           <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
-            <div className="flex justify-end text-18">
+            <div className="flex justify-end text-18 pr-2">
             7d
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
@@ -55,7 +55,7 @@ export default function Coin(props) {
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
-          <th className=" py-4  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px]">
+          <th className=" py-4  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[150px]">
             <div className="flex text-18 justify-end ">Social</div>
           </th>
           <th className=" py-4  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px]">
@@ -70,13 +70,13 @@ export default function Coin(props) {
       <tbody className=" ">
         {coin.map((crypto) => {
         
-          const vote = () => {
-            if (width < maxWidth) {
-              setWidth(prevWidth => prevWidth + 5); // Increase width by 5 pixels on each click
-            } else {
-              alert('Div is fully filled!');
-            }
-          };
+          // const vote = () => {
+          //   if (width < maxWidth) {
+          //     setWidth(prevWidth => prevWidth + 5); // Increase width by 5 pixels on each click
+          //   } else {
+          //     alert('Div is fully filled!');
+          //   }
+          // };
           
           return(
             
@@ -136,11 +136,12 @@ export default function Coin(props) {
              coming
             </td></Link>
             <td className="pr-6  mt-6 whitespace-no-wrap text-white-500 text-right min-w-[100px]">
-              <div className="bg-orange-500 rounded-full w-[100px] h-[40px]" 
+              {/* <div className="bg-orange-500 rounded-full w-[100px] h-[40px]" 
                 onClick={() => vote()}
               >
                 <div className={`bg-white rounded-l-full w-[${width}px] h-[40px]`} ></div>
-              </div>
+              </div> */}
+             
             </td>
             
           </tr>

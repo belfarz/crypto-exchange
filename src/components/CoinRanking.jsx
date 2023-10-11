@@ -89,7 +89,7 @@ export default function CoinRanking() {
         <NavLink className=' px-3 pb-3 pt-2' id='trait'>New Launches</NavLink>
         <NavLink className=' px-3 pb-3 pt-2' >New Trending</NavLink>
       </div>
-      <div className='my-5 flex'>
+      <div className='my-5 flex overflow-x-scroll'>
         <div className=' px-2 py-1 rounded-full mr-2 flex' id='trait-button'><img src={eth} alt="" width={19} className='py-1 pr-1'/>ETH</div> 
         <div className=' px-2 py-1 rounded-full mr-2 flex' id='trait-button'><img src={bnb} alt="" width={19} className='py-1 pr-1'/>BSC</div> 
         <div className=' px-2 py-1 rounded-full mr-2 flex' id='trait-button'><img src={base} alt="" width={19} className='py-1 pr-1'/>BASE</div> 

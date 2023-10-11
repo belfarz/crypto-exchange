@@ -20,6 +20,11 @@ body{
     background-size: cover;
   } 
 }
+.test{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 #sidebar{
   background: rgb(26,27,30);
   border-right: .1px solid #2C2E33;
