@@ -2,41 +2,33 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {TbBrandTelegram} from "react-icons/tb"
 import { RiTwitterXFill } from "react-icons/ri"
-import { BsBuildings } from 'react-icons/bs'
-import { FiYoutube } from 'react-icons/fi'
+
 import { TbMail } from 'react-icons/tb'
 export default function Footer() {
   return (
     <footer className='w-full lg:pl-64 flex justify-between lg:justify-around'> 
       <div className='pl-5 mb-10 lg:mb-2' >
           <div className='p-1 flex items-center rounded-md '>
-            <BsBuildings style={{ fontSize: '35px', color: 'white'}}/> <span className='text-[15px]  ml-3 text-xl text-gray-200 font-100'>KOJO CALLS</span>
+            <span className='text-[15px]  ml-3 text-xl text-gray-200 font-100'>KOJO CALLS</span>
           </div>
           <div className='flex mt-5'>
-          <Link to="t.me/KOJOCAllS">
+          <a href="https://t.me/KOJOCAllS" target="_blank" rel="noopener noreferrer">
             
               <TbBrandTelegram style={{ fontSize: '25px', color: 'white'}} className='w-[40px] h-[40px] m-2 p-2 rounded-full bg-black' id='footer_icon'/>
             
-          </Link>
-          <Link to="https://x.com/kojo_io/status/1700268796223885328?s=46">
-            
-              <RiTwitterXFill style={{ fontSize: '25px', color: 'white'}} className='w-[40px] h-[40px] m-2 p-2 rounded-full bg-black' id='footer_icon'/>
-            
-          </Link>
-          <Link to="#">
-            
-              <FiYoutube style={{ fontSize: '25px', color: 'white'}} className='w-[40px] h-[40px] m-2 p-2 rounded-full bg-black' id='footer_icon'/>
-            
-          </Link>
+          </a>
+          <a href="https://x.com/kojo_io/status/1700268796223885328?s=46" target="_blank" rel="noopener noreferrer">
+            <RiTwitterXFill style={{ fontSize: '25px', color: 'white'}} className='w-[40px] h-[40px] m-2 p-2 rounded-full bg-black' id='footer_icon'/>
+          </a>
+
+        
           <Link to="#">
             
               <TbMail style={{ fontSize: '25px', color: 'white'}} className='w-[40px] h-[40px] m-2 p-2 rounded-full bg-black' id='footer_icon'/>
             
           </Link>
           </div>
-          <p className='text-white max-w-[500px]'>
-          Number 1 crypto index site for chinese and global communities. Get the latest crypto info to catch moonshots early.
-          </p>
+         
       </div>
 
       <div className='flex'>

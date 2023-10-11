@@ -18,7 +18,7 @@ export default function MyModal({visible, onClose}) {
         className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-[99] overflow-y-scroll"
         onClick={handleClose}
     >
-      <form id="co" className="w-full lg:w-2/3 p-4 mt-72">
+      <form id="co" className="w-full lg:w-2/3 p-4 ">
       <div className="flex justify-between">
         <div>
           <h1 class="h1n" >Normal Package</h1>
@@ -105,28 +105,17 @@ export default function MyModal({visible, onClose}) {
       </div>
       <div class="container">
        
-          <label class="str12"><strong>I would like to book my ads by:</strong></label><p></p>
+      <label class="str12"><strong>I would like to book my ads by:</strong></label><p></p>
         
-          <select id="cars">
-            <option value="telegram@">telegram@koojo</option>
+          <select id="cars" className="mb-4">
+            <option value="telegram@"><a href="https://t.me/KOJOCAllS" target="_blank" rel="noopener noreferrer">telegram@Aiden1A</a></option>
           </select><p></p>
        
-          <strong class="str12">Username</strong> <p></p>
-    
-          <input type="Username" placeholder="" name="Username"/><p></p>
-   
-          <strong class="str12">Contract Address</strong> <p></p>
-    
-    <input type="ContractAddress" placeholder="" name="ContractAddress"/><p></p>
-    <strong class="str12">Name</strong> <p></p>
-    
-    <input type="Name" placeholder="" name="Name"/><p></p>
+         
+          <div className="w-full bg-purple-800 py-2.5"><a href="https://t.me/Aiden1A" target="_blank" className="w-full" rel="noopener noreferrer">
+            <span className=" py-2 w-full px-10">BOOK YOUR AD</span>
+          </a></div>
 
-
-  
-          <button className="buttonck w-1/2 rounded-full" >BOOK YOUR AD</button>
-   
-        
         
         
       </div>
