@@ -108,41 +108,41 @@ export default function Coin(props) {
             </td>
             {crypto && crypto.price_change_percentage_1h_in_currency ?
             crypto.price_change_percentage_1h_in_currency > 0 ? 
-                  <td className="px-4 py-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
+                  <td className="px-4 pt-8  whitespace-no-wrap text-green-500 text-right min-w-[80px]">
                   {crypto.price_change_percentage_1h_in_currency.toFixed(2)}
                   </td> : 
-                  <td className="px-4 py-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
+                  <td className="px-4 pt-8  whitespace-no-wrap text-red-500 text-right min-w-[80px]">
                   {crypto.price_change_percentage_1h_in_currency.toFixed(2)}
-                  </td> : <td className="px-4 py-4 whitespace-no-wrap text-right min-w-[80px]">-</td>
+                  </td> : <td className="px-4 pt-8  whitespace-no-wrap text-right min-w-[80px]">-</td>
             }
             {crypto && crypto.price_change_percentage_24h_in_currency ?
             crypto.price_change_percentage_24h_in_currency > 0 ? 
-                  <td className="px-4 py-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
+                  <td className="px-4 pt-8 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
                   {crypto.price_change_percentage_24h_in_currency.toFixed(2)}
                   </td> : 
-                  <td className="px-4 py-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
+                  <td className="px-4 pt-8 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
                   {crypto.price_change_percentage_24h_in_currency.toFixed(2)}
-                  </td> : <td className="px-4 py-4 whitespace-no-wrap  text-right min-w-[80px]">-</td>
+                  </td> : <td className="px-4 pt-8 whitespace-no-wrap  text-right min-w-[80px]">-</td>
             }
             {crypto && crypto.price_change_percentage_7d_in_currency ?
             crypto.price_change_percentage_7d_in_currency > 0 ? 
-                  <td className="px-4 py-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
+                  <td className="px-4 pt-8 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
                   {crypto.price_change_percentage_7d_in_currency.toFixed(2)}
                   </td> : 
-                  <td className="px-4 py-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
+                  <td className="px-4 pt-8 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
                   {crypto.price_change_percentage_7d_in_currency.toFixed(2)}
-                  </td> : <td className="px-4 py-4 whitespace-no-wrap text-right min-w-[80px]">-</td>
+                  </td> : <td className="px-4 pt-8 whitespace-no-wrap text-right min-w-[80px]">-</td>
             }
-            <td className="py-4 whitespace-no-wrap text-white-500  text-right min-w-[100px]" >
+            <td className="pt-8 whitespace-no-wrap text-white-500  text-right min-w-[100px]" >
               ${crypto?.current_price ? crypto.current_price.toLocaleString() : ""}
             </td>
-            <td className=" py-4 whitespace-no-wrap text-white-500 text-right  min-w-[200px]">
+            <td className=" pt-8 whitespace-no-wrap text-white-500 text-right  min-w-[200px]">
               ${crypto?.market_cap ? crypto.market_cap.toLocaleString() : null}
             </td>
-            <td className=" py-4 whitespace-no-wrap text-white-500 text-right  min-w-[150px]">
+            <td className=" pt-8 whitespace-no-wrap text-white-500 text-right  min-w-[150px]">
               coming
             </td>
-            <td className=" py-4 whitespace-no-wrap text-white-500 text-right  flex min-w-[150px]">
+            <td className=" pt-8 whitespace-no-wrap text-white-500 text-right  flex min-w-[150px]">
              coming
             </td></Link>
             <td className="pr-6  mt-6 whitespace-no-wrap text-white-500 text-right min-w-[100px]">
