@@ -31,7 +31,7 @@ export default function Coin(props) {
         <th className="px-6 py-4  text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider ">
             #
           </th>
-          <th className=" py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider sticky left-0 min-w-[150px]" id='coin-1-row'>
+          <th className=" py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider sticky left-0 min-w-[150px] lg:min-w-[250px]" id='coin-1-row'>
             <div className="flex text-18">
             {list}
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
@@ -59,7 +59,7 @@ export default function Coin(props) {
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
-          <th className=" py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[200px] ">
+          <th className=" py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[180px] ">
             <div className="flex text-18 pl-4 justify-center">
             Market Cap
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
@@ -95,7 +95,7 @@ export default function Coin(props) {
             <td className="px-2 py-4 whitespace-no-wrap text-white-500">
               {<CiStar style={{ fontSize: '24px' }} />}
             </td>
-            <td className=" py-4 min-w-[150px] whitespace-no-wrap text-white-500 flex sticky left-0" id='coin-1-row'>
+            <td className=" py-4 min-w-[150px] whitespace-no-wrap text-white-500 flex sticky left-0 lg:min-w-[250px]"  id='coin-1-row'>
             <img
               src={crypto && crypto.image ? crypto.image : testImg}
               alt=""
@@ -136,7 +136,7 @@ export default function Coin(props) {
             <td className="pt-8 whitespace-no-wrap text-white-500  text-right min-w-[100px]" >
               ${crypto?.current_price ? crypto.current_price.toLocaleString() : ""}
             </td>
-            <td className=" pt-8 whitespace-no-wrap text-white-500 text-right  min-w-[200px]">
+            <td className=" pt-8 whitespace-no-wrap text-white-500 text-right  min-w-[180px]">
               ${crypto?.market_cap ? crypto.market_cap.toLocaleString() : null}
             </td>
             <td className=" pt-8 whitespace-no-wrap text-white-500 text-right  min-w-[150px]">
