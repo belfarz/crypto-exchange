@@ -37,30 +37,30 @@ export default function Coin(props) {
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
-          <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[60px] ">
+          <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[80px] ">
             <div className="flex justify-center text-18 pr-2">
             1H
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
-          <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
+          <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[80px] ">
            <div className="flex  justify-center text-18"> 24H
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}</div>
           </th>
-          <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
+          <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[80px] ">
             <div className="flex justify-center text-18 pr-2">
             7d
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
           <th className=" py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
-            <div className="flex text-18 justify-end pl-3 ">
+            <div className="flex text-18 justify-center pl-3 ">
             Price
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
           <th className=" py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[200px] ">
-            <div className="flex text-18  justify-end">
+            <div className="flex text-18 pl-4 justify-center">
             Market Cap
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
@@ -133,16 +133,16 @@ export default function Coin(props) {
                   {crypto.price_change_percentage_7d_in_currency.toFixed(2)}
                   </td> : <td className="px-4 py-4 whitespace-no-wrap text-right min-w-[80px]">-</td>
             }
-            <td className="pr-6 py-4 whitespace-no-wrap text-white-500  text-right min-w-[100px]" >
+            <td className="py-4 whitespace-no-wrap text-white-500  text-right min-w-[100px]" >
               ${crypto?.current_price ? crypto.current_price.toLocaleString() : ""}
             </td>
-            <td className="pr-6 py-4 whitespace-no-wrap text-white-500 text-right  min-w-[200px]">
+            <td className=" py-4 whitespace-no-wrap text-white-500 text-right  min-w-[200px]">
               ${crypto?.market_cap ? crypto.market_cap.toLocaleString() : null}
             </td>
-            <td className="pr-6 py-4 whitespace-no-wrap text-white-500 text-right  min-w-[150px]">
+            <td className=" py-4 whitespace-no-wrap text-white-500 text-right  min-w-[150px]">
               coming
             </td>
-            <td className="pr-6 py-4 whitespace-no-wrap text-white-500 text-right  flex min-w-[150px]">
+            <td className=" py-4 whitespace-no-wrap text-white-500 text-right  flex min-w-[150px]">
              coming
             </td></Link>
             <td className="pr-6  mt-6 whitespace-no-wrap text-white-500 text-right min-w-[100px]">
