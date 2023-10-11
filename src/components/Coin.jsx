@@ -21,7 +21,7 @@ export default function Coin(props) {
         <th className="px-6 py-4  text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider ">
             #
           </th>
-          <th className="px-6 py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider sticky left-0 min-w-[250px]" id='coin-1-row'>
+          <th className="px-6 py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider sticky left-0 min-w-[280px]" id='coin-1-row'>
             <div className="flex text-18">
             {list}
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
@@ -85,7 +85,7 @@ export default function Coin(props) {
             <td className="px-6 py-4 whitespace-no-wrap text-white-500">
               {<CiStar style={{ fontSize: '24px' }} />}
             </td>
-            <td className="px-6 py-4 min-w-[250px] whitespace-no-wrap text-white-500 flex sticky left-0" id='coin-1-row'>
+            <td className="px-6 py-4 min-w-[280px] whitespace-no-wrap text-white-500 flex sticky left-0" id='coin-1-row'>
             <img
               src={crypto && crypto.image ? crypto.image : testImg}
               alt=""
