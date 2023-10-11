@@ -11,7 +11,7 @@ export default function CoinAds() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setNumber(prevNumber => (prevNumber % 3) + 1); // Increment number from 1 to 4 and reset to 1 after 4
-    }, 4000); // Runs every 6 seconds (6000 milliseconds)
+    }, 1000); // Runs every 6 seconds (6000 milliseconds)
 
     // Clean up the interval when the component unmounts
     return () => clearInterval(intervalId);
