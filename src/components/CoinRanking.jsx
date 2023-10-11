@@ -84,18 +84,18 @@ export default function CoinRanking() {
     </div>
 
     <div className='lg:ml-64 text-gray-400'>
-      <div>
+      <div className='overflow-x-auto min-w-[500px]'>
         <NavLink className=' px-3 pb-3 pt-2' id='trait'>New Listing</NavLink>
         <NavLink className=' px-3 pb-3 pt-2' id='trait'>New Launches</NavLink>
         <NavLink className=' px-3 pb-3 pt-2' >New Trending</NavLink>
       </div>
-      <div className='my-5 flex overflow-x-scroll'>
-        <div className=' px-2 py-1 rounded-full mr-2 flex' id='trait-button'><img src={eth} alt="" width={19} className='py-1 pr-1'/>ETH</div> 
-        <div className=' px-2 py-1 rounded-full mr-2 flex' id='trait-button'><img src={bnb} alt="" width={19} className='py-1 pr-1'/>BSC</div> 
-        <div className=' px-2 py-1 rounded-full mr-2 flex' id='trait-button'><img src={base} alt="" width={19} className='py-1 pr-1'/>BASE</div> 
-        <div className=' px-2 py-1 rounded-full mr-2 flex' id='trait-button'><img src={sol} alt="" width={19} className='py-1 pr-1'/>SOL</div> 
-        <div className=' px-2 py-1 rounded-full mr-2 flex' id='trait-button'><img src={cro} alt="" width={19} className='py-1 pr-1'/>CRO</div> 
-        <div className=' px-2 py-1 rounded-full mr-2 flex' id='trait-button'><img src={doge} alt="" width={19} className='py-1 pr-1'/>DOGE</div>
+      <div className='my-5 flex overflow-x-auto'>
+        <div className=' px-2 py-1 rounded-full mr-2 flex min-w-[75px]' id='trait-button'><img src={eth} alt="" width={19} className='py-1 pr-1 whitespace-no-wrap'/>ETH</div> 
+        <div className=' px-2 py-1 rounded-full mr-2 flex min-w-[75px]' id='trait-button'><img src={bnb} alt="" width={19} className='py-1 pr-1 whitespace-no-wrapwhitespace-no-wrap'/>BSC</div> 
+        <div className=' px-2 py-1 rounded-full mr-2 flex min-w-[75px]' id='trait-button'><img src={base} alt="" width={19} className='py-1 pr-1 whitespace-no-wrapwhitespace-no-wrap'/>BASE</div> 
+        <div className=' px-2 py-1 rounded-full mr-2 flex min-w-[75px]' id='trait-button'><img src={sol} alt="" width={19} className='py-1 pr-1 whitespace-no-wrapwhitespace-no-wrap'/>SOL</div> 
+        <div className=' px-2 py-1 rounded-full mr-2 flex min-w-[75px]' id='trait-button'><img src={cro} alt="" width={19} className='py-1 pr-1 whitespace-no-wrapwhitespace-no-wrap'/>CRO</div> 
+        <div className=' px-2 py-1 rounded-full mr-2 flex min-w-[75px]' id='trait-button'><img src={doge} alt="" width={19} className='py-1 pr-1 whitespace-no-wrapwhitespace-no-wrap'/>DOGE</div>
       </div>
     </div>
 

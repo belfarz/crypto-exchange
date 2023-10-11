@@ -53,6 +53,17 @@ export default function MoonSheet() {
       <MsSearch coin={Coin_two}/>
     </div>
 
+    
+    {secondMarketCap ?(
+      <div className="flex justify-center ">
+      <div className="h-[100px] bg-transparrent p-5 m-4">
+        <span><img src="" alt="" /></span>
+        <h1>{secondMarketCap ? secondMarketCap/totalSupply : ""}</h1>
+      </div>
+      <strong></strong>
+    </div> 
+    ) :null}
+    
     <div className="flex justify-center ">
       <div className="h-[100px] bg-transparrent p-5 m-4">
         <span><img src="" alt="" /></span>
@@ -61,7 +72,7 @@ export default function MoonSheet() {
       <strong></strong>
     </div> 
 
-    <div className='relative flex-1 ml-2  overflow-x-auto mt-20' id='outlet'>
+    <div className='relative flex-1 ml-2  overflow-x-auto mt-2' id='outlet'>
     {data ? <Coin  coin={data} list="Promoted Coin"/> : null}
     </div>
 

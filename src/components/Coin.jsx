@@ -10,6 +10,16 @@ export default function Coin(props) {
 
   const { coin, list } = props;
 
+  const TruncatedText = ({ text, maxLength }) => {
+    const truncatedText = text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+  
+    return (
+      <span className="truncate">
+        {truncatedText}
+      </span>
+    );
+  };
+
   
 
   return (
@@ -21,24 +31,24 @@ export default function Coin(props) {
         <th className="px-6 py-4  text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider ">
             #
           </th>
-          <th className="px-6 py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider sticky left-0 min-w-[280px]" id='coin-1-row'>
+          <th className=" py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider sticky left-0 min-w-[150px]" id='coin-1-row'>
             <div className="flex text-18">
             {list}
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
-          <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
-            <div className="flex justify-end text-18 pr-2">
+          <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[60px] ">
+            <div className="flex justify-center text-18 pr-2">
             1H
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
           <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
-           <div className="flex  justify-end text-18"> 24H
+           <div className="flex  justify-center text-18"> 24H
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}</div>
           </th>
           <th className="  text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px] ">
-            <div className="flex justify-end text-18 pr-2">
+            <div className="flex justify-center text-18 pr-2">
             7d
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
@@ -82,10 +92,10 @@ export default function Coin(props) {
             
           <tr key={crypto?.market_cap_rank ? crypto.market_cap_rank : "-"} className=''>
           <Link to={`coin/${crypto.id}`}className='flex'>
-            <td className="px-6 py-4 whitespace-no-wrap text-white-500">
+            <td className="px-2 py-4 whitespace-no-wrap text-white-500">
               {<CiStar style={{ fontSize: '24px' }} />}
             </td>
-            <td className="px-6 py-4 min-w-[280px] whitespace-no-wrap text-white-500 flex sticky left-0" id='coin-1-row'>
+            <td className=" py-4 min-w-[150px] whitespace-no-wrap text-white-500 flex sticky left-0" id='coin-1-row'>
             <img
               src={crypto && crypto.image ? crypto.image : testImg}
               alt=""
@@ -93,35 +103,35 @@ export default function Coin(props) {
             />
               <div className='flex flex-col'>
                 <p>{crypto?.symbol ? crypto.symbol : null }</p>
-                <p>{crypto?.name ? crypto.name : null}</p>
+                <p><TruncatedText text={crypto?.name ? crypto.name : null} maxLength={8} /></p> 
               </div>
             </td>
             {crypto && crypto.price_change_percentage_1h_in_currency ?
             crypto.price_change_percentage_1h_in_currency > 0 ? 
-                  <td className="px-6 py-4 whitespace-no-wrap text-green-500 text-right min-w-[100px]">
+                  <td className="px-4 py-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
                   {crypto.price_change_percentage_1h_in_currency.toFixed(2)}
                   </td> : 
-                  <td className="px-6 py-4 whitespace-no-wrap text-red-500 text-right min-w-[100px]">
+                  <td className="px-4 py-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
                   {crypto.price_change_percentage_1h_in_currency.toFixed(2)}
-                  </td> : <td className="px-6 py-4 whitespace-no-wrap text-right min-w-[100px]">-</td>
+                  </td> : <td className="px-4 py-4 whitespace-no-wrap text-right min-w-[80px]">-</td>
             }
             {crypto && crypto.price_change_percentage_24h_in_currency ?
             crypto.price_change_percentage_24h_in_currency > 0 ? 
-                  <td className="px-6 py-4 whitespace-no-wrap text-green-500 text-right min-w-[100px]">
+                  <td className="px-4 py-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
                   {crypto.price_change_percentage_24h_in_currency.toFixed(2)}
                   </td> : 
-                  <td className="px-6 py-4 whitespace-no-wrap text-red-500 text-right min-w-[100px]">
+                  <td className="px-4 py-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
                   {crypto.price_change_percentage_24h_in_currency.toFixed(2)}
-                  </td> : <td className="px-6 py-4 whitespace-no-wrap  text-right min-w-[100px]">-</td>
+                  </td> : <td className="px-4 py-4 whitespace-no-wrap  text-right min-w-[80px]">-</td>
             }
             {crypto && crypto.price_change_percentage_7d_in_currency ?
             crypto.price_change_percentage_7d_in_currency > 0 ? 
-                  <td className="px-6 py-4 whitespace-no-wrap text-green-500 text-right min-w-[100px]">
+                  <td className="px-4 py-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
                   {crypto.price_change_percentage_7d_in_currency.toFixed(2)}
                   </td> : 
-                  <td className="px-6 py-4 whitespace-no-wrap text-red-500 text-right min-w-[100px]">
+                  <td className="px-4 py-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
                   {crypto.price_change_percentage_7d_in_currency.toFixed(2)}
-                  </td> : <td className="px-6 py-4 whitespace-no-wrap text-right min-w-[100px]">-</td>
+                  </td> : <td className="px-4 py-4 whitespace-no-wrap text-right min-w-[80px]">-</td>
             }
             <td className="pr-6 py-4 whitespace-no-wrap text-white-500  text-right min-w-[100px]" >
               ${crypto?.current_price ? crypto.current_price.toLocaleString() : ""}
