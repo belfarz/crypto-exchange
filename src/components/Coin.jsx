@@ -3,10 +3,14 @@ import { CiStar } from "react-icons/ci";
 import { PiArrowsDownUpBold } from 'react-icons/pi';
 import testImg from "../image/test.png"
 import { Link} from 'react-router-dom';
+// import { links } from './api';
+// import { useState } from 'react';
+
 export default function Coin(props) {
 
   // const [width, setWidth] = useState(50);
   // const maxWidth = 100; // Set your maximum width here
+  // const [link, setLink] = useState(null)
 
   const { coin, list } = props;
 
@@ -60,16 +64,14 @@ export default function Coin(props) {
             </div>
           </th>
           <th className=" py-4  text-right text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[180px] ">
-            <div className="flex text-18 pl-4 justify-center">
+            <div className="flex text-18 justify-center">
             Market Cap
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
-          <th className=" py-4  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[150px]">
-            <div className="flex text-18 justify-end ">Social</div>
-          </th>
+        
           <th className=" py-4  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px]">
-            <div className="flex text-18  justify-end">Links</div>
+            <div className="flex text-18  justify-center">Links</div>
           </th>
           <th className=" py-4  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px]">
             <div className="flex text-18  justify-end">Votes</div>
@@ -87,15 +89,27 @@ export default function Coin(props) {
           //     alert('Div is fully filled!');
           //   }
           // };
+         
+          // async function fetchData() {
+          //   try {
+          //     const link = await links(crypto.id);
+          //     setLink(link);
+          //   } catch (error) {
+          //     console.error(error);
+          //   }
+          // }
           
+          // fetchData();
+          
+
           return(
             
           <tr key={crypto?.market_cap_rank ? crypto.market_cap_rank : "-"} className=''>
-          <Link to={`coin/${crypto.id}`}className='flex'>
-            <td className="px-2 py-4 whitespace-no-wrap text-white-500">
+          <Link to={`coin/${crypto.id}`} className='flex'>
+            <td className="px-2 pt-8 whitespace-no-wrap text-white-500">
               {<CiStar style={{ fontSize: '24px' }} />}
             </td>
-            <td className=" py-4 min-w-[150px] whitespace-no-wrap text-white-500 flex sticky left-0 lg:min-w-[250px]"  id='coin-1-row'>
+            <td className=" py-4 lg:px-6 min-w-[150px] whitespace-no-wrap text-white-500 flex sticky left-0 lg:min-w-[250px]"  id='coin-1-row'>
             <img
               src={crypto && crypto.image ? crypto.image : testImg}
               alt=""
@@ -137,14 +151,19 @@ export default function Coin(props) {
               ${crypto?.current_price ? crypto.current_price.toLocaleString() : ""}
             </td>
             <td className=" pt-8 whitespace-no-wrap text-white-500 text-right  min-w-[180px]">
-              ${crypto?.market_cap ? crypto.market_cap.toLocaleString() : null}
+              <div className="flex justify-center">${crypto?.market_cap ? crypto.market_cap.toLocaleString() : null}</div>
             </td>
-            <td className=" pt-8 whitespace-no-wrap text-white-500 text-right  min-w-[150px]">
-              coming
+            </Link>
+            <td className=" pt-8 whitespace-no-wrap text-white-500 text-right  min-w-[100px]">
+            <div className="flex justify-end">
+              <select name="" id="" className='bg-black'>
+                {
+                  
+                }
+              </select>
+            </div>
             </td>
-            <td className=" pt-8 whitespace-no-wrap text-white-500 text-right  flex min-w-[150px]">
-             coming
-            </td></Link>
+            
             <td className="pr-6  mt-6 whitespace-no-wrap text-white-500 text-right min-w-[100px]">
               {/* <div className="bg-orange-500 rounded-full w-[100px] h-[40px]" 
                 onClick={() => vote()}

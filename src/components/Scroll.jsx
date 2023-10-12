@@ -9,7 +9,7 @@ export default function Scroll({ data }) {
       <div class="logos-slide ">
       { data ? 
         data.map((item, index) => (
-            <div className='text-white flex justify-center items-center'>
+            <div className='text-white flex justify-center items-center' key={index}>
                 #{index + 1}
                 <img src={item.image} alt="" width={19} className='py-1 pr-1 inline-block m-2'/>
                 {item.name} 
@@ -32,7 +32,7 @@ export default function Scroll({ data }) {
       <div class="logos-slide">
       { data ? 
         data.map((item, index) => (
-            <div className='text-white flex justify-center items-center'>
+            <div className='text-white flex justify-center items-center' key={index}>
                   #{index + 1}
                 <img src={item.image} alt="" width={19} className='py-1 pr-1 inline-block m-2'/>
                 {item.name} 

@@ -62,4 +62,34 @@ export async function loginUser(creds){
   }
     return data
   }
+
+  export async function links(id) {
+    try {
+      const url = `https://api.coingecko.com/api/v3/coins/${id}?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false`;
+  
+      // Define custom headers
+      const headers = {
+        "Content-Type": "application/json",
+        // Add any other headers you need here
+      };
+  
+      // Make the GET request with custom headers
+      const response = await axios.get(url, {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        redirect: "follow",
+        referrerPolicy: "no-referrer",
+        headers,
+        // You don't need the 'body' property for a GET request
+      });
+  
+      console.log("verify promo", response.data);
+      return response.data; // Return the response data
+    } catch (error) {
+      console.error(error);
+      throw error; // Rethrow the error to handle it outside this function, if necessary
+    }
+  }
   
