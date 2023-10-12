@@ -17,9 +17,9 @@ export default function Link({getLinks}) {
               
               {isOpen && (
                 <ul className="z-[999] flex flex-col justify-center items-center rounded mt-1 p-2 text-sm top-10 absolute" id="dropdown">
-                    <a href={getLinks.tg} className="px-2 py-1 hover:bg-gray-500 rounded flex justify-start"><span className='flex justify-center items-center'><BiLogoTelegram size={20} className='mr-2'/>telegram</span></a>
-                    <a href={getLinks.x} className="px-2 py-1 hover:bg-gray-500 rounded flex justify-start"><span className='flex justify-center items-center pr-2'><RiTwitterXFill size={20} className='mr-2'/>twitter</span></a>
-                    <a href={getLinks.site} className="px-2 py-1 hover:bg-gray-500 rounded flex justify-start"><span className='flex justify-center items-center'><BsGlobe2 size={20} className='mr-2'/>website</span></a>
+                    { getLinks.tg && <a href={getLinks.tg} className="px-2 py-1 hover:bg-gray-500 rounded flex justify-start"><span className='flex justify-center items-center'><BiLogoTelegram size={20} className='mr-2'/>telegram</span></a>}
+                    {getLinks.x && <a href={getLinks.x} className="px-2 py-1 hover:bg-gray-500 rounded flex justify-start"><span className='flex justify-center items-center pr-2'><RiTwitterXFill size={20} className='mr-2'/>twitter</span></a>}
+                    {getLinks.site && <a href={getLinks.site} className="px-2 py-1 hover:bg-gray-500 rounded flex justify-start"><span className='flex justify-center items-center'><BsGlobe2 size={20} className='mr-2'/>website</span></a>}
                 </ul>
             
                 )}
