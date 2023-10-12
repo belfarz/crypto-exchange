@@ -23,7 +23,7 @@ export default function CoinRanking() {
     const [promString, setPromString] = useState([])
     const [verifyPromoted, setVerifyPromoted] = useState([])
     const payedUrl = promString ? `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${promString}&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en` : null;
-    const promUrl = idsString ? `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${idsString}&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en` : null;
+    const promUrl = idsString ? `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en` : null;
 
     useEffect(()=>{
           axios.get("https://kojocalls.onrender.com/api/payedpromotion").then((response)=>{
@@ -53,7 +53,7 @@ export default function CoinRanking() {
 
     useEffect(()=>{
 
-      axios.get(payedUrl).then((response)=>{
+      payedUrl && axios.get(payedUrl).then((response)=>{
         setPayedPromotion(response.data)
         console.log("verify promo"+response.data)
         
@@ -93,7 +93,7 @@ export default function CoinRanking() {
     <CoinAds />      
 
     <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto pt-4 mb-20 mt-4' id='outlet'>
-      <Coin  coin={payedPromotion} list="Promoted Coin"/>
+      <Coin  coin={payedPromotion} list="Promoted Coin" />
     </div>
 
     <div className='lg:ml-64 text-gray-400'>

@@ -3,10 +3,45 @@ import { CiStar } from "react-icons/ci";
 import { PiArrowsDownUpBold } from 'react-icons/pi';
 import testImg from "../image/test.png"
 import { Link} from 'react-router-dom';
+import Links from './Link';
 // import { links } from './api';
 // import { useState } from 'react';
 
 export default function Coin(props) {
+
+  const links = [
+    {
+      tg: 'https://t.me/BearAIofficial',
+      x: null,
+      site: 'http://Bearai.org'
+    },
+    {
+      tg: 'https://t.me/blobofficial',
+      x: 'https://twitter.com/BLOBProtocol',
+      site: null
+    },
+    {
+      tg: 'https://t.me/DarkForestERCChat',
+      x: "https://twitter.com/darkforesterc",
+      site: 'null'
+    },
+    {
+      tg: 'https://t.me/RavenFundPortal',
+      x: null,
+      site: null
+    },
+    {
+      tg: null,
+      x: null,
+      site: 'tokendefi-rectification.com'
+    },
+    {
+      tg: 'https://t.me/tradexai',
+      x: null,
+      site: 't.me'
+    }
+    
+  ]
 
   // const [width, setWidth] = useState(50);
   // const maxWidth = 100; // Set your maximum width here
@@ -30,8 +65,9 @@ export default function Coin(props) {
     <div>
         <table className="min-w-full " id='table'>
       <thead>
-        <Link>
+       
         <tr>
+        {/* <Link> </Link> */}
         <th className="px-6 py-4  text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider ">
             #
           </th>
@@ -69,47 +105,31 @@ export default function Coin(props) {
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
-        
-          <th className=" py-4  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px]">
+         
+          {list === "Promoted Coin" ? (
+            <th className=" py-4  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider ">
             <div className="flex text-18  justify-center">Links</div>
           </th>
+          ): null}
           <th className=" py-4  text-18 text-left text-xs leading-4 font-medium text-white-500 uppercase tracking-wider min-w-[100px]">
             <div className="flex text-18  justify-end">Votes</div>
           </th>
         </tr>
-        </Link>
+        
       </thead>
       <tbody className=" ">
-        {coin.map((crypto) => {
+        {coin.map((crypto,index) => {
         
-          // const vote = () => {
-          //   if (width < maxWidth) {
-          //     setWidth(prevWidth => prevWidth + 5); // Increase width by 5 pixels on each click
-          //   } else {
-          //     alert('Div is fully filled!');
-          //   }
-          // };
-         
-          // async function fetchData() {
-          //   try {
-          //     const link = await links(crypto.id);
-          //     setLink(link);
-          //   } catch (error) {
-          //     console.error(error);
-          //   }
-          // }
-          
-          // fetchData();
-          
 
           return(
             
           <tr key={crypto?.market_cap_rank ? crypto.market_cap_rank : "-"} className=''>
-          <Link to={`coin/${crypto.id}`} className='flex'>
+          {/* <Link to={`coin/${crypto.id}`} className='flex'></Link> */}
             <td className="px-2 pt-8 whitespace-no-wrap text-white-500">
               {<CiStar style={{ fontSize: '24px' }} />}
             </td>
             <td className=" py-4 lg:px-6 min-w-[150px] whitespace-no-wrap text-white-500 flex sticky left-0 lg:min-w-[250px]"  id='coin-1-row'>
+            <Link to={`coin/${crypto.id}`} className='flex'>
             <img
               src={crypto && crypto.image ? crypto.image : testImg}
               alt=""
@@ -119,6 +139,7 @@ export default function Coin(props) {
                 <p>{crypto?.symbol ? crypto.symbol : null }</p>
                 <p><TruncatedText text={crypto?.name ? crypto.name : null} maxLength={8} /></p> 
               </div>
+              </Link> 
             </td>
             {crypto && crypto.price_change_percentage_1h_in_currency ?
             crypto.price_change_percentage_1h_in_currency > 0 ? 
@@ -153,16 +174,16 @@ export default function Coin(props) {
             <td className=" pt-8 whitespace-no-wrap text-white-500 text-right  min-w-[180px]">
               <div className="flex justify-center">${crypto?.market_cap ? crypto.market_cap.toLocaleString() : null}</div>
             </td>
-            </Link>
-            <td className=" pt-8 whitespace-no-wrap text-white-500 text-right  min-w-[100px]">
-            <div className="flex justify-end">
-              <select name="" id="" className='bg-black'>
-                {
-                  
-                }
-              </select>
+            
+            {
+              list === "Promoted Coin" ? (
+                <td className=" pt-8 whitespace-no-wrap text-white-500 text-right  ">
+            <div className="flex justify-end flex-col">
+            <Links getLinks={links[index]} />
             </div>
             </td>
+              ) : null
+            }
             
             <td className="pr-6  mt-6 whitespace-no-wrap text-white-500 text-right min-w-[100px]">
               {/* <div className="bg-orange-500 rounded-full w-[100px] h-[40px]" 

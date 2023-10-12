@@ -79,7 +79,10 @@ body{
   color: white;
   /* background: transparent; */
   background-color: rgb(20,21,23); 
-  min-width: 1024px;
+ 
+}
+#dropdown{
+  background: rgb(37,38,43);
 }
 .text{
   background-color: rgb(20,21,23);
