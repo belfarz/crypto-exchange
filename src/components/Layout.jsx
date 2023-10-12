@@ -71,7 +71,7 @@ export default function Layout() {
     <div>
     <div className="fixed top-0 left-0 right-0 p-2 bg-blue-900 flex justify-between z-[99] " id='topbar'>
         <div className='p-1 flex items-center rounded-md '>
-            <span className='text-[15px]  ml-3 text-xl text-gray-200 font-100'>KOJO CALLS</span>
+            <span className='text-[15px]  ml-3 text-xl text-gray-200 font-100'>KOJO TOKEN</span>
         </div>
 
         <div className="p-1 flex items-center rounded-md px-4 duration-300 cursor-pointerw-auto bg-transparent ml-auto lg:ml-0">

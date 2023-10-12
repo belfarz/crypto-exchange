@@ -6,10 +6,10 @@ import { RiTwitterXFill } from "react-icons/ri"
 import { TbMail } from 'react-icons/tb'
 export default function Footer() {
   return (
-    <footer className='w-full lg:pl-64 flex justify-between lg:justify-around'> 
-      <div className='pl-5 mb-10 lg:mb-2' >
+    <footer className='w-full lg:pl-64 flex justify-center lg:justify-around'> 
+      <div className='pl-5 mb-2 lg:mb-2' >
           <div className='p-1 flex items-center rounded-md '>
-            <span className='text-[15px]  ml-3 text-xl text-gray-200 font-100'>KOJO CALLS</span>
+            <span className='text-[15px]  ml-3 text-xl text-gray-200 font-100'>KOJO TOKEN</span>
           </div>
           <div className='flex mt-5'>
           <a href="https://t.me/KOJOCAllS" target="_blank" rel="noopener noreferrer">
@@ -31,22 +31,6 @@ export default function Footer() {
          
       </div>
 
-      <div className='flex'>
-      <div className='flex flex-col text-white lg:mr-20'>
-        <h1 className='text-xl mb-2'>Pages</h1>
-        <span className='pl-3'><Link>Coin Ranking</Link></span>
-        <span className='pl-3'><Link>Add Coin</Link></span>
-        <span className='pl-3'><Link>Promote Coin</Link></span>
-      </div>
-
-      <div className="flex flex-col text-white ">
-       <h1 className='text-xl mb-2'>Company</h1>
-            <span className='pl-3'><Link to="#">kojo Verify</Link></span>
-            <span className='pl-3'><Link to="#">Partnerships</Link></span>
-            <span className='pl-3'><Link to="#">Disclaimer</Link></span>
-            <span className='pl-3'><Link to="#">Privacy Policy</Link></span>
-      </div>
-      </div>
       </footer>
   )
 }

@@ -97,7 +97,7 @@ export default function CoinRanking() {
     </div>
 
     <div className='lg:ml-64 text-gray-400'>
-      <div className='overflow-x-auto min-w-[500px] pt-6'>
+      <div className='overflow-x-auto  pt-6'>
         <NavLink className=' px-3 pb-3 pt-2' id='trait'>New Listing</NavLink>
         <NavLink className=' px-3 pb-3 pt-2' id='trait'>New Launches</NavLink>
         <NavLink className=' px-3 pb-3 pt-2' >New Trending</NavLink>
@@ -116,7 +116,7 @@ export default function CoinRanking() {
       <Coin  coin={currentItems} list="Coin"/>
     </div>
 
-    <div className="mx-auto w-full ">
+    <div className="mx-auto w-full my-4">
       <ReactPaginate
         breakLabel="..."
         nextLabel=">"
