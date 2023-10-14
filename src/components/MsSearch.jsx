@@ -11,29 +11,37 @@ export default function MsSearch({coin}) {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
-      axios.get('https://api.coingecko.com/api/v3/coins/list?include_platform=true',{
-        method: 'GET', // This is optional for GET requests as GET is the default method.
-        mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
-        headers: {
-          'Content-Type': 'application/json',
-          // Additional headers can be added here if needed.
-        },
-      })
-        .then((response) => {
-          const shuffledCountries = response.data.slice(); // Create a shallow copy of the array
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(
+            'https://api.coingecko.com/api/v3/coins/list?include_platform=true',
+            {
+              method: 'GET',
+              mode: 'cors',
+              cache: 'no-cache',
+              credentials: 'same-origin',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            }
+          );
+  
+          const shuffledCountries = response.data.slice();
           for (let i = shuffledCountries.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [shuffledCountries[i], shuffledCountries[j]] = [shuffledCountries[j], shuffledCountries[i]];
+            [shuffledCountries[i], shuffledCountries[j]] = [
+              shuffledCountries[j],
+              shuffledCountries[i],
+            ];
           }
-          
+  
           setCountries(shuffledCountries);
-          
-        })
-        .catch((error) => {
+        } catch (error) {
           console.error('Error fetching data:', error);
-        });
+        }
+      };
+  
+      fetchData();
     }, []);
 
     
@@ -41,10 +49,10 @@ export default function MsSearch({coin}) {
 
 
     // const display = selected ? countries : (countries ? countries.slice(0, 200) : null)
-    const display = countries.filter((country) =>
+    const filteredCountries = countries.filter((country) =>
     country.name.toLowerCase().includes(inputValue.toLowerCase())
   );
-    console.log(display)
+   
   return (
     <div className=" w-200 font-medium ">
     <div
@@ -79,7 +87,7 @@ export default function MsSearch({coin}) {
       </div>
     </div>
     <ul
-      className={`bg-black text-white mt-2 overflow-y-auto absolute ${window.innerWidth < 769 ? 'absolute w-full' : ''} ${
+      className={`bg-black text-white mt-2 overflow-y-auto z-[99] absolute ${window.innerWidth < 769 ? 'absolute w-full' : ''} ${
         open ? "max-h-60 " : "max-h-0"
       } `}
     >
@@ -93,7 +101,7 @@ export default function MsSearch({coin}) {
           className="placeholder:text-gray-700 p-2 outline-none"
         />
       </div> */}
-      {display?.map((country) => (
+      {filteredCountries?.map((country) => (
         <li
           key={country?.id}
           className={`p-2 text-sm min-w-[300px] hover:bg-gray-100 hover:text-black

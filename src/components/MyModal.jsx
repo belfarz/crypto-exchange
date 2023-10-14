@@ -35,30 +35,24 @@ export default function MyModal({visible, onClose}) {
           <th>7 days</th>
         </tr>
         <tr>
-          <td>Promoted Coin</td>
-          <td> <input type="checkbox" value="130"/>$130</td>
-          <td> <input type="checkbox" value="350"/>$350</td>
-          <td> <input type="checkbox" value="$630"/>$630</td>
+          <td>Fixed banner</td>
+          <td> <input type="checkbox" value="150"/>$150</td>
+          <td> <input type="checkbox" value="390"/>$390</td>
+          <td> <input type="checkbox" value="$550"/>$550$</td>
         </tr>
         <tr>
-          <td>Rotate Banner</td>
-          <td> <input type="checkbox" value="190"/>$190</td>
-          <td> <input type="checkbox" value="510"/>$510</td>
-          <td> <input type="checkbox" value="930"/>$930</td>
+          <td>Broadcast Banner</td>
+          <td> <input type="checkbox" value="200"/>$200</td>
+          <td> <input type="checkbox" value="450"/>$450</td>
+          <td> <input type="checkbox" value="890"/>$890</td>
         </tr>
         <tr>
-          <td>Wide Banner</td>
-          <td> <input type="checkbox" value="300"/>$300</td>
-          <td> <input type="checkbox" value="810"/>$810</td>
-          <td> <input type="checkbox" value="1450"/>$1450</td>
+          <td>Broadcast Banner</td>
+          <td> <input type="checkbox" value="100"/>$100</td>
+          <td> <input type="checkbox" value="250"/>$250</td>
+          <td> <input type="checkbox" value="450"/>$450</td>
         </tr>
-        <tr>
-          <td>popup Banner</td>
-          <td> <input type="checkbox" value="880"/>$880</td>
-          <td> <input type="checkbox" value="2500"/>$2500</td>
-          <td> <input type="checkbox" value="5200"/>$5200</td>
-          
-        </tr>
+      
       
       </table>
       <h3 >Subtotal:</h3>
@@ -74,25 +68,25 @@ export default function MyModal({visible, onClose}) {
              
                 <tr>
                   <td>Bronze</td>
-                  <td> <input type="checkbox" value="2260"/>$2260</td>
+                  <td> <input type="checkbox" value="1500"/>$1500</td>
       
                
                 </tr>
                 <tr>
                   <td>Gold</td>
-              <td> <input type="checkbox" value="5800"/>$5800</td>
+              <td> <input type="checkbox" value="4500"/>$4500</td>
 
               
                 </tr>
                 <tr>
                   <td>Silver</td>
-                  <td> <input type="checkbox" value="32500"/>$3250</td>
+                  <td> <input type="checkbox" value="2500"/>$2500</td>
    
             
                 </tr>
                 <tr>
                   <td>Diamond</td>
-                  <td> <input type="checkbox" value="1130"/>$11300</td>
+                  <td> <input type="checkbox" value="7900"/>$7900</td>
         
                   
                 </tr>

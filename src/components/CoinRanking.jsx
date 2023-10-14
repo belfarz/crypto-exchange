@@ -22,7 +22,7 @@ export default function CoinRanking() {
     const [idsString, setIdsString] = useState('');
     const [promString, setPromString] = useState([])
     const [verifyPromoted, setVerifyPromoted] = useState([])
-    const payedUrl = promString ? `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${promString}&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en` : null;
+    const payedUrl = promString && `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${promString}&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en`
     const promUrl = idsString ? `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en` : null;
 
     useEffect(()=>{
@@ -52,14 +52,20 @@ export default function CoinRanking() {
     },[])
 
     useEffect(()=>{
+      console.log(promString)
 
-      payedUrl && axios.get(payedUrl).then((response)=>{
-        setPayedPromotion(response.data)
-        console.log("verify promo"+response.data)
-        
-    }).catch((Error)=>{
-        console.log(Error)
-    })
+      if (promString) {
+
+        axios.get(payedUrl).then((response)=>{
+          setPayedPromotion(response.data)
+          console.log("verify promo"+response.data)
+          
+      }).catch((Error)=>{
+          console.log(Error)
+      })
+  
+      } 
+
 
       axios.get(promUrl).then((response)=>{
         setVerifyPromoted(response.data)
@@ -69,7 +75,7 @@ export default function CoinRanking() {
         console.log(Error)
     })
 
-    },[idsString,promUrl,payedUrl])
+    },[idsString,promUrl,payedUrl,promString])
 
     //----------------------------------------------------//
   const [itemOffset, setItemOffset] = useState(0);
@@ -97,10 +103,10 @@ export default function CoinRanking() {
     </div>
 
     <div className='lg:ml-64 text-gray-400'>
-      <div className='overflow-x-auto  pt-6'>
-        <NavLink className=' px-3 pb-3 pt-2' id='trait'>New Listing</NavLink>
-        <NavLink className=' px-3 pb-3 pt-2' id='trait'>New Launches</NavLink>
-        <NavLink className=' px-3 pb-3 pt-2' >New Trending</NavLink>
+      <div className='overflow-x-auto pt-6'>
+        <NavLink className=' px-3 pb-3 pt-2 text-sm' id='trait'>New Listing</NavLink>
+        <NavLink className=' px-3 pb-3 pt-2 text-sm' id='trait'>New Launches</NavLink>
+        <NavLink className=' px-3 pb-3 pt-2 text-sm' >New Trending</NavLink>
       </div>
       <div className='my-5 flex overflow-x-auto'>
         <div className=' px-2 py-1 rounded-full mr-2 flex min-w-[75px]' id='trait-button'><img src={eth} alt="" width={19} className='py-1 pr-1 whitespace-no-wrap'/>ETH</div> 

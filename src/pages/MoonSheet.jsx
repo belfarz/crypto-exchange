@@ -18,12 +18,16 @@ export default function MoonSheet() {
   const data = useLoaderData()
   const [totalSupply, setTotalSupply] = useState(''); 
   const [secondMarketCap, setSecondMarketCap] = useState("")
+  const [price, setPrice] = useState("")
+  const [image, setImage] = useState("")
   
   function Coin_one(coinId) {
     const url = `https://api.coingecko.com/api/v3/coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false`
 
     axios.get(url).then((response)=>{
       setTotalSupply(response.data.market_data.total_supply)
+      setPrice(response.data.market_data.current_price.usd)
+      setImage(response.data.image.thumb)
   }).catch((Error)=>{
       console.log(Error)
   })
@@ -40,6 +44,9 @@ export default function MoonSheet() {
   })
   }
 
+  const answer = secondMarketCap ? secondMarketCap/totalSupply : null
+  const percentage = answer / price
+
   return (
     <div className='flex flex-col overflow-x-auto'> <CoinAds />
     <div className=' h-full relative flex-1 lg:ml-64 rounded overflow-y-none overflow-x-auto' id="search_container">
@@ -54,23 +61,20 @@ export default function MoonSheet() {
     </div>
 
     
-    {secondMarketCap ?(
-      <div className="flex justify-center ">
-      <div className="h-[100px] bg-transparrent p-5 m-4">
-        <span><img src="" alt="" /></span>
-        <h1>{secondMarketCap ? secondMarketCap/totalSupply : ""}</h1>
+    {
+      secondMarketCap ? (
+        <div className="flex justify-center ">
+      <div className="h-[100px] flex justify-center items-center bg-gradient-to-bl from-purple-800 to-black p-5 m-4 rounded-xl">
+        <span><img src={image} alt="" size={80} className="m-2"/></span>
+        <h1 className="font-bold text-4xl text-white">${answer.toLocaleString()}</h1>
+        {percentage > 0 ? (
+          <span className="text-green-500 text-4xl m-2">{percentage.toLocaleString()}</span>
+        ):<span className="text-red-500 text-4xl m-2">{percentage.toLocaleString()}</span>}
       </div>
       <strong></strong>
-    </div> 
-    ) :null}
-    
-    <div className="flex justify-center ">
-      <div className="h-[100px] bg-transparrent p-5 m-4">
-        <span><img src="" alt="" /></span>
-        <h1>{secondMarketCap ? secondMarketCap/totalSupply : ""}</h1>
-      </div>
-      <strong></strong>
-    </div> 
+    </div>
+      ) : null
+    } 
 
     <div className='relative flex-1 ml-2  overflow-x-auto mt-2' id='outlet'>
     {data ? <Coin  coin={data} list="Promoted Coin"/> : null}

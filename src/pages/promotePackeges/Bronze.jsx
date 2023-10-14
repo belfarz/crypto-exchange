@@ -4,7 +4,7 @@ import { GiCheckMark } from 'react-icons/gi'
 export default function Bronze() {
   return (
     <div className='p-2'>
-      <span className='text-white text-lg'>Bronze $2260</span>
+      <span className='text-white text-lg'>Bronze $1500</span>
       <div>
         <span className='flex my-2 items-center'><GiCheckMark className='text-green-500' /><span className="mx-2">30 days Promoted Coin</span></span>
         <span className='flex my-2 items-center'><GiCheckMark className='text-green-500' /><span className="mx-2">Bronze Badge with frame</span></span>
