@@ -1,7 +1,19 @@
-import React from "react";
+import React,{useState} from "react";
 import { AiOutlineClose } from "react-icons/ai";
 
 export default function MyModal({visible, onClose}) {
+
+    const [totalPrice, setTotalPrice] = useState(0);
+
+    const handleCheckboxChange = (e) => {
+      const checkbox = e.target;
+      const price = parseFloat(checkbox.value);
+      if (checkbox.checked) {
+        setTotalPrice((prevTotal) => prevTotal + price);
+      } else {
+        setTotalPrice((prevTotal) => prevTotal - price);
+      }
+    };
 
     const handleClose =(e)=>{
         if(e.target.id === "modal-container" || e.target.id === "close"){
@@ -36,27 +48,26 @@ export default function MyModal({visible, onClose}) {
         </tr>
         <tr>
           <td>Fixed banner</td>
-          <td> <input type="checkbox" value="150"/>$150</td>
-          <td> <input type="checkbox" value="390"/>$390</td>
-          <td> <input type="checkbox" value="$550"/>$550$</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="150"/>$150</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="390"/>$390</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="$550"/>$550$</td>
         </tr>
         <tr>
           <td>Broadcast Banner</td>
-          <td> <input type="checkbox" value="200"/>$200</td>
-          <td> <input type="checkbox" value="450"/>$450</td>
-          <td> <input type="checkbox" value="890"/>$890</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="200"/>$200</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="450"/>$450</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="890"/>$890</td>
         </tr>
         <tr>
           <td>Broadcast Banner</td>
-          <td> <input type="checkbox" value="100"/>$100</td>
-          <td> <input type="checkbox" value="250"/>$250</td>
-          <td> <input type="checkbox" value="450"/>$450</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="100"/>$100</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="250"/>$250</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="450"/>$450</td>
         </tr>
       
       
       </table>
-      <h3 >Subtotal:</h3>
-      <p  id="total"></p>
+      
       <br/>
     
       <div>
@@ -68,32 +79,32 @@ export default function MyModal({visible, onClose}) {
              
                 <tr>
                   <td>Bronze</td>
-                  <td> <input type="checkbox" value="1500"/>$1500</td>
+                  <td> <input onChange={handleCheckboxChange} type="checkbox" value="1500"/>$1500</td>
       
                
                 </tr>
                 <tr>
                   <td>Gold</td>
-              <td> <input type="checkbox" value="4500"/>$4500</td>
+              <td> <input onChange={handleCheckboxChange} type="checkbox" value="4500"/>$4500</td>
 
               
                 </tr>
                 <tr>
                   <td>Silver</td>
-                  <td> <input type="checkbox" value="2500"/>$2500</td>
+                  <td> <input onChange={handleCheckboxChange} type="checkbox" value="2500"/>$2500</td>
    
             
                 </tr>
                 <tr>
                   <td>Diamond</td>
-                  <td> <input type="checkbox" value="7900"/>$7900</td>
+                  <td> <input onChange={handleCheckboxChange} type="checkbox" value="7900"/>$7900</td>
         
                   
                 </tr>
               
               </table>
-              <h3 >Subtotal:</h3>
-              <p  id="totall"></p>
+              <h3 className="mt-2">Subtotal:</h3>
+              <p  id="total" className="text-white text-2xl">{totalPrice ? `$${totalPrice}` : ''}</p>
              
               </div>
       </div>

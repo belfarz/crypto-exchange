@@ -68,8 +68,8 @@ export default function MoonSheet() {
         <span><img src={image} alt="" size={80} className="m-2"/></span>
         <h1 className="font-bold text-4xl text-white">${answer.toLocaleString()}</h1>
         {percentage > 0 ? (
-         <span className="text-green-500 text-4xl m-2">{percentage.toLocaleString()}</span>
-        ):<span className="text-red-500 text-4xl m-2">{percentage.toLocaleString()}</span>}
+         <span className="text-green-500 text-4xl m-2">({percentage.toLocaleString()}x)</span>
+        ):<span className="text-red-500 text-4xl m-2">({percentage.toLocaleString()}x)</span>}
       </div>
       <strong></strong>
     </div>
