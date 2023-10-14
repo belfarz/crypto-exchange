@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react'
 import add from "../image/ad-1.jpg"
 import add1 from "../image/add2.jpg"
 import add2 from "../image/add3.jpg"
-import add3 from "../image/gojo-ad.gif"
+import add3 from "../image/satoru.gif"
 
 
 export default function CoinAds() {
@@ -42,7 +42,7 @@ export default function CoinAds() {
       <div className='flex justify-center  overflow-x-auto'>
         <div className='w-full md:w-[600px]  bg-black flex justify-center items-center m-2 ' > <img src={window.innerWidth < 768 ? imageUrl : add1} className='rounded-lg' alt="" /></div>
         <div className=' md:block w-[600px] hidden bg-black lg:flex justify-center items-center m-2 ' > <img src={add2} className='rounded-lg' alt="" /> </div>
-        <div className=' md:block w-[600px] hidden  bg-black lg:flex justify-center items-center m-2 ' > <img src={add3} className='rounded-lg' alt="" /></div>
+        <div className=' md:block w-[600px] hidden  bg-black lg:flex justify-center items-center m-2 ' ><img src={add3} className='rounded-lg' alt="" /></div>
       </div>
     </div>
   )
