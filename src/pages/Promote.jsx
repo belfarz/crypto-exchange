@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
 import fixedImg from "../image/fixed.jpg"
 import testImg from "../image/test.jpg"
+import bronze from "../image/bronze-badge.jpg"
+import silver from "../image/silver-badge.jpg"
+import gold from "../image/gold-badge.jpg"
+import diamond from "../image/diamond-badge.jpg"
+
 
 import MyModal from '../components/MyModal'
 import { NavLink, Outlet } from 'react-router-dom'
@@ -32,7 +37,7 @@ export default function Promote() {
             </div>
         </div>
 
-        <div className="col-4 md:w-1/2 lg:w-1/3 xl:w-1/4 mb-4 p-2 ">
+        <div className="col-4 md:w-1/2 lg:w-1/2 xl:w-1/4 mb-4 p-2 ">
             <div className=" flex flex-col p-2 ">
                 <div className=' flex justify-center flex-col mb-4'><img src={testImg} alt="" className="w-full max-w-full h-auto" /></div>
                 <span className='flex'><input type="radio" name="options" id="option4" className='mr-2 '/> <label id='radio-label' htmlFor="option4" className=''>$200 - 1 DAY  </label> </span>
@@ -42,7 +47,7 @@ export default function Promote() {
             </div>
         </div>
 
-         <div className="col-4 md:w-1/2 lg:w-1/3 xl:w-1/4 mb-4 p-2 ">
+         <div className="col-4 md:w-1/2 lg:w-1/2 xl:w-1/4 mb-4 p-2 ">
             <div className=" flex flex-col p-2 ">
                 <div className=' flex justify-center flex-col mb-4'><img src={testImg} alt="" className="w-full max-w-full h-auto" /></div>
                 <span className='flex'><input type="radio" name="options" id="option7" className='mr-2 '/> <label id='radio-label' htmlFor="option7" className=''>$100- 1day+ installation channel </label> </span>
@@ -54,13 +59,13 @@ export default function Promote() {
 
 
       
-        <div className="col-4 md:w-1/2 lg:w-1/3 xl:w-1/4 mb-4 p-2  ">
+        <div className="col-4 md:w-1/2 lg:w-1/2 xl:w-1/4 mb-4 p-2  ">
             <div className=" flex flex-col ">
               <div className="flex justify-center p-2 rounded bg-black ">
-                <NavLink to="." end className=' w-1/4 flex justify-center items-center   p-3 text-sm' id='promote-plan' style={({isActive})=> isActive ? IsActive : null}>Bronze</NavLink>
-                <NavLink to="silver" className=' w-1/4 flex justify-center items-center  p-3 text-sm' id='promote-plan' style={({isActive})=> isActive ? IsActive : null}>Silver</NavLink>
-                <NavLink to="gold" className=' w-1/4 flex justify-center items-center   p-3 text-sm' id='promote-plan' style={({isActive})=> isActive ? IsActive : null}>Gold</NavLink>
-                <NavLink to="diamond" className=' w-1/4 flex justify-center items-center p-3 text-sm' style={({isActive})=> isActive ? IsActive : null}>Diamond</NavLink>
+                <NavLink to="." end className=' w-1/4 flex justify-center items-center   p-3 text-sm' id='promote-plan' style={({isActive})=> isActive ? IsActive : null}> <div className="flex flex-col justify-center items-center"><img src={bronze} width={15} height={15} alt="" />Bronze</div> </NavLink>
+                <NavLink to="silver" className=' w-1/4 flex justify-center items-center  p-3 text-sm' id='promote-plan' style={({isActive})=> isActive ? IsActive : null}><div className="flex flex-col justify-center items-center"><img src={silver} width={15} height={15} alt="" />Silver</div></NavLink>
+                <NavLink to="gold" className=' w-1/4 flex justify-center items-center   p-3 text-sm' id='promote-plan' style={({isActive})=> isActive ? IsActive : null}><div className="flex flex-col justify-center items-center"><img src={gold} width={15} height={15} alt="" />Gold</div></NavLink>
+                <NavLink to="diamond" className=' w-1/4 flex justify-center items-center p-3 text-sm' style={({isActive})=> isActive ? IsActive : null}><div className="flex flex-col justify-center items-center"><img src={diamond} width={15} height={15} alt="" />Diamond</div></NavLink>
               </div>
               <div className="flex flex-col h-[250px]" >
                     <Outlet />
