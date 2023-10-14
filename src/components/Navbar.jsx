@@ -63,7 +63,7 @@ export default function Navbar(props) {
 
         <Link to="/moonsheet"><div className="p-2.5 mt-2 m-5 flex items-center rounded-md px-4 duration-300 cursor-pointer  ">
           <FaRocket style={{ fontSize: '25px', color: 'white'}} className='w-[25px] h-[25px] p-1 rounded-md bg-purple-800'/>
-          <span className="text-[14px] ml-4 text-gray-200">Kojo Sheet</span>
+          <span className="text-[14px] ml-4 text-gray-200">KojoSheet</span>
         </div></Link>
 
         <Link to="/scan"><div className="p-2.5 mt-2 m-5  flex items-center px-4 duration-300 cursor-pointer  ">

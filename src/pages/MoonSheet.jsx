@@ -51,7 +51,7 @@ export default function MoonSheet() {
     <div className='flex flex-col overflow-x-auto'> <CoinAds />
     <div className=' h-full relative flex-1 lg:ml-64 rounded overflow-y-none overflow-x-auto' id="search_container">
 
-      <h1 className="text-[35px] text-gray-300 mt-8 mb-8" align="center">MoonSheet</h1>
+      <h1 className="text-[35px] text-gray-300 mt-8 mb-8" align="center">KojoSheet</h1>
       <h3 className="text-[16px] text-gray-300 mt-8 mb-8" align="center">Calculate the price of A with the market cap of B</h3>
 
     <div className="flex flex-col md:flex-row lg:flex-row justify-center" >
@@ -68,7 +68,7 @@ export default function MoonSheet() {
         <span><img src={image} alt="" size={80} className="m-2"/></span>
         <h1 className="font-bold text-4xl text-white">${answer.toLocaleString()}</h1>
         {percentage > 0 ? (
-          <span className="text-green-500 text-4xl m-2">{percentage.toLocaleString()}</span>
+         <span className="text-green-500 text-4xl m-2">{percentage.toLocaleString()}</span>
         ):<span className="text-red-500 text-4xl m-2">{percentage.toLocaleString()}</span>}
       </div>
       <strong></strong>
