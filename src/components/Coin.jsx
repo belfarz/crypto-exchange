@@ -79,7 +79,7 @@ export default function Coin(props) {
 
   return (
     <div>
-        <table className=" " id='table'>
+        <table className=" lg:w-full" id='table'>
       <thead>
        
         <tr>
@@ -87,14 +87,14 @@ export default function Coin(props) {
         <th className="px-6 py-4  text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider ">
             #
           </th>
-          <th className=" py-4  text-right text-xs leading-4 font-bold text-white-500 uppercase tracking-wider sticky left-0 min-w-[150px] lg:min-w-[250px]" id='coin-1-row'>
-            <div className="flex text-18">
+          <th className=" py-4  text-right text-xs  leading-4 font-bold text-white-500 uppercase tracking-wider sticky left-0 min-w-[150px] lg:min-w-[250px]" id='coin-1-row'>
+            <div className="flex text-18 ">
             {list}
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
           <th className="  text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[80px] ">
-            <div className="flex justify-center text-18 pr-2">
+            <div className="flex justify-center text-18 ">
             1H
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
@@ -103,13 +103,13 @@ export default function Coin(props) {
            <div className="flex  justify-center text-18"> 24H
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}</div>
           </th>
-          <th className="  text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[80px] ">
-            <div className="flex justify-center text-18 pr-2">
+          <th className="  text-xs leading-4 font-bold text-white-500  uppercase tracking-wider min-w-[80px] ">
+            <div className="flex justify-center text-18 ">
             7d
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
-          <th className=" py-4  text-right text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[100px] ">
+          <th className=" py-4  text-right text-xs leading-4 lg:mx-60 font-bold text-white-500 uppercase tracking-wider min-w-[100px] ">
             <div className="flex text-18 justify-end pl-3 ">
             Price
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
@@ -138,7 +138,7 @@ export default function Coin(props) {
         </tr>
         
       </thead>
-      <tbody className=" ">
+      <tbody className="">
         {coin.map((crypto,index) => {
         
         const truncatedName = crypto?.name ? <TruncatedText text={crypto.name} maxLength={8} /> : null;
@@ -150,7 +150,7 @@ export default function Coin(props) {
             <td className="px-2 pt-2 whitespace-no-wrap text-white-500">
               {<CiStar style={{ fontSize: '24px' }} />}
             </td>
-            <td className=" my-4 lg:px-2 min-w-[150px] whitespace-no-wrap text-white-500 flex sticky left-0 lg:max-w-[250px]"  id='coin-1-row'>
+            <td className=" my-4 lg:px-2 min-w-[150px]   whitespace-no-wrap text-white-500 flex sticky left-0 lg:max-w-[250px]"  id='coin-1-row'>
             <Link to={`coin/${crypto.id}`} className='flex whitespace-no-wrap sticky left-0  lg:max-w-[250px]'>
             <img
               src={crypto && crypto.image ? crypto.image : testImg}
@@ -166,28 +166,28 @@ export default function Coin(props) {
             {crypto && crypto.price_change_percentage_1h_in_currency ?
             crypto.price_change_percentage_1h_in_currency > 0 ? 
                   <td className="px-4 pt-4  whitespace-no-wrap text-green-500 text-right min-w-[80px]">
-                  {crypto.price_change_percentage_1h_in_currency.toFixed(2)}
+                  <div className="flex justify-center">{crypto.price_change_percentage_1h_in_currency.toFixed(2)}</div>
                   </td> : 
                   <td className="px-4 pt-4  whitespace-no-wrap text-red-500 text-right min-w-[80px]">
-                  {crypto.price_change_percentage_1h_in_currency.toFixed(2)}
+                  <div className="flex justify-center">{crypto.price_change_percentage_1h_in_currency.toFixed(2)}</div>
                   </td> : <td className="px-4 pt-4  whitespace-no-wrap text-right min-w-[80px]">-</td>
             }
             {crypto && crypto.price_change_percentage_24h_in_currency ?
             crypto.price_change_percentage_24h_in_currency > 0 ? 
                   <td className="px-4 pt-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
-                  {crypto.price_change_percentage_24h_in_currency.toFixed(2)}
+                  <div className="flex justify-center">{crypto.price_change_percentage_24h_in_currency.toFixed(2)}</div>
                   </td> : 
                   <td className="px-4 pt-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
-                  {crypto.price_change_percentage_24h_in_currency.toFixed(2)}
+                  <div className="flex justify-center">{crypto.price_change_percentage_24h_in_currency.toFixed(2)}</div>
                   </td> : <td className="px-4 pt-4 whitespace-no-wrap  text-right min-w-[80px]">-</td>
             }
             {crypto && crypto.price_change_percentage_7d_in_currency ?
             crypto.price_change_percentage_7d_in_currency > 0 ? 
                   <td className="px-4 pt-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
-                  {crypto.price_change_percentage_7d_in_currency.toFixed(2)}
+                  <div className="flex justify-center">{crypto.price_change_percentage_7d_in_currency.toFixed(2)}</div>
                   </td> : 
                   <td className="px-4 pt-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
-                  {crypto.price_change_percentage_7d_in_currency.toFixed(2)}
+                  <div className="flex justify-center">{crypto.price_change_percentage_7d_in_currency.toFixed(2)}</div>
                   </td> : <td className="px-4 pt-4 whitespace-no-wrap text-right min-w-[80px]">-</td>
             }
             <td className="pt-4 whitespace-no-wrap text-white-500  text-right min-w-[100px]" >

@@ -118,7 +118,7 @@ export default function CoinRanking() {
       </div>
     </div>
 
-    <div className='relative flex ml-2 mr-2 lg:ml-64 mt-10 rounded overflow-x-auto' id='outlet'>
+    <div className='relative flex-1 ml-2 mr-2 lg:ml-64 mt-10 rounded overflow-x-auto' id='outlet'>
       <Coin  coin={currentItems} list="Coin"/>
     </div>
 
