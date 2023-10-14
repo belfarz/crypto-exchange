@@ -2,7 +2,8 @@ import React,{useEffect, useState} from 'react'
 import add from "../image/ad-1.jpg"
 import add1 from "../image/add2.jpg"
 import add2 from "../image/add3.jpg"
-import add3 from "../image/add4.jpg"
+import add3 from "../image/gojo-ad.gif"
+
 
 export default function CoinAds() {
 
