@@ -37,7 +37,7 @@ export default function CoinAds() {
   return (
     <div className='flex flex-col justify-center mt-2 mb-2 lg:ml-64'>
       <div className='flex justify-center'>
-        <div className=' w-full lg:w-[1022px]  bg-white flex justify-center items-center m-2'id='ad-1' > <img src={add} className='rounded-lg' alt="" /></div>
+        <div className=' w-full lg:w-[1022px]  bg-white flex justify-center items-center m-2'id='ad-1' > <a href="https://t.me/KOJOCAllS"><img src={add} className='rounded-lg' alt="" /></a></div>
       </div>
       <div className='flex justify-center  overflow-x-auto'>
         <div className='w-full md:w-[600px]  bg-black flex justify-center items-center m-2 ' > <img src={window.innerWidth < 768 ? imageUrl : add1} className='rounded-lg' alt="" /></div>
