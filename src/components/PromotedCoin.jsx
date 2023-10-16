@@ -3,12 +3,16 @@ import { CiStar } from "react-icons/ci";
 import { PiArrowsDownUpBold } from 'react-icons/pi';
 import { Link} from 'react-router-dom';
 import Links from './Link';
+import Copy from './Copy';
 // import { links } from './api';
 // import { useState } from 'react';
 
 export default function PromotedCoin(props) {
 
     const { coin, list, meta } = props;
+
+
+    
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -130,7 +134,7 @@ export default function PromotedCoin(props) {
             </div>
           </th>
 
-          <th className=" py-4  text-18 text-min-w-[100px] left  text-xs leading-4 font-bold text-white-500 uppercase tracking-wider ">
+          <th className=" py-4  text-18 text-min-w-[150px] left  text-xs leading-4 font-bold text-white-500 uppercase tracking-wider ">
             <div className="flex text-18  justify-center">Launch Date</div>
           </th>
          
@@ -142,7 +146,7 @@ export default function PromotedCoin(props) {
             <div className="flex text-18  justify-end">Address</div>
           </th>
           <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[100px]">
-            <div className="flex text-18  justify-end">Votes</div>
+            <div className="flex text-18  justify-center">Votes</div>
           </th>
         </tr>
         
@@ -211,7 +215,7 @@ export default function PromotedCoin(props) {
               <div className="flex justify-center">${crypto?.quote.USD.market_cap ? crypto.quote.USD.market_cap.toLocaleString() : null}</div>
             </td>
 
-            <td className=" pt-4 whitespace-no-wrap text-white-500 text-right min-w-[100px] ">
+            <td className=" pt-4 whitespace-no-wrap text-white-500 text-right min-w-[150px] ">
               <div className="flex justify-center ">
                 {launchDate ? new Date(launchDate).toLocaleDateString() : null}
               </div>
@@ -225,12 +229,14 @@ export default function PromotedCoin(props) {
 
             <td className="  mt-6 whitespace-no-wrap text-white-500 text-right min-w-[100px]">
               <div className="flex justify-end items-center">
-            {truncatedAddress}
+               {truncatedAddress} 
+               <Copy text={currentmeta ? currentmeta.contract_address[0].contract_address : null} />
+
               </div>
             </td>
             
             <td className="pr-6  mt-6 whitespace-no-wrap text-white-500 text-right min-w-[100px]">
-              <div className="">
+              <div className="flex justify-center">
 
               </div>
              
