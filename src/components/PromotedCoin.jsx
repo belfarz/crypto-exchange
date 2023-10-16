@@ -1,13 +1,14 @@
 import  React,{useState, useEffect} from 'react'
 import { CiStar } from "react-icons/ci";
 import { PiArrowsDownUpBold } from 'react-icons/pi';
-import testImg from "../image/test.png"
 import { Link} from 'react-router-dom';
 import Links from './Link';
 // import { links } from './api';
 // import { useState } from 'react';
 
-export default function Coin(props) {
+export default function PromotedCoin(props) {
+
+    const { coin, list, meta } = props;
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -24,6 +25,13 @@ export default function Coin(props) {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+
+
+
+  const dataArray = coin && Object.values(coin);
+  const metadata = meta && Object.values(meta);
+  console.log(metadata)
 
   const links = [
     {
@@ -63,7 +71,7 @@ export default function Coin(props) {
   // const maxWidth = 100; // Set your maximum width here
   // const [link, setLink] = useState(null)
 
-  const { coin, list } = props;
+ 
 
   const TruncatedText = ({ text, maxLength }) => {
     const truncatedText = text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
@@ -115,20 +123,21 @@ export default function Coin(props) {
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
-          <th className=" py-4  text-right text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[180px] ">
+          <th className=" py-4  text-right text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[150px] ">
             <div className="flex text-18 justify-center">
             Market Cap
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
+
+          <th className=" py-4  text-18 text-min-w-[100px] left  text-xs leading-4 font-bold text-white-500 uppercase tracking-wider ">
+            <div className="flex text-18  justify-center">Launch Date</div>
+          </th>
          
-          {list === "Promoted Coin" ? (
-            <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider ">
+          <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider ">
             <div className="flex text-18  justify-center">Links</div>
           </th>
-          ): <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider ">
-          <div className="flex text-18  justify-center">Links</div>
-        </th>}
+         
           <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[100px]">
             <div className="flex text-18  justify-end">Address</div>
           </th>
@@ -139,21 +148,26 @@ export default function Coin(props) {
         
       </thead>
       <tbody className="">
-        {coin.map((crypto,index) => {
+        {dataArray.map((crypto,index) => {
+
+          // i want to make an api call for every member of this map function and adding data from the api to this table body
         
         const truncatedName = crypto?.name ? <TruncatedText text={crypto.name} maxLength={8} /> : null;
         const fullName = crypto?.name ? crypto.name : null;
+        const currentmeta = metadata[index]
+        const truncatedAddress = currentmeta ? <TruncatedText text={currentmeta.contract_address[0].contract_address} maxLength={6} /> : null;
+        const launchDate = currentmeta ? currentmeta.date_launched : null
           return(
             
           <tr key={crypto?.market_cap_rank ? crypto.market_cap_rank : "-"} className=''>
           {/* <Link to={`coin/${crypto.id}`} className='flex'></Link> */}
-            <td className="pr-2 pt-2 whitespace-no-wrap  max-w-[30px]">
+            <td className="pr-2 pt-2 whitespace-no-wrap  w-[30px]">
               {<CiStar style={{ fontSize: '24px' }} />}
             </td>
             <td className=" my-4  min-w-[150px]   whitespace-no-wrap text-white-500 flex sticky left-0 lg:max-w-[250px]"  id='coin-1-row'>
             <Link to={`coin/${crypto.id}`} className='flex whitespace-no-wrap sticky left-0  lg:max-w-[250px]'>
             <img
-              src={crypto && crypto.image ? crypto.image : testImg}
+              src={currentmeta ? currentmeta.logo : ""}
               alt=""
               className="coin_image p-2"
             />
@@ -163,57 +177,55 @@ export default function Coin(props) {
               </div>
               </Link> 
             </td>
-            {crypto && crypto.price_change_percentage_1h_in_currency ?
-            crypto.price_change_percentage_1h_in_currency > 0 ? 
+            {crypto && crypto.quote.USD.percent_change_1h ?
+            crypto.quote.USD.percent_change_1h > 0 ? 
                   <td className="px-4 pt-4  whitespace-no-wrap text-green-500 text-right min-w-[80px]">
-                  <div className="flex justify-center">{crypto.price_change_percentage_1h_in_currency.toFixed(2)}</div>
+                  <div className="flex justify-center">{crypto.quote.USD.percent_change_1h.toFixed(2)}</div>
                   </td> : 
                   <td className="px-4 pt-4  whitespace-no-wrap text-red-500 text-right min-w-[80px]">
-                  <div className="flex justify-center">{crypto.price_change_percentage_1h_in_currency.toFixed(2)}</div>
-                  </td> : <td className="px-4 pt-4  whitespace-no-wrap text-right min-w-[80px]">-</td>
+                  <div className="flex justify-center">{crypto.quote.USD.percent_change_1h.toFixed(2)}</div>
+                  </td> : <td className="px-4 pt-4  whitespace-no-wrap text-right min-w-[80px]"><div className="flex justify-center">0</div></td>
             }
-            {crypto && crypto.price_change_percentage_24h_in_currency ?
-            crypto.price_change_percentage_24h_in_currency > 0 ? 
+            {crypto && crypto.percent_change__24h ?
+            crypto.percent_change__24h > 0 ? 
                   <td className="px-4 pt-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
-                  <div className="flex justify-center">{crypto.price_change_percentage_24h_in_currency.toFixed(2)}</div>
+                  <div className="flex justify-center">{crypto.percent_change__24h.toFixed(2)}</div>
                   </td> : 
                   <td className="px-4 pt-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
-                  <div className="flex justify-center">{crypto.price_change_percentage_24h_in_currency.toFixed(2)}</div>
-                  </td> : <td className="px-4 pt-4 whitespace-no-wrap  text-right min-w-[80px]">-</td>
+                  <div className="flex justify-center">{crypto.percent_change__24h.toFixed(2)}</div>
+                  </td> : <td className="px-4 pt-4 whitespace-no-wrap  text-right min-w-[80px]"><div className="flex justify-center">0</div></td>
             }
-            {crypto && crypto.price_change_percentage_7d_in_currency ?
-            crypto.price_change_percentage_7d_in_currency > 0 ? 
+            {crypto && crypto.quote.USD.percent_change_7d ?
+            crypto.quote.USD.percent_change_7d > 0 ? 
                   <td className="px-4 pt-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
-                  <div className="flex justify-center">{crypto.price_change_percentage_7d_in_currency.toFixed(2)}</div>
+                  <div className="flex justify-center">{crypto.quote.USD.percent_change_7d.toFixed(2)}</div>
                   </td> : 
                   <td className="px-4 pt-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
-                  <div className="flex justify-center">{crypto.price_change_percentage_7d_in_currency.toFixed(2)}</div>
-                  </td> : <td className="px-4 pt-4 whitespace-no-wrap text-right min-w-[80px]">-</td>
+                  <div className="flex justify-center">{crypto.quote.USD.percent_change_7d.toFixed(2)}</div>
+                  </td> : <td className="px-4 pt-4 whitespace-no-wrap text-right min-w-[80px]"><div className="flex justify-center">0</div></td>
             }
             <td className="pt-4 whitespace-no-wrap text-white-500  text-right min-w-[100px]" >
-              ${crypto?.current_price ? crypto.current_price.toLocaleString() : ""}
+              ${crypto?.quote.USD.price ? crypto.quote.USD.price.toLocaleString() : ""}
             </td>
-            <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  min-w-[180px]">
-              <div className="flex justify-center">${crypto?.market_cap ? crypto.market_cap.toLocaleString() : null}</div>
+            <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  min-w-[150px]">
+              <div className="flex justify-center">${crypto?.quote.USD.market_cap ? crypto.quote.USD.market_cap.toLocaleString() : null}</div>
             </td>
-            
-            {
-              list === "Promoted Coin" ? (
-                <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  ">
-            <div className="flex justify-end flex-col">
-            <Links getLinks={links[index]} />
-            </div>
-            </td>
-              ) :  <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  ">
-              <div className="flex justify-end flex-col">
-              pay for promo
+
+            <td className=" pt-4 whitespace-no-wrap text-white-500 text-right min-w-[100px] ">
+              <div className="flex justify-center ">
+                {launchDate ? new Date(launchDate).toLocaleDateString() : null}
               </div>
-              </td>
-            }
+            </td>
+  
+            <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  ">
+              <div className="flex justify-end flex-col">
+              <Links getLinks={links[index]} />
+              </div>
+            </td>
 
             <td className="  mt-6 whitespace-no-wrap text-white-500 text-right min-w-[100px]">
               <div className="flex justify-end items-center">
-              loading...
+            {truncatedAddress}
               </div>
             </td>
             

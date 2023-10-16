@@ -11,6 +11,7 @@ import sol from "../image/sol.jpg"
 import cro from "../image/cro.jpg"
 import doge from "../image/doge.jpg"
 import CoinAds from './CoinAds';
+import PromotedCoin from './PromotedCoin';
 
 
 
@@ -18,18 +19,21 @@ import CoinAds from './CoinAds';
 export default function CoinRanking() {
 
 
-    const [payedPromotion, setPayedPromotion] = useState([])
+    const [metadata, setMetadata] = useState({})
     const [idsString, setIdsString] = useState('');
     const [promString, setPromString] = useState([])
     const [verifyPromoted, setVerifyPromoted] = useState([])
-    const payedUrl = promString && `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${promString}&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en`
+    const payedUrl = promString && `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?slug=${promString}`
     const promUrl = idsString ? `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en` : null;
+    const [coinData, setCoinData] = useState([]);
+  
+    
 
     useEffect(()=>{
           axios.get("https://kojocalls.onrender.com/api/payedpromotion").then((response)=>{
                 
             console.log(response.data)
-            const String = response.data.map(item => item.coinId).join('%2C');
+            const String = response.data.map(item => item.coinId).join(',');
             setPromString(String)
             console.log("Promoted IDs:", String);
             console.log(response.data)
@@ -39,7 +43,6 @@ export default function CoinRanking() {
 
         axios.get("https://kojocalls.onrender.com/api/promoted").then((response)=>{
           
-          console.log(response.data)
           const String = response.data.map(item => item.coinId).join('%2C');
           setIdsString(String)
            console.log("Promoted IDs:", String);
@@ -54,17 +57,33 @@ export default function CoinRanking() {
     useEffect(()=>{
       console.log(promString)
 
-      if (promString) {
+      const fetchCoinData = async () => {
+        try {
+          const response = await axios.post('https://kojocalls.onrender.com/api/coinmarketcap', {
+            coinIds: promString, // Array of coin slugs
+          });
+    
+          setCoinData(response.data.data);
+          console.log(response.data.data)
+        } catch (error) {
+          console.error(error);
+        }
 
-        axios.get(payedUrl).then((response)=>{
-          setPayedPromotion(response.data)
-          console.log("verify promo"+response.data)
-          
-      }).catch((Error)=>{
-          console.log(Error)
-      })
-  
-      } 
+        try {
+          const response = await axios.post('https://kojocalls.onrender.com/api/metadata', {
+            coinIds: promString, // Array of coin slugs
+          });
+    
+          setMetadata(response.data.data);
+          console.log(response.data.data)
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      
+        fetchCoinData();
+        
+    
 
 
       axios.get(promUrl).then((response)=>{
@@ -83,7 +102,7 @@ export default function CoinRanking() {
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = verifyPromoted.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(verifyPromoted.length / itemsPerPage);
-  
+  console.log(coinData)
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
@@ -99,7 +118,8 @@ export default function CoinRanking() {
     <CoinAds />      
 
     <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto pt-4 mb-20 mt-4' id='outlet'>
-      <Coin  coin={payedPromotion} list="Promoted Coin" />
+      <PromotedCoin  coin={coinData} list="Promoted Coin" meta={metadata} />
+      {/* <Coin  coin={payedPromotion} list="Promoted Coin" /> */}
     </div>
 
     <div className='lg:ml-64 text-gray-400'>
