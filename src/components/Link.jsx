@@ -1,5 +1,5 @@
 import React from 'react'
-import {HiLink} from "react-icons/hi2"
+import {TiLink} from "react-icons/ti"
 import { useState } from 'react';
 import { BiLogoTelegram } from 'react-icons/bi';
 import { RiTwitterXFill } from 'react-icons/ri';
@@ -13,7 +13,7 @@ export default function Link({getLinks}) {
     
   return (
     <div className='relative'>
-           <button className=" px-4 py-2 rounded" id="menu-btn" onClick={()=>setIsOpen((prev)=>!prev)}><HiLink size={25}/></button>
+           <button className=" px-4 py-2 rounded" id="menu-btn" onClick={()=>setIsOpen((prev)=>!prev)}><TiLink size={25}/></button>
               
               {isOpen && (
                 <ul className="z-[999] flex flex-col justify-center items-center rounded mt-1 p-2 text-sm top-10 absolute" id="dropdown">
