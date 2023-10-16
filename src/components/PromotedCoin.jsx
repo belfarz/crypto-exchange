@@ -37,39 +37,39 @@ export default function PromotedCoin(props) {
   const metadata = meta && Object.values(meta);
   console.log(metadata)
 
-  const links = [
-    {
-      tg: 'https://t.me/BearAIofficial',
-      x: null,
-      site: 'http://Bearai.org'
-    },
-    {
-      tg: 'https://t.me/blobofficial',
-      x: 'https://twitter.com/BLOBProtocol',
-      site: null
-    },
-    {
-      tg: 'https://t.me/DarkForestERCChat',
-      x: "https://twitter.com/darkforesterc",
-      site: 'null'
-    },
-    {
-      tg: 'https://t.me/RavenFundPortal',
-      x: null,
-      site: null
-    },
-    {
-      tg: null,
-      x: null,
-      site: 'tokendefi-rectification.com'
-    },
-    {
-      tg: 'https://t.me/tradexai',
-      x: null,
-      site: 't.me'
-    }
+  // const links = [
+  //   {
+  //     tg: 'https://t.me/BearAIofficial',
+  //     x: null,
+  //     site: 'http://Bearai.org'
+  //   },
+  //   {
+  //     tg: 'https://t.me/blobofficial',
+  //     x: 'https://twitter.com/BLOBProtocol',
+  //     site: null
+  //   },
+  //   {
+  //     tg: 'https://t.me/DarkForestERCChat',
+  //     x: "https://twitter.com/darkforesterc",
+  //     site: 'null'
+  //   },
+  //   {
+  //     tg: 'https://t.me/RavenFundPortal',
+  //     x: null,
+  //     site: null
+  //   },
+  //   {
+  //     tg: null,
+  //     x: null,
+  //     site: 'tokendefi-rectification.com'
+  //   },
+  //   {
+  //     tg: 'https://t.me/tradexai',
+  //     x: null,
+  //     site: 't.me'
+  //   }
     
-  ]
+  // ]
 
   // const [width, setWidth] = useState(50);
   // const maxWidth = 100; // Set your maximum width here
@@ -134,7 +134,7 @@ export default function PromotedCoin(props) {
             </div>
           </th>
 
-          <th className=" py-4  text-18 text-min-w-[150px] left  text-xs leading-4 font-bold text-white-500 uppercase tracking-wider ">
+          <th className=" py-4  text-18 text-min-w-[200px] left  text-xs leading-4 font-bold text-white-500 uppercase tracking-wider ">
             <div className="flex text-18  justify-center">Launch Date</div>
           </th>
          
@@ -215,7 +215,7 @@ export default function PromotedCoin(props) {
               <div className="flex justify-center">${crypto?.quote.USD.market_cap ? crypto.quote.USD.market_cap.toLocaleString() : null}</div>
             </td>
 
-            <td className=" pt-4 whitespace-no-wrap text-white-500 text-right min-w-[150px] ">
+            <td className=" pt-4 whitespace-no-wrap text-white-500 text-right min-w-[200px] ">
               <div className="flex justify-center ">
                 {launchDate ? new Date(launchDate).toLocaleDateString() : null}
               </div>
@@ -223,7 +223,7 @@ export default function PromotedCoin(props) {
   
             <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  ">
               <div className="flex justify-end flex-col">
-              <Links getLinks={links[index]} />
+              <Links getLinks={currentmeta ? currentmeta.urls : null} />
               </div>
             </td>
 
