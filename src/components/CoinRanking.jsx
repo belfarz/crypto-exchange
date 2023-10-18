@@ -4,12 +4,6 @@ import axios from 'axios'
 import Coin from './Coin';
 import ReactPaginate from 'react-paginate';
 import { NavLink } from 'react-router-dom';
-import eth from "../image/eth1.jpg"
-import bnb from "../image/bnb.jpg"
-import base from "../image/eth.jpg"
-import sol from "../image/sol.jpg"
-import cro from "../image/cro.jpg"
-import doge from "../image/doge.jpg"
 import CoinAds from './CoinAds';
 import PromotedCoin from './PromotedCoin';
 
@@ -128,14 +122,7 @@ export default function CoinRanking() {
         <NavLink className=' px-3 pb-3 pt-2 text-sm' id='trait'>New Launches</NavLink>
         <NavLink className=' px-3 pb-3 pt-2 text-sm' >New Trending</NavLink>
       </div>
-      <div className='my-5 flex overflow-x-auto'>
-        <div className=' px-2 py-1 rounded-full mr-2 flex min-w-[75px]' id='trait-button'><img src={eth} alt="" width={19} className='py-1 pr-1 whitespace-no-wrap'/>ETH</div> 
-        <div className=' px-2 py-1 rounded-full mr-2 flex min-w-[75px]' id='trait-button'><img src={bnb} alt="" width={19} className='py-1 pr-1 whitespace-no-wrapwhitespace-no-wrap'/>BSC</div> 
-        <div className=' px-2 py-1 rounded-full mr-2 flex min-w-[75px]' id='trait-button'><img src={base} alt="" width={19} className='py-1 pr-1 whitespace-no-wrapwhitespace-no-wrap'/>BASE</div> 
-        <div className=' px-2 py-1 rounded-full mr-2 flex min-w-[75px]' id='trait-button'><img src={sol} alt="" width={19} className='py-1 pr-1 whitespace-no-wrapwhitespace-no-wrap'/>SOL</div> 
-        <div className=' px-2 py-1 rounded-full mr-2 flex min-w-[75px]' id='trait-button'><img src={cro} alt="" width={19} className='py-1 pr-1 whitespace-no-wrapwhitespace-no-wrap'/>CRO</div> 
-        <div className=' px-2 py-1 rounded-full mr-2 flex min-w-[75px]' id='trait-button'><img src={doge} alt="" width={19} className='py-1 pr-1 whitespace-no-wrapwhitespace-no-wrap'/>DOGE</div>
-      </div>
+     
     </div>
 
     <div className='relative flex-1 ml-2 mr-2 lg:ml-64 mt-10 rounded overflow-x-auto' id='outlet'>
