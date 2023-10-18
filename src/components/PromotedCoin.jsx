@@ -190,13 +190,13 @@ export default function PromotedCoin(props) {
                   <div className="flex justify-center">{crypto.quote.USD.percent_change_1h.toFixed(2)}</div>
                   </td> : <td className="px-4 pt-4  whitespace-no-wrap text-right min-w-[80px]"><div className="flex justify-center">0</div></td>
             }
-            {crypto && crypto.percent_change__24h ?
-            crypto.percent_change__24h > 0 ? 
+            {crypto && crypto.quote.USD.percent_change_24h ?
+            crypto.quote.USD.percent_change__24h > 0 ? 
                   <td className="px-4 pt-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
-                  <div className="flex justify-center">{crypto.percent_change__24h.toFixed(2)}</div>
+                  <div className="flex justify-center">{crypto.quote.USD.percent_change_24h.toFixed(2)}</div>
                   </td> : 
                   <td className="px-4 pt-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
-                  <div className="flex justify-center">{crypto.percent_change__24h.toFixed(2)}</div>
+                  <div className="flex justify-center">{crypto.quote.USD.percent_change_24h.toFixed(2)}</div>
                   </td> : <td className="px-4 pt-4 whitespace-no-wrap  text-right min-w-[80px]"><div className="flex justify-center">0</div></td>
             }
             {crypto && crypto.quote.USD.percent_change_7d ?
@@ -209,7 +209,7 @@ export default function PromotedCoin(props) {
                   </td> : <td className="px-4 pt-4 whitespace-no-wrap text-right min-w-[80px]"><div className="flex justify-center">0</div></td>
             }
             <td className="pt-4 whitespace-no-wrap text-white-500  text-right min-w-[100px]" >
-              ${crypto?.quote.USD.price ? crypto.quote.USD.price.toLocaleString() : ""}
+              ${crypto?.quote.USD.price ? crypto.quote.USD.price.toFixed(5) : ""}
             </td>
             <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  min-w-[150px]">
               <div className="flex justify-center">${crypto?.quote.USD.market_cap ? crypto.quote.USD.market_cap.toLocaleString() : null}</div>
