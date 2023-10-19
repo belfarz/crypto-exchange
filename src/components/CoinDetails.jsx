@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom'
 // import Chart from "./Chart"
 import { getCoin } from './api'
 import History from './History'
+import CoinAds from './CoinAds'
 
 
 export function loader({params}) {
@@ -15,8 +16,9 @@ export default function CoinDetails() {
     const coinData = useLoaderData()
     console.log(coinData)
   return (
-    <div className='flex flex-col justify-start items-start lg:ml-64 mt-[100px] w-full  p-2' id='coindetails'> 
-
+    <div className='flex-col overflow-x-auto w-full '>
+       <CoinAds />
+    <div className='flex flex-col justify-start items-start lg:ml-64 mt-[20px] w-full  p-2' id='coindetails'> 
       <div className="flex">
         <div className="flex mr-10">
             <div className=''><img src={coinData?.image.large} alt="" width={100} height={100}/></div>
@@ -37,6 +39,7 @@ export default function CoinDetails() {
 
       <History />
 	
+    </div>
     </div>
   )
 }
