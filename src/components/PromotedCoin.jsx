@@ -154,7 +154,6 @@ export default function PromotedCoin(props) {
       <tbody className="">
         {dataArray.map((crypto,index) => {
 
-          // i want to make an api call for every member of this map function and adding data from the api to this table body
         
         const truncatedName = crypto?.name ? <TruncatedText text={crypto.name} maxLength={8} /> : null;
         const fullName = crypto?.name ? crypto.name : null;
@@ -169,7 +168,7 @@ export default function PromotedCoin(props) {
               {<CiStar style={{ fontSize: '24px' }} />}
             </td>
             <td className=" my-4  min-w-[150px]   whitespace-no-wrap text-white-500 flex sticky left-0 lg:max-w-[250px]"  id='coin-1-row'>
-            <Link to={`coin/${crypto.id}`} className='flex whitespace-no-wrap sticky left-0  lg:max-w-[250px]'>
+            <Link to={`coin/${crypto.slug}`} className='flex whitespace-no-wrap sticky left-0  lg:max-w-[250px]'>
             <img
               src={currentmeta ? currentmeta.logo : ""}
               alt=""
