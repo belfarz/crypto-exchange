@@ -140,6 +140,8 @@ export default function Coin(props) {
       </thead>
       <tbody className="">
         {coin.map((crypto,index) => {
+
+          // i want to make an api call for every member of this map function and adding data from the api to this table body
         
         const truncatedName = crypto?.name ? <TruncatedText text={crypto.name} maxLength={8} /> : null;
         const fullName = crypto?.name ? crypto.name : null;

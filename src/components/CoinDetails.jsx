@@ -1,8 +1,8 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom'
-// import Chart from "./Chart"
+import Chart from "./Chart"
 import { getCoin } from './api'
-import History from './History'
+// import History from './History'
 import CoinAds from './CoinAds'
 
 
@@ -37,8 +37,8 @@ export default function CoinDetails() {
         <p className='text-white text-start' dangerouslySetInnerHTML={{__html : coinData?.description.en}}></p>
       </div>
 
-      <History />
-	
+      {/* <History /> */}
+      <Chart name={coinData?.name}/>
     </div>
     </div>
   )

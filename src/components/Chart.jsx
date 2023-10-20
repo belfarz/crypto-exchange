@@ -32,9 +32,10 @@ export default function Chart({name}) {
           new window.TradingView.widget({
             width: window.innerWidth < 765 ? window.innerWidth-15 : window.innerWidth/2,
             height: 500,
-            symbol: name,
+            symbol: `${name}WETH`,
             timezone: "Etc/UTC",
             theme: "dark",
+            interval: "60",
             style: "1",
             locale: "en",
             enable_publishing: true,
