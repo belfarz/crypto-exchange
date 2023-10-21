@@ -38,7 +38,7 @@ export default function CoinDetails() {
       </div>
 
       {/* <History /> */}
-      <Chart name={coinData?.name}/>
+      <Chart name={coinData?.symbol}/>
     </div>
     </div>
   )

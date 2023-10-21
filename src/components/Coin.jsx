@@ -208,14 +208,14 @@ export default function Coin(props) {
             </td>
               ) :  <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  ">
               <div className="flex justify-end flex-col">
-              pay for promo
+              -
               </div>
               </td>
             }
 
             <td className="  mt-6 whitespace-no-wrap text-white-500 text-right min-w-[100px]">
               <div className="flex justify-end items-center">
-              loading...
+              -
               </div>
             </td>
             
