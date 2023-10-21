@@ -130,7 +130,7 @@ export default function Coin(props) {
           <div className="flex text-18  justify-center">Links</div>
         </th>} */}
           <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[100px]">
-            <div className="flex text-18  justify-end">Address</div>
+            <div className="flex text-18  justify-center">Address</div>
           </th>
           <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[100px]">
             <div className="flex text-18  justify-end">Votes</div>
@@ -214,7 +214,7 @@ export default function Coin(props) {
             }
 
             <td className="  mt-6 whitespace-no-wrap text-white-500 text-right min-w-[100px]">
-              <div className="flex justify-end items-center">
+              <div className="flex justify-center items-center">
               -
               </div>
             </td>
