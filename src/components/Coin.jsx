@@ -3,7 +3,7 @@ import { CiStar } from "react-icons/ci";
 import { PiArrowsDownUpBold } from 'react-icons/pi';
 import testImg from "../image/test.png"
 import { Link} from 'react-router-dom';
-import Links from './Link';
+// import Links from './Link';
 // import { links } from './api';
 // import { useState } from 'react';
 
@@ -25,39 +25,39 @@ export default function Coin(props) {
     };
   }, []);
 
-  const links = [
-    {
-      tg: 'https://t.me/BearAIofficial',
-      x: null,
-      site: 'http://Bearai.org'
-    },
-    {
-      tg: 'https://t.me/blobofficial',
-      x: 'https://twitter.com/BLOBProtocol',
-      site: null
-    },
-    {
-      tg: 'https://t.me/DarkForestERCChat',
-      x: "https://twitter.com/darkforesterc",
-      site: 'null'
-    },
-    {
-      tg: 'https://t.me/RavenFundPortal',
-      x: null,
-      site: null
-    },
-    {
-      tg: null,
-      x: null,
-      site: 'tokendefi-rectification.com'
-    },
-    {
-      tg: 'https://t.me/tradexai',
-      x: null,
-      site: 't.me'
-    }
+  // const links = [
+  //   {
+  //     tg: 'https://t.me/BearAIofficial',
+  //     x: null,
+  //     site: 'http://Bearai.org'
+  //   },
+  //   {
+  //     tg: 'https://t.me/blobofficial',
+  //     x: 'https://twitter.com/BLOBProtocol',
+  //     site: null
+  //   },
+  //   {
+  //     tg: 'https://t.me/DarkForestERCChat',
+  //     x: "https://twitter.com/darkforesterc",
+  //     site: 'null'
+  //   },
+  //   {
+  //     tg: 'https://t.me/RavenFundPortal',
+  //     x: null,
+  //     site: null
+  //   },
+  //   {
+  //     tg: null,
+  //     x: null,
+  //     site: 'tokendefi-rectification.com'
+  //   },
+  //   {
+  //     tg: 'https://t.me/tradexai',
+  //     x: null,
+  //     site: 't.me'
+  //   }
     
-  ]
+  // ]
 
   // const [width, setWidth] = useState(50);
   // const maxWidth = 100; // Set your maximum width here
@@ -122,13 +122,13 @@ export default function Coin(props) {
             </div>
           </th>
          
-          {list === "Promoted Coin" ? (
+          {/* {list === "Promoted Coin" ? (
             <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider ">
             <div className="flex text-18  justify-center">Links</div>
           </th>
           ): <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider ">
           <div className="flex text-18  justify-center">Links</div>
-        </th>}
+        </th>} */}
           <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[100px]">
             <div className="flex text-18  justify-end">Address</div>
           </th>
@@ -200,17 +200,17 @@ export default function Coin(props) {
             </td>
             
             {
-              list === "Promoted Coin" ? (
-                <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  ">
-            <div className="flex justify-end flex-col">
-            <Links getLinks={links[index]} />
-            </div>
-            </td>
-              ) :  <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  ">
-              <div className="flex justify-end flex-col">
-              -
-              </div>
-              </td>
+            //   list === "Promoted Coin" ? (
+            //     <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  ">
+            // <div className="flex justify-end flex-col">
+            // <Links getLinks={links[index]} />
+            // </div>
+            // </td>
+            //   ) :  <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  ">
+            //   <div className="flex justify-end flex-col">
+            //   -
+            //   </div>
+            //   </td>
             }
 
             <td className="  mt-6 whitespace-no-wrap text-white-500 text-right min-w-[100px]">
