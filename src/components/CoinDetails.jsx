@@ -36,7 +36,7 @@ export default function CoinDetails() {
         </div>
       </div>
 
-      <div>
+      <div className='mb-4'>
         <p className='text-white text-start' dangerouslySetInnerHTML={{__html : coinData?.description.en}}></p>
       </div>
 
