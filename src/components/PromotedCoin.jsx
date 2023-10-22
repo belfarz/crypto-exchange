@@ -184,8 +184,8 @@ export default function PromotedCoin(props) {
               alt=""
               className="coin_image p-2"
             />
-              <div className='flex flex-col'>
-                <p>{crypto?.symbol ? crypto.symbol : null }</p>
+              <div className='flex flex-col justify-around'>
+                <p className='text-xs'>{crypto?.symbol ? crypto.symbol : null }</p>
                 <p>{windowWidth <= 768 ? truncatedName : fullName}</p> 
               </div>
               </Link> 
