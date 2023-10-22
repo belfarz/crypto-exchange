@@ -15,7 +15,7 @@ export default function CoinRanking() {
 
     const [metadata, setMetadata] = useState({})
     const [idsString, setIdsString] = useState('');
-    const [promString, setPromString] = useState([])
+    const [promString, setPromString] = useState("");
     const [verifyPromoted, setVerifyPromoted] = useState([])
     const payedUrl = promString && `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?slug=${promString}`
     const promUrl = idsString ? `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en` : null;
@@ -25,20 +25,23 @@ export default function CoinRanking() {
 
     useEffect(()=>{
           axios.get("https://kojocalls.onrender.com/api/payedpromotion").then((response)=>{
-                
+                console.log("1")
             console.log(response.data)
-            const String = response.data.map(item => item.coinId).join(',');
-            setPromString(String)
+            const idCollect = response.data.map(item => item.coinId).join(',');
+            console.log(idCollect)
+            setPromString(idCollect)
             console.log("Promoted IDs:", String);
             console.log(response.data)
           }).catch((Error)=>{
             console.log(Error)
           })  
 
+     
         axios.get("https://kojocalls.onrender.com/api/promoted").then((response)=>{
           
           const String = response.data.map(item => item.coinId).join('%2C');
           setIdsString(String)
+          console.log("3")
            console.log("Promoted IDs:", String);
           console.log(response.data)
         }).catch((Error)=>{
@@ -46,10 +49,10 @@ export default function CoinRanking() {
         })
 
         
-    },[])
+    },  [])
 
     useEffect(()=>{
-      console.log(promString)
+      // console.log(promString)
 
       const fetchCoinData = async () => {
         try {
@@ -58,7 +61,7 @@ export default function CoinRanking() {
           });
     
           setCoinData(response.data.data);
-          console.log(response.data.data)
+          console.log(response)
         } catch (error) {
           console.error(error);
         }
@@ -69,7 +72,7 @@ export default function CoinRanking() {
           });
     
           setMetadata(response.data.data);
-          console.log(response.data.data)
+          console.log(response)
         } catch (error) {
           console.error(error);
         }
@@ -112,7 +115,7 @@ export default function CoinRanking() {
     <CoinAds />      
 
     <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto pt-4 mb-20 mt-4' id='outlet'>
-      <PromotedCoin  coin={coinData} list="Promoted Coin" meta={metadata} />
+      <PromotedCoin  coin={coinData} list="Promoted Coin" meta={metadata} idList={promString.split(',')} />
       {/* <Coin  coin={payedPromotion} list="Promoted Coin" /> */}
     </div>
 

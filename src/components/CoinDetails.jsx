@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData,useLocation } from 'react-router-dom'
 import Chart from "./Chart"
 import { getCoin } from './api'
 // import History from './History'
@@ -12,6 +12,9 @@ export function loader({params}) {
 }
 
 export default function CoinDetails() {
+
+  const location = useLocation()
+  const type = location.state.type
 
     const coinData = useLoaderData()
     console.log(coinData)
@@ -38,7 +41,7 @@ export default function CoinDetails() {
       </div>
 
       {/* <History /> */}
-      <Chart name={coinData?.symbol}/>
+      <Chart name={coinData?.symbol} type={type ? type : ""}/>
     </div>
     </div>
   )

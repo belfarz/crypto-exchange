@@ -153,7 +153,11 @@ export default function Coin(props) {
               {<CiStar style={{ fontSize: '24px' }} />}
             </td>
             <td className=" my-4  min-w-[150px]   whitespace-no-wrap text-white-500 flex sticky left-0 lg:max-w-[250px]"  id='coin-1-row'>
-            <Link to={`coin/${crypto.id}`} className='flex whitespace-no-wrap sticky left-0  lg:max-w-[250px]'>
+            <Link 
+              to={`coin/${crypto.id}`} 
+              className='flex whitespace-no-wrap sticky left-0  lg:max-w-[250px]'
+              state={{type : "normal"}}
+            >
             <img
               src={crypto && crypto.image ? crypto.image : testImg}
               alt=""

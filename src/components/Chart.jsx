@@ -4,9 +4,9 @@ import React, { useEffect, useRef } from 'react';
 
 let tvScriptLoadingPromise;
 
-export default function Chart({name}) {
+export default function Chart({ name,type }) {
   const onLoadScriptRef = useRef();
-
+  const base = type === "promoted" ? "WETH" : "USD"
   useEffect(
     () => {
       onLoadScriptRef.current = createWidget;
@@ -32,7 +32,7 @@ export default function Chart({name}) {
           new window.TradingView.widget({
             width: window.innerWidth < 765 ? window.innerWidth-15 : window.innerWidth/2,
             height: 500,
-            symbol: `${name}WETH`,
+            symbol: `${name}${base}`,
             timezone: "Etc/UTC",
             theme: "dark",
             interval: "60",
@@ -48,7 +48,7 @@ export default function Chart({name}) {
         }
       }
     },
-    [name]
+    [name,base]
   );
 
   return (
