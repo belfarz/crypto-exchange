@@ -15,23 +15,26 @@ import axios from 'axios'
 
 export default function Layout() {
 
-  const [scrollData, setScrollData]= useState([])
+  const [scrollData, setScrollData] = useState([])
+  const [metaData, setMetaData] = useState([])
 
   useEffect(()=>{
     async function getData() {
       try {
-          const responsePromoted = await axios.get("https://kojocalls.onrender.com/api/promoted");
-          const idsString = responsePromoted.data.map(item => item.coinId).join('%2C');
+          const responsePromoted = await axios.get("https://kojocalls.onrender.com/api/payedpromotion");
+          const idsString = responsePromoted.data.map(item => item.coinId).join(',');
   
           console.log("Promoted IDs:", idsString);
   
-          const promUrl = idsString
-              ? `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${idsString}&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en`
-              : null;
-  
-          const responseVerifyPromoted = await axios.get(promUrl);
-          const verifyPromoted = responseVerifyPromoted.data;
-          setScrollData(verifyPromoted)
+          const coindata = await axios.post('https://kojocalls.onrender.com/api/coinmarketcap', {
+            coinIds: idsString, // Array of coin slugs
+          });
+
+          const metadata = await axios.post('https://kojocalls.onrender.com/api/metadata', {
+            coinIds: idsString, // Array of coin slugs
+          });
+          setScrollData(coindata.data.data)
+          setMetaData(metadata.data.data)
       } catch (error) {
           console.error(error);
       }
@@ -90,7 +93,7 @@ export default function Layout() {
     </div> 
 
     {/* <Sticker />  */}
-    <div className="lg:ml-64 mt-16"><Scroll data={scrollData}/></div>
+    <div className="lg:ml-64 mt-16"><Scroll data={scrollData} metadata={metaData}/></div>
 
     <div className='flex '>
           <Navbar toggle={Openbar} />
