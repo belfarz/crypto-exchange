@@ -1,5 +1,6 @@
-import React from 'react'
-import { useLoaderData,useLocation } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { useLoaderData,useLocation, useParams } from 'react-router-dom'
 import Chart from "./Chart"
 import { getCoin } from './api'
 // import History from './History'
@@ -15,9 +16,28 @@ export default function CoinDetails() {
 
   const location = useLocation()
   const type = location.state.type
+  const params = useParams()
+
+  const [data, setData] = useState({})
+
+  useEffect(()=>{
+    const fetchData = async () =>{
+      try {
+        const response = await axios.post('https://kojocalls.onrender.com/api/metadata', {
+          coinIds: params.id, // Array of coin slugs
+        });
+  
+        setData(response.data.data);
+        console.log(response)
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchData();
+  },[params.id])
 
     const coinData = useLoaderData()
-    console.log(coinData)
+    console.log(data)
   return (
     <div className='flex-col overflow-x-auto w-full '>
        <CoinAds />

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Scroll({ data, metadata }) {
 
@@ -11,6 +12,10 @@ export default function Scroll({ data, metadata }) {
       <div class="logos-slide ">
       { dataArray ? 
         dataArray.map((item, index) => (
+          <Link 
+              to={`coin/${item.slug}`} 
+              state={{type : "promoted"}}
+          >
             <div className='text-white flex justify-center items-center' key={index}>
                 #{index + 1}
                 <img src={metaData[index].logo} alt="" width={19} className='py-1 pr-1 inline-block m-2'/>
@@ -26,7 +31,7 @@ export default function Scroll({ data, metadata }) {
                     <span className='text-gray-500 mx-2'>N/A</span>
                   )
                }
-            </div>
+            </div></Link>
         )) : null
     }
         </div>
@@ -34,6 +39,10 @@ export default function Scroll({ data, metadata }) {
       <div class="logos-slide">
       { dataArray ? 
         dataArray.map((item, index) => (
+          <Link 
+              to={`coin/${item.slug}`} 
+              state={{type : "promoted"}}
+          >
             <div className='text-white flex justify-center items-center' key={index}>
                   #{index + 1}
                 <img src={metaData[index].logo} alt="" width={19} className='py-1 pr-1 inline-block m-2'/>
@@ -49,7 +58,7 @@ export default function Scroll({ data, metadata }) {
                     <span className='text-gray-500 mx-2'>N/A</span>
                   )
                }
-            </div>
+            </div></Link>
         )) : null
     }
         </div>
