@@ -5,8 +5,7 @@ export default function Scroll({ data, metadata }) {
 
   const dataArray = data && Object.values(data)
   const metaData = metadata && Object.values(metadata)
-  console.log("this is the scroll data",dataArray)
-  console.log("this is the scroll metdata",metaData)
+  
   return (
     <div class="logos flex">
       <div class="logos-slide ">
