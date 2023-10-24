@@ -171,7 +171,9 @@ export default function PromotedCoin(props) {
           <tr key={crypto?.market_cap_rank ? crypto.market_cap_rank : "-"} className=''>
           {/* <Link to={`coin/${crypto.id}`} className='flex'></Link> */}
             <td className="pr-2 pt-2 whitespace-no-wrap  w-[30px]">
+              <div className="flex justify-center items-center">
               {<CiStar style={{ fontSize: '24px' }} />}
+              </div>
             </td>
             <td className=" my-4  min-w-[150px]   whitespace-no-wrap text-white-500 flex sticky left-0 lg:max-w-[250px]"  id='coin-1-row'>
             <Link 
