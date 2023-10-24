@@ -1,17 +1,36 @@
-import React from 'react'
-import { getData } from '../components/api'
-import { useLoaderData } from 'react-router-dom'
-import Coin from '../components/Coin'
+import React,{useEffect, useState} from 'react'
 import CoinAds from '../components/CoinAds'
-
-export function loader() {
-
-  return  getData()
-           
-}
+import axios from 'axios'
+import PromotedCoin from '../components/PromotedCoin'
 
 export default function Scan() {
-  const data = useLoaderData()
+  const [Data, setData] = useState([])
+  const [metaData, setMetaData] = useState([])
+
+  useEffect(()=>{
+    async function getData() {
+      try {
+          const responsePromoted = await axios.get("https://kojocalls.onrender.com/api/payedpromotion");
+          const idsString = responsePromoted.data.map(item => item.coinId).join(',');
+  
+          console.log("Promoted IDs:", idsString);
+  
+          const coindata = await axios.post('https://kojocalls.onrender.com/api/coinmarketcap', {
+            coinIds: idsString, // Array of coin slugs
+          });
+
+          const metadata = await axios.post('https://kojocalls.onrender.com/api/metadata', {
+            coinIds: idsString, // Array of coin slugs
+          });
+          setData(coindata.data.data)
+          setMetaData(metadata.data.data)
+      } catch (error) {
+          console.error(error);
+      }
+  }
+  getData()  
+  },[])
+
   return (
     <div className='flex flex-col overflow-x-auto'> <CoinAds />
     <div className=' pt-20 h-full relative flex-1 lg:ml-64  overflow-x-auto' id='scan_container'>
@@ -35,7 +54,7 @@ export default function Scan() {
       </div>
 
       <div className='relative flex-1 ml-2  overflow-x-auto mt-20' id='outlet'>
-      {data ? <Coin  coin={data} list="Promoted Coin"/> : null}
+      {Data ? <PromotedCoin  coin={Data} list="Promoted Coin" meta={metaData} /> : null}
     </div>
     </div>
     </div>

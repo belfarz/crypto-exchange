@@ -25,7 +25,6 @@ export default function CoinRanking() {
 
     useEffect(()=>{
           axios.get("https://kojocalls.onrender.com/api/payedpromotion").then((response)=>{
-                console.log("1")
             console.log(response.data)
             const idCollect = response.data.map(item => item.coinId).join(',');
             console.log(idCollect)
@@ -41,7 +40,6 @@ export default function CoinRanking() {
           
           const String = response.data.map(item => item.coinId).join('%2C');
           setIdsString(String)
-          console.log("3")
            console.log("Promoted IDs:", String);
           console.log(response.data)
         }).catch((Error)=>{
@@ -115,7 +113,7 @@ export default function CoinRanking() {
     <CoinAds />      
 
     <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto pt-4 mb-20 mt-4' id='outlet'>
-      <PromotedCoin  coin={coinData} list="Promoted Coin" meta={metadata} idList={promString.split(',')} />
+      <PromotedCoin  coin={coinData} list="Promoted Coin" meta={metadata} />
       {/* <Coin  coin={payedPromotion} list="Promoted Coin" /> */}
     </div>
 

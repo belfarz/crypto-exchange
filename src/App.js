@@ -2,8 +2,8 @@ import './App.css';
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import Layout from './components/Layout';
 import CoinRanking from './components/CoinRanking';
-import MoonSheet,{loader as MoonCoinRankingLoader} from './pages/MoonSheet';
-import Scan,{loader as CoinRankingLoader} from './pages/Scan';
+import MoonSheet from './pages/MoonSheet';
+import Scan from './pages/Scan';
 import AddCoin from './pages/AddCoin';
 import Promote from './pages/Promote';
 import CoinAdd,{action as coinAction} from './pages/CoinAdd';
@@ -23,8 +23,8 @@ function App() {
     <Route path='/' element={<Layout />}  >
       <Route index element={<CoinRanking />}/> 
       <Route path='coin/:id' element={<CoinDetails />} loader={CoinDetailsLoader}/>
-      <Route path='moonsheet' element={<MoonSheet />} loader={MoonCoinRankingLoader} />
-      <Route path='scan' element={<Scan />} loader={CoinRankingLoader} />
+      <Route path='moonsheet' element={<MoonSheet />}  />
+      <Route path='scan' element={<Scan />} />
       <Route path='addcoin' element={<AddCoin />} >
         <Route 
           index 

@@ -1,25 +1,46 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import MsSearch from "../components/MsSearch";
 import { FiArrowDownCircle } from "react-icons/fi"
 import axios from "axios";
-import { getData } from '../components/api'
-import { useLoaderData } from 'react-router-dom'
-import Coin from '../components/Coin'
+import PromotedCoin from "../components/PromotedCoin";
 import CoinAds from "../components/CoinAds";
 
-export function loader() {
 
-  return getData()
-  
-}
 
 export default function MoonSheet() {
 
-  const data = useLoaderData()
+ 
   const [totalSupply, setTotalSupply] = useState(''); 
   const [secondMarketCap, setSecondMarketCap] = useState("")
   const [price, setPrice] = useState("")
   const [image, setImage] = useState("")
+  const [Data, setData] = useState([])
+  const [metaData, setMetaData] = useState([])
+
+  useEffect(()=>{
+    async function getData() {
+      try {
+          const responsePromoted = await axios.get("https://kojocalls.onrender.com/api/payedpromotion");
+          const idsString = responsePromoted.data.map(item => item.coinId).join(',');
+  
+          console.log("Promoted IDs:", idsString);
+  
+          const coindata = await axios.post('https://kojocalls.onrender.com/api/coinmarketcap', {
+            coinIds: idsString, // Array of coin slugs
+          });
+
+          const metadata = await axios.post('https://kojocalls.onrender.com/api/metadata', {
+            coinIds: idsString, // Array of coin slugs
+          });
+          setData(coindata.data.data)
+          setMetaData(metadata.data.data)
+      } catch (error) {
+          console.error(error);
+      }
+  }
+  getData()  
+  },[])
+
   
   function Coin_one(coinId) {
     const url = `https://api.coingecko.com/api/v3/coins/${coinId}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false`
@@ -77,7 +98,7 @@ export default function MoonSheet() {
     } 
 
     <div className='relative flex-1 ml-2  overflow-x-auto mt-2' id='outlet'>
-    {data ? <Coin  coin={data} list="Promoted Coin"/> : null}
+    {Data ? <PromotedCoin  coin={Data} list="Promoted Coin" meta={metaData} /> : null}
     </div>
 
     </div>

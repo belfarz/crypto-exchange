@@ -377,7 +377,7 @@ input[type="submit"]{
 
 .logos-slide {
   display: flex;
-  animation: 35s slide infinite linear;
+  animation: 10s slide infinite linear;
 }
 
 .logos-slide div {

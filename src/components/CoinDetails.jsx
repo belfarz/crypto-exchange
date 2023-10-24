@@ -37,7 +37,7 @@ export default function CoinDetails() {
   },[params.id])
 
     const coinData = useLoaderData()
-    console.log(data)
+    console.log(Object.values(data)) 
   return (
     <div className='flex-col overflow-x-auto w-full '>
        <CoinAds />
