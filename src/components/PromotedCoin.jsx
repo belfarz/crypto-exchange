@@ -9,7 +9,7 @@ import Copy from './Copy';
 
 export default function PromotedCoin(props) {
 
-    const { coin, list, meta, idList } = props;
+    const { coin, list, meta } = props;
 
 
     
@@ -40,7 +40,6 @@ export default function PromotedCoin(props) {
 
   console.log("This is the portion with metaarray: ", metadata)
   console.log("This is the portiom with the data array: ", dataArray)
-  console.log(idList)
 
 
   // const links = [
@@ -111,17 +110,17 @@ export default function PromotedCoin(props) {
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
-          <th className="  text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[80px] ">
+          <th className="  text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[65px] ">
             <div className="flex justify-center text-18 ">
             1H
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
-          <th className="  text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[80px] ">
+          <th className="  text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[65px] ">
            <div className="flex  justify-center text-18"> 24H
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}</div>
           </th>
-          <th className="  text-xs leading-4 font-bold text-white-500  uppercase tracking-wider min-w-[80px] ">
+          <th className="  text-xs leading-4 font-bold text-white-500  uppercase tracking-wider min-w-[65px] ">
             <div className="flex justify-center text-18 ">
             7d
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
@@ -194,30 +193,30 @@ export default function PromotedCoin(props) {
             </td>
             {crypto && crypto.quote.USD.percent_change_1h ?
             crypto.quote.USD.percent_change_1h > 0 ? 
-                  <td className="px-4 pt-4  whitespace-no-wrap text-green-500 text-right min-w-[80px]">
+                  <td className="px-2 lg:px-4 pt-4  whitespace-no-wrap text-green-500 text-right min-w-[65px]">
                   <div className="flex justify-center">{crypto.quote.USD.percent_change_1h.toFixed(2)}</div>
                   </td> : 
-                  <td className="px-4 pt-4  whitespace-no-wrap text-red-500 text-right min-w-[80px]">
+                  <td className="px-2 lg:px-4 pt-4  whitespace-no-wrap text-red-500 text-right min-w-[65px]">
                   <div className="flex justify-center">{crypto.quote.USD.percent_change_1h.toFixed(2)}</div>
-                  </td> : <td className="px-4 pt-4  whitespace-no-wrap text-right min-w-[80px]"><div className="flex justify-center">0</div></td>
+                  </td> : <td className="px-2 lg:px-4 pt-4  whitespace-no-wrap text-right min-w-[65px]"><div className="flex justify-center">0</div></td>
             }
             {crypto && crypto.quote.USD.percent_change_24h ?
             crypto.quote.USD.percent_change__24h > 0 ? 
-                  <td className="px-4 pt-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
+                  <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap text-green-500 text-right min-w-[65px]">
                   <div className="flex justify-center">{crypto.quote.USD.percent_change_24h.toFixed(2)}</div>
                   </td> : 
-                  <td className="px-4 pt-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
+                  <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap text-red-500 text-right min-w-[65px]">
                   <div className="flex justify-center">{crypto.quote.USD.percent_change_24h.toFixed(2)}</div>
-                  </td> : <td className="px-4 pt-4 whitespace-no-wrap  text-right min-w-[80px]"><div className="flex justify-center">0</div></td>
+                  </td> : <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap  text-right min-w-[65px]"><div className="flex justify-center">0</div></td>
             }
             {crypto && crypto.quote.USD.percent_change_7d ?
             crypto.quote.USD.percent_change_7d > 0 ? 
-                  <td className="px-4 pt-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
+                  <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap text-green-500 text-right min-w-[65px]">
                   <div className="flex justify-center">{crypto.quote.USD.percent_change_7d.toFixed(2)}</div>
                   </td> : 
-                  <td className="px-4 pt-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
+                  <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap text-red-500 text-right min-w-[65px]">
                   <div className="flex justify-center">{crypto.quote.USD.percent_change_7d.toFixed(2)}</div>
-                  </td> : <td className="px-4 pt-4 whitespace-no-wrap text-right min-w-[80px]"><div className="flex justify-center">0</div></td>
+                  </td> : <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap text-right min-w-[65px]"><div className="flex justify-center">0</div></td>
             }
             <td className="pt-4 whitespace-no-wrap text-white-500  text-right min-w-[100px]" >
               ${crypto?.quote.USD.price ? crypto.quote.USD.price.toFixed(5) : ""}

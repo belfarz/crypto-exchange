@@ -53,7 +53,7 @@ export default function Scan() {
         </div>
       </div>
 
-      <div className='relative flex-1 ml-2  overflow-x-auto mt-20' id='outlet'>
+      <div className='relative flex-1 ml-2  overflow-x-auto mt-6' id='outlet'>
       {Data ? <PromotedCoin  coin={Data} list="Promoted Coin" meta={metaData} /> : null}
     </div>
     </div>
