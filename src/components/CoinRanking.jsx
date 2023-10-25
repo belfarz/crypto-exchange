@@ -25,33 +25,22 @@ export default function CoinRanking() {
 
     useEffect(()=>{
           axios.get("https://kojocalls.onrender.com/api/payedpromotion").then((response)=>{
-            console.log(response.data)
             const idCollect = response.data.map(item => item.coinId).join(',');
-            console.log(idCollect)
             setPromString(idCollect)
-            console.log("Promoted IDs:", String);
-            console.log(response.data)
           }).catch((Error)=>{
             console.log(Error)
           })  
 
      
         axios.get("https://kojocalls.onrender.com/api/promoted").then((response)=>{
-          
           const String = response.data.map(item => item.coinId).join('%2C');
           setIdsString(String)
-           console.log("Promoted IDs:", String);
-          console.log(response.data)
         }).catch((Error)=>{
           console.log(Error)
         })
-
-        
     },  [])
 
     useEffect(()=>{
-      // console.log(promString)
-
       const fetchCoinData = async () => {
         try {
           const response = await axios.post('https://kojocalls.onrender.com/api/coinmarketcap', {
@@ -59,7 +48,6 @@ export default function CoinRanking() {
           });
     
           setCoinData(response.data.data);
-          console.log(response)
         } catch (error) {
           console.error(error);
         }
@@ -68,9 +56,7 @@ export default function CoinRanking() {
           const response = await axios.post('https://kojocalls.onrender.com/api/metadata', {
             coinIds: promString, // Array of coin slugs
           });
-    
           setMetadata(response.data.data);
-          console.log(response)
         } catch (error) {
           console.error(error);
         }
@@ -83,7 +69,6 @@ export default function CoinRanking() {
 
       axios.get(promUrl).then((response)=>{
         setVerifyPromoted(response.data)
-        console.log("verify promo"+response.data)
         
     }).catch((Error)=>{
         console.log(Error)
@@ -97,7 +82,6 @@ export default function CoinRanking() {
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = verifyPromoted.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(verifyPromoted.length / itemsPerPage);
-  console.log(coinData)
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {

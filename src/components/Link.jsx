@@ -9,7 +9,6 @@ import {BsGlobe2} from "react-icons/bs"
 
 export default function Link({getLinks}) {
     const [isOpen, setIsOpen] = useState(false)
- console.log(getLinks)
     
   return (
     <div className='relative'>

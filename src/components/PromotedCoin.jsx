@@ -4,15 +4,9 @@ import { PiArrowsDownUpBold } from 'react-icons/pi';
 import { Link} from 'react-router-dom';
 import Links from './Link';
 import Copy from './Copy';
-// import { links } from './api';
-// import { useState } from 'react';
-
 export default function PromotedCoin(props) {
 
     const { coin, list, meta } = props;
-
-
-    
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -29,58 +23,8 @@ export default function PromotedCoin(props) {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
-
-
-
   const dataArray = coin && Object.values(coin)
   const metadata = meta && Object.values(meta)
-
-
-
-  console.log("This is the portion with metaarray: ", metadata)
-  console.log("This is the portiom with the data array: ", dataArray)
-
-
-  // const links = [
-  //   {
-  //     tg: 'https://t.me/BearAIofficial',
-  //     x: null,
-  //     site: 'http://Bearai.org'
-  //   },
-  //   {
-  //     tg: 'https://t.me/blobofficial',
-  //     x: 'https://twitter.com/BLOBProtocol',
-  //     site: null
-  //   },
-  //   {
-  //     tg: 'https://t.me/DarkForestERCChat',
-  //     x: "https://twitter.com/darkforesterc",
-  //     site: 'null'
-  //   },
-  //   {
-  //     tg: 'https://t.me/RavenFundPortal',
-  //     x: null,
-  //     site: null
-  //   },
-  //   {
-  //     tg: null,
-  //     x: null,
-  //     site: 'tokendefi-rectification.com'
-  //   },
-  //   {
-  //     tg: 'https://t.me/tradexai',
-  //     x: null,
-  //     site: 't.me'
-  //   }
-    
-  // ]
-
-  // const [width, setWidth] = useState(50);
-  // const maxWidth = 100; // Set your maximum width here
-  // const [link, setLink] = useState(null)
-
- 
 
   const TruncatedText = ({ text, maxLength }) => {
     const truncatedText = text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
