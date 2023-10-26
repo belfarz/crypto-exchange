@@ -41,7 +41,7 @@ export default function CoinDetails() {
   },[params.id])
 
   const TruncatedText = ({ text, maxLength }) => {
-    const truncatedText = text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+    const truncatedText = text?.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
   
     return (
       <span className="truncate">
@@ -53,7 +53,7 @@ export default function CoinDetails() {
   const dataArray = data && Object.values(data)
   const metadata = meta && Object.values(meta)
 
-  const truncatedAddress = metadata[0] ? <TruncatedText text={metadata[0].contract_address[0].contract_address} maxLength={14} /> : null;
+  const truncatedAddress = metadata[0] ? <TruncatedText text={metadata[0]?.contract_address[0]?.contract_address || null } maxLength={14} /> : null;
   return (
     <div className='flex-col overflow-x-auto w-full '>
        <CoinAds />
@@ -72,7 +72,7 @@ export default function CoinDetails() {
         </div>
         <div className="flex flex-col justify-center">
             <span className='text-gray-400 text-lg'>Address</span>
-            <span className='text-white text-2xl flex '>{truncatedAddress} <Copy text={metadata[0] ? metadata[0].contract_address[0].contract_address : null} /></span>
+            <span className='text-white text-2xl flex '>{truncatedAddress} <span>{ metadata[0]?.contract_address[0]?.contract_address ? <Copy text={metadata[0]?.contract_address[0]?.contract_address || null} /> : null }</span> </span>
         </div>
       </div>
 
