@@ -5,6 +5,10 @@ import bronze from "../image/bronze-badge.jpg"
 import silver from "../image/silver-badge.jpg"
 import gold from "../image/gold-badge.jpg"
 import diamond from "../image/diamond-badge.jpg"
+import {BiMessageRounded} from "react-icons/bi"
+import {BsFillSendFill  } from "react-icons/bs"
+import {BiMessageDetail } from "react-icons/bi"
+import {BsArrowUpRight} from "react-icons/bs"
 
 
 import MyModal from '../components/MyModal'
@@ -24,7 +28,23 @@ export default function Promote() {
     
   return (
     <div className='mt-24 relative flex-1 ml-2 lg:ml-64 overflow-x-auto'>
-    <h1 className="ppp">Promote Packages Prices</h1>
+      
+    <h1 className="ppp text-3xl lg:text-4xl">Promote Packages Prices</h1>
+
+    <div className="flex flex-col lg:flex-row justify-center items-center">
+    
+    <a className='obh flex m-2 justify-center items-center' href='https://t.me/kojojk'>
+      <BsFillSendFill size={25} className='m-1 p-1 bg-purple-800 rounded-full' /> Enter ChatGroup <BsArrowUpRight size={25} className='m-1 p-1 ' />
+    </a>
+    <a className='obh flex m-2 justify-center items-center' href='https://t.me/Aiden1A'>
+      <BiMessageDetail size={25} className='m-1 p-1 bg-purple-800 rounded-full' />Contact Aiden <BsArrowUpRight  size={25} className='m-1 p-1 '/>
+    </a>
+    <a className='obh flex m-2 justify-center items-center' href='https://t.me/KOJOCAllS'>
+      <BiMessageRounded size={25} className='m-1 p-1 bg-purple-800 rounded-full' /> Join KojoCalls Channel <BsArrowUpRight size={25} className='m-1 p-1 ' />
+    </a>
+    </div>
+      
+
     <div className="flex flex-wrap justify-center">
 
         <div className="col-4 md:w-1/2 lg:w-1/2 xl:w-1/4 mb-4 p-2 ">

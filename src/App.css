@@ -119,8 +119,11 @@ body{
   }
 
   .ppp{
+
       text-align: center;
       color: white;
+      
+
   }
 
 
@@ -306,6 +309,11 @@ h2{
     font-size: 150%;
  
     
+}
+.obh{
+  color: white;
+  text-decoration: none;
+  text-align: center;
 }
 .p1n,.p1s{
     color: red;

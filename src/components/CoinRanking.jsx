@@ -12,13 +12,13 @@ import PromotedCoin from './PromotedCoin';
 
 export default function CoinRanking() {
 
-
+    const first = "bitcoin%2Cethereum%2Cbinancecoin%2Cripple%2Cusd-coin%2Cstaked-ether%2Csolana%2Ccardano%2Cdogecoin%2C"
     const [metadata, setMetadata] = useState({})
     const [idsString, setIdsString] = useState('');
     const [promString, setPromString] = useState("");
     const [verifyPromoted, setVerifyPromoted] = useState([])
     const payedUrl = promString && `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?slug=${promString}`
-    const promUrl = idsString ? `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en` : null;
+    const promUrl = idsString ? `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${first+idsString}&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en` : null;
     const [coinData, setCoinData] = useState([]);
   
     
@@ -33,14 +33,19 @@ export default function CoinRanking() {
 
      
         axios.get("https://kojocalls.onrender.com/api/promoted").then((response)=>{
-          const String = response.data.map(item => item.coinId).join('%2C');
-          setIdsString(String)
+          
+          const idString = response.data.map(item => item.coinId).join('%2C');
+          setIdsString(idString)
         }).catch((Error)=>{
           console.log(Error)
         })
+
+        
     },  [])
 
     useEffect(()=>{
+      // console.log(promString)
+
       const fetchCoinData = async () => {
         try {
           const response = await axios.post('https://kojocalls.onrender.com/api/coinmarketcap', {
@@ -48,6 +53,7 @@ export default function CoinRanking() {
           });
     
           setCoinData(response.data.data);
+          console.log(response)
         } catch (error) {
           console.error(error);
         }
@@ -56,7 +62,9 @@ export default function CoinRanking() {
           const response = await axios.post('https://kojocalls.onrender.com/api/metadata', {
             coinIds: promString, // Array of coin slugs
           });
+    
           setMetadata(response.data.data);
+          console.log(response)
         } catch (error) {
           console.error(error);
         }
@@ -69,6 +77,7 @@ export default function CoinRanking() {
 
       axios.get(promUrl).then((response)=>{
         setVerifyPromoted(response.data)
+        console.log("verify promo"+response.data)
         
     }).catch((Error)=>{
         console.log(Error)
@@ -96,21 +105,19 @@ export default function CoinRanking() {
 
     <CoinAds />      
 
-    <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto pt-4 mb-20 mt-4' id='outlet'>
-      <PromotedCoin  coin={coinData} list="Promoted Coin" meta={metadata} />
+    <div className='relative flex-1 ml-2 lg:ml-64  overflow-x-auto pt-4 mb-8 mt-4' id='outlet'>
+      <PromotedCoin  coin={coinData} list="Promoted Coin" meta={metadata} idList={promString.split(',')} />
       {/* <Coin  coin={payedPromotion} list="Promoted Coin" /> */}
     </div>
 
     <div className='lg:ml-64 text-gray-400'>
-      <div className='overflow-x-auto pt-6'>
-        <NavLink className=' px-3 pb-3 pt-2 text-sm' id='trait'>New Listing</NavLink>
-        <NavLink className=' px-3 pb-3 pt-2 text-sm' id='trait'>New Launches</NavLink>
-        <NavLink className=' px-3 pb-3 pt-2 text-sm' >New Trending</NavLink>
+      <div className=''>
+        <NavLink className=' px-3 pt-2 text-sm font-bold' >New Listing</NavLink>
       </div>
      
     </div>
 
-    <div className='relative flex-1 ml-2 mr-2 lg:ml-64 mt-10 rounded overflow-x-auto' id='outlet'>
+    <div className='relative flex-1 ml-2 mr-2 lg:ml-64 mt-6 rounded overflow-x-auto' id='outlet'>
       <Coin  coin={currentItems} list="Coin"/>
     </div>
 

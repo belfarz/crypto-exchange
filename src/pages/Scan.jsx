@@ -33,7 +33,7 @@ export default function Scan() {
 
   return (
     <div className='flex flex-col overflow-x-auto'> <CoinAds />
-    <div className=' pt-20 h-full relative flex-1 lg:ml-64  overflow-x-auto' id='scan_container'>
+    <div className=' pt-6 h-full relative flex-1 lg:ml-64  overflow-x-auto' id='scan_container'>
 
       <div className="flex flex-col md:flex-row">
         <div className="flex ">
