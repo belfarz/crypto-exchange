@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import fixedImg from "../image/fixed.jpg"
 import testImg from "../image/test.jpg"
-import bronze from "../image/bronze-badge.jpg"
-import silver from "../image/silver-badge.jpg"
-import gold from "../image/gold-badge.jpg"
-import diamond from "../image/diamond-badge.jpg"
+// import bronze from "../image/bronze-badge.jpg"
+// import silver from "../image/silver-badge.jpg"
+// import gold from "../image/gold-badge.jpg"
+// import diamond from "../image/diamond-badge.jpg"
 import {BiMessageRounded} from "react-icons/bi"
 import {BsFillSendFill  } from "react-icons/bs"
 import {BiMessageDetail } from "react-icons/bi"
@@ -12,17 +12,17 @@ import {BsArrowUpRight} from "react-icons/bs"
 
 
 import MyModal from '../components/MyModal'
-import { NavLink, Outlet } from 'react-router-dom'
+// import { NavLink, Outlet } from 'react-router-dom'
 
 export default function Promote() {
 
     
-      const IsActive = {
-        fontWeight: "bold",
-        background: 'rgba(20, 21, 23, 0.8)',
-        border: "none",
-        borderRadius: "4px",
-    }
+    //   const IsActive = {
+    //     fontWeight: "bold",
+    //     background: 'rgba(20, 21, 23, 0.8)',
+    //     border: "none",
+    //     borderRadius: "4px",
+    // }
     const [showMyModal, setShowMyModal] = useState(false)
     const handleOnClose =()=> setShowMyModal(false)
     
@@ -80,7 +80,7 @@ export default function Promote() {
 
 
       
-        <div className="col-4 md:w-1/2 lg:w-1/2 xl:w-1/4 mb-4 p-2  ">
+        {/* <div className="col-4 md:w-1/2 lg:w-1/2 xl:w-1/4 mb-4 p-2  ">
             <div className=" flex flex-col ">
               <div className="flex justify-center p-2 rounded bg-black ">
                 <NavLink to="." end className=' w-1/4 flex justify-center items-center   p-3 text-sm' id='promote-plan' style={({isActive})=> isActive ? IsActive : null}> <div className="flex flex-col justify-center items-center"><img src={bronze} width={15} height={15} alt="" />Bronze</div> </NavLink>
@@ -94,7 +94,7 @@ export default function Promote() {
                </div>
                <button className="buttonck rounded-full w-full bottom-0" onClick={()=> setShowMyModal(true)}>BOOK YOUR AD</button>
             </div>
-        </div>
+        </div> */}
 
    
     </div>
