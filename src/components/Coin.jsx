@@ -171,30 +171,30 @@ export default function Coin(props) {
             </td>
             {crypto && crypto.price_change_percentage_1h_in_currency ?
             crypto.price_change_percentage_1h_in_currency > 0 ? 
-                  <td className="px-4 pt-4  whitespace-no-wrap text-green-500 text-right min-w-[80px]">
+                  <td className="px-2 lg:px-4 pt-4  whitespace-no-wrap text-green-500 text-right min-w-[80px]">
                   <div className="flex justify-center">{crypto.price_change_percentage_1h_in_currency.toFixed(2)}</div>
                   </td> : 
-                  <td className="px-4 pt-4  whitespace-no-wrap text-red-500 text-right min-w-[80px]">
+                  <td className="px-2 lg:px-4 pt-4  whitespace-no-wrap text-red-500 text-right min-w-[80px]">
                   <div className="flex justify-center">{crypto.price_change_percentage_1h_in_currency.toFixed(2)}</div>
-                  </td> : <td className="px-4 pt-4  whitespace-no-wrap text-right min-w-[80px]">-</td>
+                  </td> : <td className="px-2 lg:px-4 pt-4  whitespace-no-wrap text-right min-w-[80px]">-</td>
             }
             {crypto && crypto.price_change_percentage_24h_in_currency ?
             crypto.price_change_percentage_24h_in_currency > 0 ? 
-                  <td className="px-4 pt-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
+                  <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
                   <div className="flex justify-center">{crypto.price_change_percentage_24h_in_currency.toFixed(2)}</div>
                   </td> : 
-                  <td className="px-4 pt-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
+                  <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
                   <div className="flex justify-center">{crypto.price_change_percentage_24h_in_currency.toFixed(2)}</div>
-                  </td> : <td className="px-4 pt-4 whitespace-no-wrap  text-right min-w-[80px]">-</td>
+                  </td> : <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap  text-right min-w-[80px]">-</td>
             }
             {crypto && crypto.price_change_percentage_7d_in_currency ?
             crypto.price_change_percentage_7d_in_currency > 0 ? 
-                  <td className="px-4 pt-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
+                  <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap text-green-500 text-right min-w-[80px]">
                   <div className="flex justify-center">{crypto.price_change_percentage_7d_in_currency.toFixed(2)}</div>
                   </td> : 
-                  <td className="px-4 pt-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
+                  <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap text-red-500 text-right min-w-[80px]">
                   <div className="flex justify-center">{crypto.price_change_percentage_7d_in_currency.toFixed(2)}</div>
-                  </td> : <td className="px-4 pt-4 whitespace-no-wrap text-right min-w-[80px]">-</td>
+                  </td> : <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap text-right min-w-[80px]">-</td>
             }
             <td className="pt-4 whitespace-no-wrap text-white-500  text-right min-w-[100px]" >
               ${crypto?.current_price ? crypto.current_price.toLocaleString() : ""}
