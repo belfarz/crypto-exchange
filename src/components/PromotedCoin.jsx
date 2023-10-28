@@ -101,7 +101,7 @@ export default function PromotedCoin(props) {
         
       </thead>
       <tbody className="">
-        {dataArray.map((crypto,index) => {
+        {dataArray.map((crypto, index) => {
 
         
         const truncatedName = crypto?.name ? <TruncatedText text={crypto.name} maxLength={8} /> : null;
@@ -111,7 +111,7 @@ export default function PromotedCoin(props) {
         const launchDate = currentmeta ? currentmeta.date_launched : null
           return(
             
-          <tr key={crypto?.market_cap_rank ? crypto.market_cap_rank : "-"} className=''>
+          <tr key={crypto?.slug ? crypto.slug : "-"} className=''>
           {/* <Link to={`coin/${crypto.id}`} className='flex'></Link> */}
             <td className="pr-2 pt-2 whitespace-no-wrap  w-[30px]">
               <div className="flex justify-center items-center">

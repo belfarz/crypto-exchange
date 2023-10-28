@@ -145,7 +145,7 @@ export default function Coin(props) {
         const fullName = crypto?.name ? crypto.name : null;
           return(
             
-          <tr key={crypto?.market_cap_rank ? crypto.market_cap_rank : "-"} className=''>
+          <tr key={crypto?.id ? crypto.id : "-"} className=''>
           {/* <Link to={`coin/${crypto.id}`} className='flex'></Link> */}
             <td className="pr-2 pt-2 whitespace-no-wrap  max-w-[30px]">
             <div className="flex justify-center items-center">
