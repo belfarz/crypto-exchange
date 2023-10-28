@@ -6,7 +6,7 @@ import testImg from "../image/test.jpg"
 // import gold from "../image/gold-badge.jpg"
 // import diamond from "../image/diamond-badge.jpg"
 import {BiMessageRounded} from "react-icons/bi"
-import {BsFillSendFill  } from "react-icons/bs"
+import {RiTwitterXFill  } from "react-icons/ri"
 import {BiMessageDetail } from "react-icons/bi"
 import {BsArrowUpRight} from "react-icons/bs"
 
@@ -32,12 +32,11 @@ export default function Promote() {
     <h1 className="ppp text-3xl lg:text-4xl">Promote Packages Prices</h1>
 
     <div className="flex flex-col lg:flex-row justify-center items-center">
-    
-    <a className='obh flex m-2 justify-center items-center' href='https://t.me/kojojk'>
-      <BsFillSendFill size={25} className='m-1 p-1 bg-purple-800 rounded-full' /> Enter ChatGroup <BsArrowUpRight size={25} className='m-1 p-1 ' />
-    </a>
     <a className='obh flex m-2 justify-center items-center' href='https://t.me/Aiden1A'>
       <BiMessageDetail size={25} className='m-1 p-1 bg-purple-800 rounded-full' />Contact Aiden <BsArrowUpRight  size={25} className='m-1 p-1 '/>
+    </a>
+    <a className='obh flex m-2 justify-center items-center' href='https://x.com/kojotoken?s=21&t=A5tujRLsd2oS26pZr84trQ'>
+      <RiTwitterXFill size={25} className='m-1 p-1 bg-purple-800 rounded-full' /> Enter ChatGroup <BsArrowUpRight size={25} className='m-1 p-1 ' />
     </a>
     <a className='obh flex m-2 justify-center items-center' href='https://t.me/KOJOCAllS'>
       <BiMessageRounded size={25} className='m-1 p-1 bg-purple-800 rounded-full' /> Join KojoCalls Channel <BsArrowUpRight size={25} className='m-1 p-1 ' />
