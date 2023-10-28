@@ -36,7 +36,7 @@ export default function Promote() {
       <BiMessageDetail size={25} className='m-1 p-1 bg-purple-800 rounded-full' />Contact Aiden <BsArrowUpRight  size={25} className='m-1 p-1 '/>
     </a>
     <a className='obh flex m-2 justify-center items-center' href='https://x.com/kojotoken?s=21&t=A5tujRLsd2oS26pZr84trQ'>
-      <RiTwitterXFill size={25} className='m-1 p-1 bg-purple-800 rounded-full' /> Enter ChatGroup <BsArrowUpRight size={25} className='m-1 p-1 ' />
+      <RiTwitterXFill size={25} className='m-1 p-1 bg-purple-800 rounded-full' /> Enter Twitter <BsArrowUpRight size={25} className='m-1 p-1 ' />
     </a>
     <a className='obh flex m-2 justify-center items-center' href='https://t.me/KOJOCAllS'>
       <BiMessageRounded size={25} className='m-1 p-1 bg-purple-800 rounded-full' /> Join KojoCalls Channel <BsArrowUpRight size={25} className='m-1 p-1 ' />
