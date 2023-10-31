@@ -94,9 +94,9 @@ export default function PromotedCoin(props) {
           <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[100px]">
             <div className="flex text-18  justify-end">Address</div>
           </th>
-          <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[100px]">
+          {/* <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[100px]">
             <div className="flex text-18  justify-center">Votes</div>
-          </th>
+          </th> */}
         </tr>
         
       </thead>
@@ -189,12 +189,12 @@ export default function PromotedCoin(props) {
               </div>
             </td>
             
-            <td className="pr-6  mt-6 whitespace-no-wrap text-white-500 text-right min-w-[100px]">
+            {/* <td className="pr-6  mt-6 whitespace-no-wrap text-white-500 text-right min-w-[100px]">
               <div className="flex justify-center">
 
               </div>
              
-            </td>
+            </td> */}
             
           </tr>
          

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import fixedImg from "../image/fixed.jpg"
 import testImg from "../image/test.jpg"
+import fixed2 from "../image/fixed2.jpg"
 // import bronze from "../image/bronze-badge.jpg"
 // import silver from "../image/silver-badge.jpg"
 // import gold from "../image/gold-badge.jpg"
@@ -27,7 +28,7 @@ export default function Promote() {
     const handleOnClose =()=> setShowMyModal(false)
     
   return (
-    <div className='mt-24 relative flex-1 ml-2 lg:ml-64 overflow-x-auto'>
+    <div className='mt-24 relative flex-1 ml-2 lg:ml-64 mb-20 overflow-x-auto'>
       
     <h1 className="ppp text-3xl lg:text-4xl">Promote Packages Prices</h1>
 
@@ -46,7 +47,9 @@ export default function Promote() {
 
     <div className="flex flex-wrap justify-center">
 
-        <div className="col-4 md:w-1/2 lg:w-1/2 xl:w-1/4 mb-4 p-2 ">
+        <div className='inline-block md:w-1/2 lg:w-1/2 xl:w-1/4 mb-4 min-w-[400px]'>
+          <h1 className='font-bold  text-center text-xl text-purple-800 '>Promoted Coin</h1>
+        <div className="col-4  ">
             <div className=" flex flex-col p-2 ">
                 <div className=' flex justify-center flex-col mb-4'><img src={fixedImg} alt="" className="w-full max-w-full h-auto" /></div>
                 <span className='flex'><input type="radio" name="options" id="option4" className='mr-2 '/> <label id='radio-label' htmlFor="option4" className=''>$200 - 1 DAY  </label> </span>
@@ -55,10 +58,14 @@ export default function Promote() {
                 <button className="buttonck rounded-full w-full my-2" onClick={()=> setShowMyModal(true)}>BOOK YOUR AD</button>
             </div>
         </div>
+        </div>
 
-        <div className="col-4 md:w-1/2 lg:w-1/2 xl:w-1/4 mb-4 p-2 ">
+
+        <div className='inline-block md:w-1/2 lg:w-1/2 xl:w-1/4 mb-4 min-w-[400px]'>
+          <h1 className='font-bold  text-center text-xl text-purple-800 '>Fixed Banner</h1>
+        <div className="col-4  ">
             <div className=" flex flex-col p-2 ">
-                <div className=' flex justify-center flex-col mb-4'><img src={testImg} alt="" className="w-full max-w-full h-auto" /></div>
+                <div className=' flex justify-center flex-col mb-4'><img src={fixed2} alt="" className="w-full max-w-full h-auto" /></div>
                 <span className='flex'><input type="radio" name="options" id="option1" className='mr-2 '/> <label id='radio-label' htmlFor="option1" className=''>$150 - 1day </label> </span>
                 <span className='flex'><input type="radio" name="options" id="option2" className='mr-2 '/> <label id='radio-label' htmlFor="option2" className=''>$390 -3days+channel pin  </label> </span>
                 <span className='flex'><input type="radio" name="options" id="option3" className='mr-2 '/> <label id='radio-label' htmlFor="option3" className=''>$550$ -7days+channel pin </label> </span>    
@@ -66,8 +73,11 @@ export default function Promote() {
                 <button className="buttonck rounded-full w-full my-2" onClick={()=> setShowMyModal(true)}>BOOK YOUR AD</button>
             </div>
         </div>
+        </div>
 
-         <div className="col-4 md:w-1/2 lg:w-1/2 xl:w-1/4 mb-4 p-2 ">
+         <div className='inline-block md:w-1/2 lg:w-1/2 xl:w-1/4 mb-4 min-w-[400px]'>
+          <h1 className='font-bold  text-center text-xl text-purple-800 '>Broadcast Banner</h1> 
+         <div className="col-4  ">
             <div className=" flex flex-col p-2 ">
                 <div className=' flex justify-center flex-col mb-4'><img src={testImg} alt="" className="w-full max-w-full h-auto" /></div>
                 <span className='flex'><input type="radio" name="options" id="option7" className='mr-2 '/> <label id='radio-label' htmlFor="option7" className=''>$100- 1day+ installation channel </label> </span>
@@ -76,6 +86,7 @@ export default function Promote() {
                 <button className="buttonck rounded-full w-full my-2" onClick={()=> setShowMyModal(true)}>BOOK YOUR AD</button>
             </div>
         </div>
+         </div>
 
 
       

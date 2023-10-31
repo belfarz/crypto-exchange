@@ -79,7 +79,7 @@ export default function Coin(props) {
 
   return (
     <div>
-        <table className=" lg:w-full" id='table'>
+        <table className=" lg:w-full pr-10" id='table'>
       <thead>
        
         <tr>
@@ -121,25 +121,17 @@ export default function Coin(props) {
             {<PiArrowsDownUpBold style={{ fontSize: '14px' }}/>}
             </div>
           </th>
-         
-          {/* {list === "Promoted Coin" ? (
-            <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider ">
-            <div className="flex text-18  justify-center">Links</div>
-          </th>
-          ): <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider ">
-          <div className="flex text-18  justify-center">Links</div>
-        </th>} */}
+     
           
-          <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[100px]">
+          {/* <th className=" py-4  text-18 text-left text-xs leading-4 font-bold text-white-500 uppercase tracking-wider min-w-[100px]">
             <div className="flex text-18  justify-end">Votes</div>
-          </th>
+          </th> */}
         </tr>
         
       </thead>
       <tbody className="">
         {coin.map((crypto,index) => {
 
-          // i want to make an api call for every member of this map function and adding data from the api to this table body
         
         const truncatedName = crypto?.name ? <TruncatedText text={crypto.name} maxLength={8} /> : null;
         const fullName = crypto?.name ? crypto.name : null;
@@ -203,28 +195,16 @@ export default function Coin(props) {
               <div className="flex justify-center">${crypto?.market_cap ? crypto.market_cap.toLocaleString() : null}</div>
             </td>
             
-            {
-            //   list === "Promoted Coin" ? (
-            //     <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  ">
-            // <div className="flex justify-end flex-col">
-            // <Links getLinks={links[index]} />
-            // </div>
-            // </td>
-            //   ) :  <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  ">
-            //   <div className="flex justify-end flex-col">
-            //   -
-            //   </div>
-            //   </td>
-            }
+     
 
           
             
-            <td className="pr-6  mt-6 whitespace-no-wrap text-white-500 text-right min-w-[100px]">
+            {/* <td className="pr-6  mt-6 whitespace-no-wrap text-white-500 text-right min-w-[100px]">
               <div className="">
 
               </div>
              
-            </td>
+            </td> */}
             
           </tr>
          
