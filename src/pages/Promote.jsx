@@ -52,7 +52,7 @@ export default function Promote() {
         <div className="col-4  ">
             <div className=" flex flex-col p-2 ">
                 <div className=' flex justify-center flex-col mb-4'><img src={fixedImg} alt="" className="w-full max-w-full h-auto" /></div>
-                <span className='flex'><input type="radio" name="options" id="option4" className='mr-2 '/> <label id='radio-label' htmlFor="option4" className=''>$150 - 1 DAY    $100- 1day+ installation channel     </label> </span>
+                <span className='flex'><input type="radio" name="options" id="option4" className='mr-2 '/> <label id='radio-label' htmlFor="option4" className=''>$100- 1day+ installation channel     </label> </span>
                 
                 <span className='flex'><input type="radio" name="options" id="option5" className='mr-2 '/> <label id='radio-label' htmlFor="option5" className=''>$250 - 3days     </label> </span>
                 <span className='flex'><input type="radio" name="options" id="option6" className='mr-2 '/> <label id='radio-label' htmlFor="option6" className=''>  $450 - 7days    </label> </span>    
