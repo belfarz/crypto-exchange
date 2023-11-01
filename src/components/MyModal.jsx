@@ -47,13 +47,13 @@ export default function MyModal({visible, onClose}) {
           <th>7 days</th>
         </tr>
         <tr>
-          <td>Fixed banner</td>
+          <td>Promoted Coin</td>
           <td> <input onChange={handleCheckboxChange} type="checkbox" value="150"/>$150</td>
           <td> <input onChange={handleCheckboxChange} type="checkbox" value="390"/>$390</td>
           <td> <input onChange={handleCheckboxChange} type="checkbox" value="$550"/>$550$</td>
         </tr>
         <tr>
-          <td>Broadcast Banner</td>
+          <td>Fixed Banner</td>
           <td> <input onChange={handleCheckboxChange} type="checkbox" value="200"/>$200</td>
           <td> <input onChange={handleCheckboxChange} type="checkbox" value="450"/>$450</td>
           <td> <input onChange={handleCheckboxChange} type="checkbox" value="890"/>$890</td>

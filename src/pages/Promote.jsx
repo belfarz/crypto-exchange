@@ -52,9 +52,9 @@ export default function Promote() {
         <div className="col-4  ">
             <div className=" flex flex-col p-2 ">
                 <div className=' flex justify-center flex-col mb-4'><img src={fixedImg} alt="" className="w-full max-w-full h-auto" /></div>
-                <span className='flex'><input type="radio" name="options" id="option4" className='mr-2 '/> <label id='radio-label' htmlFor="option4" className=''>$200 - 1 DAY  </label> </span>
-                <span className='flex'><input type="radio" name="options" id="option5" className='mr-2 '/> <label id='radio-label' htmlFor="option5" className=''>$450 - 3days+channel pin </label> </span>
-                <span className='flex'><input type="radio" name="options" id="option6" className='mr-2 '/> <label id='radio-label' htmlFor="option6" className=''>$890 - 7 days+channel pin  </label> </span>    
+                <span className='flex'><input type="radio" name="options" id="option4" className='mr-2 '/> <label id='radio-label' htmlFor="option4" className=''>$150 - 1 DAY  </label> </span>
+                <span className='flex'><input type="radio" name="options" id="option5" className='mr-2 '/> <label id='radio-label' htmlFor="option5" className=''>$390 - 3days+channel pin </label> </span>
+                <span className='flex'><input type="radio" name="options" id="option6" className='mr-2 '/> <label id='radio-label' htmlFor="option6" className=''>$550 - 7 days+channel pin  </label> </span>    
                 <button className="buttonck rounded-full w-full my-2" onClick={()=> setShowMyModal(true)}>BOOK YOUR AD</button>
             </div>
         </div>
@@ -66,9 +66,9 @@ export default function Promote() {
         <div className="col-4  ">
             <div className=" flex flex-col p-2 ">
                 <div className=' flex justify-center flex-col mb-4'><img src={fixed2} alt="" className="w-full max-w-full h-auto" /></div>
-                <span className='flex'><input type="radio" name="options" id="option1" className='mr-2 '/> <label id='radio-label' htmlFor="option1" className=''>$150 - 1day </label> </span>
-                <span className='flex'><input type="radio" name="options" id="option2" className='mr-2 '/> <label id='radio-label' htmlFor="option2" className=''>$390 -3days+channel pin  </label> </span>
-                <span className='flex'><input type="radio" name="options" id="option3" className='mr-2 '/> <label id='radio-label' htmlFor="option3" className=''>$550$ -7days+channel pin </label> </span>    
+                <span className='flex'><input type="radio" name="options" id="option1" className='mr-2 '/> <label id='radio-label' htmlFor="option1" className=''>$200 - 1day </label> </span>
+                <span className='flex'><input type="radio" name="options" id="option2" className='mr-2 '/> <label id='radio-label' htmlFor="option2" className=''>$450 -3days+channel pin  </label> </span>
+                <span className='flex'><input type="radio" name="options" id="option3" className='mr-2 '/> <label id='radio-label' htmlFor="option3" className=''>$890$ -7days+channel pin </label> </span>    
 
                 <button className="buttonck rounded-full w-full my-2" onClick={()=> setShowMyModal(true)}>BOOK YOUR AD</button>
             </div>
