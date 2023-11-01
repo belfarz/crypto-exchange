@@ -48,21 +48,21 @@ export default function MyModal({visible, onClose}) {
         </tr>
         <tr>
           <td>Promoted Coin</td>
-          <td> <input onChange={handleCheckboxChange} type="checkbox" value="150"/>$150</td>
-          <td> <input onChange={handleCheckboxChange} type="checkbox" value="390"/>$390</td>
-          <td> <input onChange={handleCheckboxChange} type="checkbox" value="$550"/>$550$</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="150"/> $150</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="390"/> $390</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="$550"/> $550$</td>
         </tr>
         <tr>
           <td>Fixed Banner</td>
-          <td> <input onChange={handleCheckboxChange} type="checkbox" value="200"/>$200</td>
-          <td> <input onChange={handleCheckboxChange} type="checkbox" value="450"/>$450</td>
-          <td> <input onChange={handleCheckboxChange} type="checkbox" value="890"/>$890</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="200"/> $200</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="450"/> $450</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="890"/> $890</td>
         </tr>
         <tr>
           <td>Broadcast Banner</td>
-          <td> <input onChange={handleCheckboxChange} type="checkbox" value="100"/>$100</td>
-          <td> <input onChange={handleCheckboxChange} type="checkbox" value="250"/>$250</td>
-          <td> <input onChange={handleCheckboxChange} type="checkbox" value="450"/>$450</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="100"/> $100</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="250"/> $250</td>
+          <td> <input onChange={handleCheckboxChange} type="checkbox" value="450"/> $450</td>
         </tr>
       
       
