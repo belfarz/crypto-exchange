@@ -194,7 +194,7 @@ export default function PromotedCoin(props) {
             
             <td className="pr-6  mt-6 whitespace-no-wrap text-white-500 text-right min-w-[100px]">
               <div className="flex justify-center">
-
+              {/* hello world */}
               </div>
              
             </td>
