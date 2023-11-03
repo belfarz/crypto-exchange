@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Form } from 'react-router-dom'
 import { AiFillFileImage } from "react-icons/ai"
 import { MdDelete } from "react-icons/md"
+import swal from 'sweetalert';
 import axios from 'axios'
 
 export async function action({request}){
@@ -30,6 +31,11 @@ export async function action({request}){
         // 'Content-Type': 'application/x-www-form-urlencoded',
       }});
     console.log('POST request successful:', response);
+    swal("Done","Coin Listed Successfully🎉🎉","success");
+    document.querySelector("#id").value = "" 
+            document.querySelector("#name").value = ""
+            document.querySelector("#symbol").value = "" 
+            document.querySelector("#description").value = ""
   } catch (error) {
     if (error.response && error.response.status === 400) {
         // Handle 400 Bad Request errors
