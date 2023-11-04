@@ -34,7 +34,7 @@ export default function CoinRanking() {
 
      
         axios.get("https://kojocalls.onrender.com/api/promoted").then((response)=>{
-          
+          console.log(response.data.map(item => item.coinId).join(','))
           const idString = response.data.map(item => item.coinId).join('%2C');
           setIdsString(idString)
         }).catch((Error)=>{
@@ -50,7 +50,7 @@ export default function CoinRanking() {
       const fetchCoinData = async () => {
         try {
           const response = await axios.post('https://kojocalls.onrender.com/api/coinmarketcap', {
-            coinIds: promString, // Array of coin slugs
+            coinIds: promString, // string of coin slugs
           });
     
           setCoinData(response.data.data);
@@ -61,7 +61,7 @@ export default function CoinRanking() {
 
         try {
           const response = await axios.post('https://kojocalls.onrender.com/api/metadata', {
-            coinIds: promString, // Array of coin slugs
+            coinIds: promString, // string of coin slugs
           });
     
           setMetadata(response.data.data);
