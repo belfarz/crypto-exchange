@@ -79,7 +79,7 @@ export default function Coin(props) {
 
   return (
     <div>
-        <table className=" lg:w-full pr-10" id='table'>
+        <table className="w-full pr-10" id='table'>
       <thead>
        
         <tr>

@@ -32,7 +32,8 @@ export async function action({request}){
       }});
     console.log('POST request successful:', response);
     swal("Done","Coin Listed Successfully🎉🎉","success");
-    document.querySelector("#id").value = "" 
+            document.querySelector("#address").value = ""
+            document.querySelector("#id").value = "" 
             document.querySelector("#name").value = ""
             document.querySelector("#symbol").value = "" 
             document.querySelector("#description").value = ""

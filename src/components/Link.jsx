@@ -7,12 +7,12 @@ import {BsGlobe2} from "react-icons/bs"
 
 
 
-export default function Link({getLinks}) {
+export default function Link({ getLinks, details}) {
     const [isOpen, setIsOpen] = useState(false)
     
   return (
     <div className='relative'>
-           <button className=" px-4 py-2 rounded" id="menu-btn" onClick={()=>setIsOpen((prev)=>!prev)}><TiLink size={25}/></button>
+           <button className=" px-4 rounded" id="menu-btn" onClick={()=>setIsOpen((prev)=>!prev)}><TiLink size={ details ? 40 : 25}/></button>
               
               {isOpen && (
                 <ul className="z-[999] flex flex-col justify-center items-center rounded mt-1 p-2 text-sm top-10 absolute" id="dropdown">

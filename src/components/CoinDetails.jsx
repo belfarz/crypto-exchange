@@ -5,6 +5,7 @@ import Chart from "./Chart"
 // import History from './History'
 import CoinAds from './CoinAds'
 import Copy from './Copy'
+import Links from './Link'
 
 
 
@@ -70,9 +71,14 @@ export default function CoinDetails() {
             <span className='text-gray-400 text-lg'>Price</span>
             <span className='text-white text-3xl'>${dataArray[0]?.quote.USD.price.toFixed(2)}</span>
         </div>
+        <div className="flex">
         <div className="flex flex-col justify-center">
             <span className='text-gray-400 text-lg'>Address</span>
             <span className='text-white text-2xl flex '>{truncatedAddress} <span>{ metadata[0]?.contract_address[0]?.contract_address ? <Copy text={metadata[0]?.contract_address[0]?.contract_address || null} /> : null }</span> </span>
+        </div>
+        <div className="pt-6 flex justify-center items-center text-white">
+        <Links getLinks={metadata ? metadata[0]?.urls : null} details={true}/>
+        </div>
         </div>
       </div>
 
