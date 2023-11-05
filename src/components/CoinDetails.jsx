@@ -77,7 +77,7 @@ export default function CoinDetails() {
             <span className='text-white text-2xl flex '>{truncatedAddress} <span>{ metadata[0]?.contract_address[0]?.contract_address ? <Copy text={metadata[0]?.contract_address[0]?.contract_address || null} /> : null }</span> </span>
         </div>
         <div className="pt-6 flex justify-center items-center text-white">
-        <Links getLinks={metadata ? metadata[0]?.urls : null} details={true}/>
+        {metadata[0]?.urls ? <Links getLinks={metadata ? metadata[0]?.urls : null} details={true}/> : null}
         </div>
         </div>
       </div>
