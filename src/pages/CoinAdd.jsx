@@ -10,15 +10,17 @@ export async function action({request}){
    
     const coinId = formData.get("id")
     const address = formData.get("address")
+    const chain = formData.get("chain")
 
-    if (!coinId || !address) {
+    if (!coinId || !address || !chain) {
         throw new Error("Invalid input. Please check your data.");
       }
 
     // Create an object with the coinId and address
   const dataToSend = {
     coinId,
-    address
+    address,
+    chain
   };
 
   console.log(dataToSend);
@@ -26,7 +28,7 @@ export async function action({request}){
   // Make a POST request to your API endpoint with the data
   try {
     console.log(dataToSend);
-    const response = await axios.post('https://kojocalls.onrender.com/api/customers', {coinId, address},{headers: {
+    const response = await axios.post('https://kojocalls.onrender.com/api/customers', {coinId, address, chain},{headers: {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
       }});
@@ -106,7 +108,7 @@ export default function CoinAdd() {
 
     function deleteFile() {
         setFileName("No Selected File")
-        setImage(null)
+        setImage(null)  
     }
 
   return (
@@ -122,11 +124,13 @@ export default function CoinAdd() {
             <div className='flex mb-5'>
                 <div className='w-1/2 pr-4'>
                     <label htmlFor="fruit" className="block mb-2 text-gray-400">Chain</label>
-                    <select id="chain" name="fruit" className="w-full p-2 border rounded-full  text-gray-400">
-                    <option value="BSC" className='text-gray-400 p-2 '>BTC</option>
-                    <option value="ETH" className='text-gray-400 p-2 '>ETH</option>
-                    <option value="cherry" className='text-gray-400 p-2 '>SOL</option>
-                    <option value="orange" className='text-gray-400 p-2 '>BNB</option>
+                    <select id="chain" name="chain" className="w-full p-2 border rounded-full  text-gray-400" required>
+                    <option value="eth" className='text-gray-400 p-2 '>ETH</option>
+                    <option value="bnb" className='text-gray-400 p-2 '>BNB</option>
+                    <option value="poly" className='text-gray-400 p-2 '>POLY</option>
+                    <option value="opti" className='text-gray-400 p-2 '>OPTI</option>
+                    <option value="aval" className='text-gray-400 p-2 '>AVAL</option>
+                    <option value="arbi" className='text-gray-400 p-2 '>ARBI</option>
                     </select>
                 </div>
                 <div className='w-1/2'>

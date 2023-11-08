@@ -88,6 +88,10 @@ export default function CoinDetails() {
 
       {/* <History /> */}
       {type ? <Chart name={metadata[0]?.symbol} type={type ? type : ""}/> : null}
+
+      <div className='w-2/3'>
+      <iframe title='coin chart' width="100%" height="720" frameBorder="0" scrolling="no" src="https://coinbrain.com/embed/eth-0x470c8950c0c3aa4b09654bc73b004615119a44b5?theme=dark&padding=16&chart=1&trades=1&ratio=0.68"></iframe>
+      </div>
     </div>
     </div>
   )

@@ -90,6 +90,7 @@ export default function CoinRanking() {
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = verifyPromoted.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(verifyPromoted.length / itemsPerPage);
+  console.log(currentItems)
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
@@ -118,7 +119,7 @@ export default function CoinRanking() {
     </div>
 
     <div className='relative flex-1 ml-2 mr-2 lg:ml-64 mt-6 rounded overflow-x-auto' id='outlet'>
-      <Coin  coin={currentItems} list="Coin"/>
+      <Coin  coin={currentItems} list="Coin" table={table}/>
     </div>
 
     <div className="mx-auto w-full my-4">

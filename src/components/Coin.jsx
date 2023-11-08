@@ -63,7 +63,7 @@ export default function Coin(props) {
   // const maxWidth = 100; // Set your maximum width here
   // const [link, setLink] = useState(null)
 
-  const { coin, list } = props;
+  const { coin, list, table } = props;
 
   const TruncatedText = ({ text, maxLength }) => {
     const truncatedText = text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
@@ -148,7 +148,7 @@ export default function Coin(props) {
             <Link 
               to={`coin/${crypto.id}`} 
               className='flex whitespace-no-wrap sticky left-0  lg:max-w-[250px]'
-              state={{type : "normal"}}
+              state={{type : table ? "normal" : "promoted"}}
             >
             <img
               src={crypto && crypto.image ? crypto.image : testImg}
