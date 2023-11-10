@@ -1,7 +1,6 @@
 import  React,{useState, useEffect} from 'react'
 import { CiStar } from "react-icons/ci";
 import { PiArrowsDownUpBold } from 'react-icons/pi';
-import testImg from "../image/test.png"
 import { Link} from 'react-router-dom';
 // import Links from './Link';
 // import { links } from './api';
@@ -10,7 +9,9 @@ import { Link} from 'react-router-dom';
 export default function Coin(props) {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
+  const { coin, list, table } = props;
+  const idCollect = coin.map(item => item.id).join(',');
+  console.log(idCollect)
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -24,46 +25,6 @@ export default function Coin(props) {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
-  // const links = [
-  //   {
-  //     tg: 'https://t.me/BearAIofficial',
-  //     x: null,
-  //     site: 'http://Bearai.org'
-  //   },
-  //   {
-  //     tg: 'https://t.me/blobofficial',
-  //     x: 'https://twitter.com/BLOBProtocol',
-  //     site: null
-  //   },
-  //   {
-  //     tg: 'https://t.me/DarkForestERCChat',
-  //     x: "https://twitter.com/darkforesterc",
-  //     site: 'null'
-  //   },
-  //   {
-  //     tg: 'https://t.me/RavenFundPortal',
-  //     x: null,
-  //     site: null
-  //   },
-  //   {
-  //     tg: null,
-  //     x: null,
-  //     site: 'tokendefi-rectification.com'
-  //   },
-  //   {
-  //     tg: 'https://t.me/tradexai',
-  //     x: null,
-  //     site: 't.me'
-  //   }
-    
-  // ]
-
-  // const [width, setWidth] = useState(50);
-  // const maxWidth = 100; // Set your maximum width here
-  // const [link, setLink] = useState(null)
-
-  const { coin, list, table } = props;
 
   const TruncatedText = ({ text, maxLength }) => {
     const truncatedText = text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
@@ -137,7 +98,7 @@ export default function Coin(props) {
         const fullName = crypto?.name ? crypto.name : null;
           return(
             
-          <tr key={crypto?.id ? crypto.id : "-"} className=''>
+          <tr key={crypto?.slug ? crypto.slug : "-"} className=''>
           {/* <Link to={`coin/${crypto.id}`} className='flex'></Link> */}
             <td className="pr-2 pt-2 whitespace-no-wrap  max-w-[30px]">
             <div className="flex justify-center items-center">
@@ -146,12 +107,12 @@ export default function Coin(props) {
             </td>
             <td className=" my-4  min-w-[150px]   whitespace-no-wrap text-white-500 flex sticky left-0 lg:max-w-[250px]"  id='coin-1-row'>
             <Link 
-              to={`coin/${crypto.id}`} 
+              to={`coin/${crypto.slug}`} 
               className='flex whitespace-no-wrap sticky left-0  lg:max-w-[250px]'
-              state={{type : table ? "normal" : "promoted"}}
+              state={{type : table ? "normal" : "promoted",tables: table}}
             >
             <img
-              src={crypto && crypto.image ? crypto.image : testImg}
+              // src={currentmeta ? currentmeta.logo : ""}
               alt=""
               className="coin_image p-2"
             />
@@ -161,38 +122,38 @@ export default function Coin(props) {
               </div>
               </Link> 
             </td>
-            {crypto && crypto.price_change_percentage_1h_in_currency ?
-            crypto.price_change_percentage_1h_in_currency > 0 ? 
+            {crypto && crypto.quote.USD.percent_change_1h ?
+            crypto.quote.USD.percent_change_1h > 0 ? 
                   <td className="px-2 lg:px-4 pt-4  whitespace-no-wrap text-green-500 text-right min-w-[65px]">
-                  <div className="flex justify-center">{crypto.price_change_percentage_1h_in_currency.toFixed(2)}</div>
+                  <div className="flex justify-center">{crypto.quote.USD.percent_change_1h.toFixed(2)}</div>
                   </td> : 
                   <td className="px-2 lg:px-4 pt-4  whitespace-no-wrap text-red-500 text-right min-w-[65px]">
-                  <div className="flex justify-center">{crypto.price_change_percentage_1h_in_currency.toFixed(2)}</div>
-                  </td> : <td className="px-2 lg:px-4 pt-4  whitespace-no-wrap text-right min-w-[65px]">-</td>
+                  <div className="flex justify-center">{crypto.quote.USD.percent_change_1h.toFixed(2)}</div>
+                  </td> : <td className="px-2 lg:px-4 pt-4  whitespace-no-wrap text-right min-w-[65px]"><div className="flex justify-center">0</div></td>
             }
-            {crypto && crypto.price_change_percentage_24h_in_currency ?
-            crypto.price_change_percentage_24h_in_currency > 0 ? 
+            {crypto && crypto.quote.USD.percent_change_24h ?
+            crypto.quote.USD.percent_change__24h > 0 ? 
                   <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap text-green-500 text-right min-w-[65px]">
-                  <div className="flex justify-center">{crypto.price_change_percentage_24h_in_currency.toFixed(2)}</div>
+                  <div className="flex justify-center">{crypto.quote.USD.percent_change_24h.toFixed(2)}</div>
                   </td> : 
                   <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap text-red-500 text-right min-w-[65px]">
-                  <div className="flex justify-center">{crypto.price_change_percentage_24h_in_currency.toFixed(2)}</div>
-                  </td> : <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap  text-right min-w-[65px]">-</td>
+                  <div className="flex justify-center">{crypto.quote.USD.percent_change_24h.toFixed(2)}</div>
+                  </td> : <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap  text-right min-w-[65px]"><div className="flex justify-center">0</div></td>
             }
-            {crypto && crypto.price_change_percentage_7d_in_currency ?
-            crypto.price_change_percentage_7d_in_currency > 0 ? 
+            {crypto && crypto.quote.USD.percent_change_7d ?
+            crypto.quote.USD.percent_change_7d > 0 ? 
                   <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap text-green-500 text-right min-w-[65px]">
-                  <div className="flex justify-center">{crypto.price_change_percentage_7d_in_currency.toFixed(2)}</div>
+                  <div className="flex justify-center">{crypto.quote.USD.percent_change_7d.toFixed(2)}</div>
                   </td> : 
                   <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap text-red-500 text-right min-w-[65px]">
-                  <div className="flex justify-center">{crypto.price_change_percentage_7d_in_currency.toFixed(2)}</div>
-                  </td> : <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap text-right min-w-[65px]">-</td>
+                  <div className="flex justify-center">{crypto.quote.USD.percent_change_7d.toFixed(2)}</div>
+                  </td> : <td className="px-2 lg:px-4 pt-4 whitespace-no-wrap text-right min-w-[65px]"><div className="flex justify-center">0</div></td>
             }
             <td className="pt-4 whitespace-no-wrap text-white-500  text-right min-w-[100px]" >
-              ${crypto?.current_price ? crypto.current_price.toLocaleString() : ""}
+              ${crypto?.quote.USD.price ? crypto.quote.USD.price.toLocaleString() : ""}
             </td>
             <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  min-w-[180px]">
-              <div className="flex justify-center">${crypto?.market_cap ? crypto.market_cap.toLocaleString() : null}</div>
+              <div className="flex justify-center">${crypto?.self_reported_market_cap ? crypto.self_reported_market_cap.toLocaleString() : null}</div>
             </td>
             
      

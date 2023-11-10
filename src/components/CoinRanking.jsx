@@ -17,8 +17,7 @@ export default function CoinRanking() {
     const [idsString, setIdsString] = useState('');
     const [promString, setPromString] = useState("");
     const [verifyPromoted, setVerifyPromoted] = useState([])
-    const payedUrl = promString && `https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?slug=${promString}`
-    const promUrl = table ? (idsString ? `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${idsString}&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en` : null) : ("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en");
+    const promUrl = table ? (idsString ? `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${idsString}&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en` : null) : ("https://kojocalls.onrender.com/api/latest");
     const [coinData, setCoinData] = useState([]);
     
   
@@ -34,7 +33,7 @@ export default function CoinRanking() {
 
      
         axios.get("https://kojocalls.onrender.com/api/promoted").then((response)=>{
-          console.log(response.data.map(item => item.coinId).join(','))
+          console.log(response.data.map(item => item.cmc_id).join(','))
           const idString = response.data.map(item => item.coinId).join('%2C');
           setIdsString(idString)
         }).catch((Error)=>{
@@ -82,7 +81,7 @@ export default function CoinRanking() {
         console.log(Error)
     })
 
-    },[idsString,promUrl,payedUrl,promString])
+    },[idsString,promUrl,promString])
 
     //----------------------------------------------------//
   const [itemOffset, setItemOffset] = useState(0);
@@ -113,7 +112,7 @@ export default function CoinRanking() {
     <div className='lg:ml-64 text-gray-400'>
       <div className=''>
         <NavLink className=' px-3 py-2 text-sm font-bold' id='trait' onClick={()=>setTable(false)}>Trending</NavLink>
-        <NavLink className=' px-3 py-2 text-sm font-bold' onClick={()=>setTable(true)}>New Listing</NavLink>
+        {/* <NavLink className=' px-3 py-2 text-sm font-bold' onClick={()=>setTable(true)}>New Listing</NavLink> */}
       </div>
      
     </div>

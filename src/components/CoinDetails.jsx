@@ -17,6 +17,7 @@ export default function CoinDetails() {
 
   const [data, setData] = useState({})
   const [meta, setMeta] = useState({})
+  const [chartDetails, setChartDetails] = useState({})
 
   useEffect(()=>{
     const fetchData = async () =>{
@@ -27,13 +28,14 @@ export default function CoinDetails() {
         });
         const metadata = await axios.post('https://kojocalls.onrender.com/api/metadata', {
             coinIds: param, // Array of coin slugs
-          });
+          }); 
 
-         
+        const chartdetails = await axios.get(`https://kojocalls.onrender.com/api/coindetails/${params?.id}`)
   
         setData(response.data.data);
         setMeta(metadata.data.data);
-        console.log(response)
+        setChartDetails(chartdetails)
+        console.log(chartdetails)
       } catch (error) {
         console.error(error);
       }
@@ -87,11 +89,15 @@ export default function CoinDetails() {
       </div>
 
       {/* <History /> */}
-      {type ? <Chart name={metadata[0]?.symbol} type={type ? type : ""}/> : null}
-
-      <div className='w-2/3'>
-      <iframe title='coin chart' width="100%" height="720" frameBorder="0" scrolling="no" src="https://coinbrain.com/embed/eth-0x470c8950c0c3aa4b09654bc73b004615119a44b5?theme=dark&padding=16&chart=1&trades=1&ratio=0.68"></iframe>
+      {/* {type ? <Chart name={metadata[0]?.symbol} type={type ? type : ""}/> : null} */}
+      {
+        type ? (type !== "normal" ? <Chart name={metadata[0]?.symbol} /> : 
+        <div className='w-2/3'>
+      <iframe title='coin chart' width="100%" height="720" frameBorder="0" scrolling="no" src={`https://coinbrain.com/embed/${chartDetails?.data?.chain}-${chartDetails?.data?.address}?theme=dark&padding=16&chart=1&trades=1&ratio=0.68`}></iframe>
       </div>
+        ) : null
+      }
+      
     </div>
     </div>
   )

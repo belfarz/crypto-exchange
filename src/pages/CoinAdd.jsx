@@ -11,7 +11,8 @@ export async function action({request}){
     const coinId = formData.get("id")
     const address = formData.get("address")
     const chain = formData.get("chain")
-
+    const cmc = await axios.get(`https://kojocalls.onrender.com/api/address/${address}`)
+    const cmc_id = cmc.data[0]
     if (!coinId || !address || !chain) {
         throw new Error("Invalid input. Please check your data.");
       }
@@ -20,7 +21,8 @@ export async function action({request}){
   const dataToSend = {
     coinId,
     address,
-    chain
+    chain,
+    cmc_id
   };
 
   console.log(dataToSend);
@@ -28,7 +30,7 @@ export async function action({request}){
   // Make a POST request to your API endpoint with the data
   try {
     console.log(dataToSend);
-    const response = await axios.post('https://kojocalls.onrender.com/api/customers', {coinId, address, chain},{headers: {
+    const response = await axios.post('https://kojocalls.onrender.com/api/customers', {coinId, address, chain, cmc_id},{headers: {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
       }});
@@ -127,6 +129,7 @@ export default function CoinAdd() {
                     <select id="chain" name="chain" className="w-full p-2 border rounded-full  text-gray-400" required>
                     <option value="eth" className='text-gray-400 p-2 '>ETH</option>
                     <option value="bnb" className='text-gray-400 p-2 '>BNB</option>
+                    <option value="sol" className='text-gray-400 p-2 '>SOL</option>
                     <option value="poly" className='text-gray-400 p-2 '>POLY</option>
                     <option value="opti" className='text-gray-400 p-2 '>OPTI</option>
                     <option value="aval" className='text-gray-400 p-2 '>AVAL</option>
@@ -155,7 +158,7 @@ export default function CoinAdd() {
                 </div>
                 <div className='w-1/2'>
                     <label htmlFor="address" className="block mb-2 text-gray-400">Symbol <span className="text-red-500">*</span></label>
-                    <input type="text" name="address" id="symbol" className="w-full p-2 border rounded-full  text-gray-400" required/>
+                    <input type="text" name="symbol" id="symbol" className="w-full p-2 border rounded-full  text-gray-400" required/>
                 </div>
             </div>
 

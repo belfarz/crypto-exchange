@@ -124,7 +124,7 @@ export default function PromotedCoin(props) {
             <td className=" my-4  min-w-[150px]   whitespace-no-wrap text-white-500 flex sticky left-0 lg:max-w-[250px]"  id='coin-1-row'>
             <Link 
               to={`coin/${crypto.slug}`} 
-              state={{type : "promoted"}}
+              state={{type : "normal"}}
               className='flex whitespace-no-wrap sticky left-0  lg:max-w-[250px]'
             >
             <img
