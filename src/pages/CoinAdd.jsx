@@ -39,7 +39,12 @@ export async function action({request}){
         // 'Content-Type': 'application/x-www-form-urlencoded',
       }});
     console.log('POST request successful:', response);
-    swal("Done","Coin Listed Successfully🎉🎉","success");
+    if (response.data !== "Coin Already exist") {
+        swal("Done","Coin Listed Successfully🎉🎉","success");
+    }else{
+        swal("Failed","Coin Already Exist","error");
+    }
+    
             document.querySelector("#address").value = ""
             document.querySelector("#id").value = "" 
             document.querySelector("#name").value = ""
