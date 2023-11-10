@@ -11,25 +11,29 @@ export async function action({request}){
     const coinId = formData.get("id")
     const address = formData.get("address")
     const chain = formData.get("chain")
-    const cmc = await axios.get(`https://kojocalls.onrender.com/api/address/${address}`)
-    const cmc_id = cmc.data[0]
+
+
+    // Create an object with the coinId and address
+//   const dataToSend = {
+//     coinId,
+//     address,
+//     chain,
+//     cmc_id
+//   };
+
+
+    const cmc = await axios.get(`https://kojocalls.onrender.com/api/address/${address}`).catch((Error)=>{
+        console.log(Error)
+      })
+    const cmc_id = cmc?.data[0] ? cmc?.data[0] : "0000"
     if (!coinId || !address || !chain) {
         throw new Error("Invalid input. Please check your data.");
       }
 
-    // Create an object with the coinId and address
-  const dataToSend = {
-    coinId,
-    address,
-    chain,
-    cmc_id
-  };
 
-  console.log(dataToSend);
-
-  // Make a POST request to your API endpoint with the data
   try {
-    console.log(dataToSend);
+    // console.log(dataToSend);
+    
     const response = await axios.post('https://kojocalls.onrender.com/api/customers', {coinId, address, chain, cmc_id},{headers: {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
