@@ -130,7 +130,7 @@ export default function Coin(props) {
             <Link 
               to={`coin/${crypto.slug}`} 
               className='flex whitespace-no-wrap sticky left-0  lg:max-w-[250px]'
-              state={{type : table ? "normal" : "promoted",tables: table}}
+              state={{type : table ? "normal" : "promoted",tables: table,cmc_id : crypto.id}}
             >
             <img
               src={currentmeta ? currentmeta.logo : ""}
