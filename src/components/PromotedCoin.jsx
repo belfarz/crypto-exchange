@@ -31,7 +31,7 @@ export default function PromotedCoin(props) {
   const idCollect = dataResult.map(item => item.id).join(',');
   const currentItems = idCollect.split(',').map(id => dataResult.find(item => item.id === parseInt(id)));
   const metadata = idCollect.split(',').map(id => metaResultArray.find(item => item.id === parseInt(id))); 
-  
+  console.log(metadata)
   const TruncatedText = ({ text, maxLength }) => {
     const truncatedText = text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
   
@@ -133,7 +133,7 @@ export default function PromotedCoin(props) {
         const fullName = crypto?.name ? crypto.name : null;
         const currentmeta = metadata[index]
         const truncatedAddress = currentmeta ? <TruncatedText text={currentmeta.contract_address[0].contract_address} maxLength={6} /> : null;
-        const launchDate = currentmeta ? currentmeta.date_launched : null
+        const launchDate = currentmeta ? currentmeta.date_launched ? currentmeta.date_launched : currentmeta.date_added : null
           return(
             
           <tr key={crypto?.slug ? crypto.slug : "-"} className=''>
