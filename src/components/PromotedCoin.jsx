@@ -126,7 +126,7 @@ export default function PromotedCoin(props) {
         
       </thead>
       <tbody className="">
-        {dataArray.map((crypto, index) => {
+        {dataArray?.map((crypto, index) => {
 
         
         const truncatedName = crypto?.name ? <TruncatedText text={crypto.name} maxLength={8} /> : null;

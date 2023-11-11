@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import Chart from "./Chart"
 // import History from './History'
 import CoinAds from './CoinAds'
@@ -13,8 +13,8 @@ export default function CoinDetails() {
 
   const location = useLocation()
   const type = location?.state?.type || ''; 
-  const cmc_id = location?.state?.cmc_id; 
-  const params = useParams()
+  const cmc_id = location?.state?.cmc_id || ''; 
+ 
 
   const [data, setData] = useState({})
   const [meta, setMeta] = useState({})
@@ -31,7 +31,7 @@ export default function CoinDetails() {
             coinIds: cmc_id, // Array of coin slugs
           }); 
 
-        const chartdetails = await axios.get(`https://kojocalls.onrender.com/api/coindetails/${params?.id}`)
+        const chartdetails = await axios.get(`https://kojocalls.onrender.com/api/coindetails/${cmc_id}`)
   
         setData(response.data.data);
         setMeta(metadata.data.data);
@@ -42,7 +42,7 @@ export default function CoinDetails() {
       }
     }
     fetchData();
-  },[params.id,cmc_id])
+  },[cmc_id])
 
   const TruncatedText = ({ text, maxLength }) => {
     const truncatedText = text?.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
@@ -92,7 +92,7 @@ export default function CoinDetails() {
       {/* <History /> */}
       {/* {type ? <Chart name={metadata[0]?.symbol} type={type ? type : ""}/> : null} */}
       {
-        type ? (type !== "normal" ? <Chart name={metadata[0]?.symbol} /> : 
+        chartDetails.data ? (type !== "normal" ? <Chart name={metadata[0]?.symbol} /> : 
         <div className=' w-full lg:w-2/3'>
       <iframe title='coin chart' width="100%" height="720" frameBorder="0" scrolling="no" src={`https://coinbrain.com/embed/${chartDetails?.data?.chain}-${chartDetails?.data?.address}?theme=dark&padding=16&chart=1&trades=1&ratio=0.68`}></iframe>
       </div>
