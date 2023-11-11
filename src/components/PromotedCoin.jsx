@@ -4,11 +4,14 @@ import { PiArrowsDownUpBold } from 'react-icons/pi';
 import { Link} from 'react-router-dom';
 import Links from './Link';
 import Copy from './Copy';
+import ReactPaginate from 'react-paginate';
 export default function PromotedCoin(props) {
 
-    const { coin, list, meta } = props;
-
+    const { coin, list, meta, table } = props;
+   
+   
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  console.log(coin)
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,9 +26,12 @@ export default function PromotedCoin(props) {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  const dataArray = coin && Object.values(coin)
-  const metadata = meta && Object.values(meta)
-
+  const  dataResult = coin && Object.values(coin)
+  const metaResultArray = meta && Object.values(meta)
+  const idCollect = dataResult.map(item => item.id).join(',');
+  const currentItems = idCollect.split(',').map(id => dataResult.find(item => item.id === parseInt(id)));
+  const metadata = idCollect.split(',').map(id => metaResultArray.find(item => item.id === parseInt(id))); 
+  
   const TruncatedText = ({ text, maxLength }) => {
     const truncatedText = text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
   
@@ -36,6 +42,22 @@ export default function PromotedCoin(props) {
     );
   };
 
+      //----------------------------------------------------//
+      const [itemOffset, setItemOffset] = useState(0);
+      const itemsPerPage = 10;
+      const endOffset = itemOffset + itemsPerPage;
+      const dataArray = currentItems.slice(itemOffset, endOffset);
+      const pageCount = Math.ceil(dataArray.length / itemsPerPage);
+      
+    
+      // Invoke when user click to request another page.
+      const handlePageClick = (event) => {
+        const newOffset = (event.selected * itemsPerPage) % dataArray.length;
+        setItemOffset(newOffset);
+      };
+        //----------------------------------------------------//
+     
+       
   
 
   return (
@@ -123,7 +145,7 @@ export default function PromotedCoin(props) {
             </td>
             <td className=" my-4  min-w-[150px]   whitespace-no-wrap text-white-500 flex sticky left-0 lg:max-w-[250px]"  id='coin-1-row'>
             <Link 
-              to={`coin/${crypto.slug}`} 
+              to={`coin/${crypto?.slug}`} 
               state={{type : "normal"}}
               className='flex whitespace-no-wrap sticky left-0  lg:max-w-[250px]'
             >
@@ -169,7 +191,7 @@ export default function PromotedCoin(props) {
               ${crypto?.quote.USD.price ? crypto.quote.USD.price.toFixed(5) : ""}
             </td>
             <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  min-w-[150px]">
-              <div className="flex justify-center">${crypto?.self_reported_market_cap ? crypto.self_reported_market_cap.toLocaleString() : null}</div>
+              <div className="flex justify-center">${crypto?.self_reported_market_cap ? crypto.self_reported_market_cap.toLocaleString() : crypto?.quote.USD.market_cap.toLocaleString()}</div>
             </td>
 
             <td className=" pt-4 whitespace-no-wrap text-white-500 text-right min-w-[200px] ">
@@ -205,6 +227,25 @@ export default function PromotedCoin(props) {
               })}
       </tbody>
     </table>
+    {table ? (
+      <div className="mx-auto w-full my-4">
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel=">"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={4}
+        marginPagesDisplayed={1}
+        pageCount={pageCount}
+        previousLabel="<"
+        renderOnZeroPageCount={null}
+        containerClassName='flex justify-center relative '
+        pageLinkClassName='page-num p-1 pl-3 pr-3 m-1 rounded-md hover:pl-3 hover:pr-3 hover:pt-1 hover:pb-1'
+        previousLinkClassName='page-num p-1 pl-3 pr-3 m-1 rounded-md hover:pl-3 hover:pr-3 hover:pt-1 hover:pb-1'
+        nextLinkClassName='page-num p-1 pl-3 pr-3 m-1 rounded-md hover:pl-3 hover:pr-3 hover:pt-1 hover:pb-1'
+        activeLinkClassName='page-active'
+     />
+    </div>
+    ) : null}
     </div>
   )
 }

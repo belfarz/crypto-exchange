@@ -1,4 +1,5 @@
 import  React,{useState, useEffect} from 'react'
+import axios from 'axios';
 import { CiStar } from "react-icons/ci";
 import { PiArrowsDownUpBold } from 'react-icons/pi';
 import { Link} from 'react-router-dom';
@@ -10,8 +11,28 @@ export default function Coin(props) {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const { coin, list, table } = props;
+  const [meta, setMeta] = useState([])
   const idCollect = coin.map(item => item.id).join(',');
+  
   console.log(idCollect)
+  useEffect(()=>{
+    const fetchCoinData = async () => {
+      try {
+        const response = await axios.post('https://kojocalls.onrender.com/api/metadata', {
+            coinIds: coin.map(item => item.id).join(','), // string of coin slugs
+          });
+          setMeta(response.data.data)
+          console.log(response.data)
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchCoinData();
+  },[idCollect,coin])
+
+  const metadata = meta && Object.values(meta)
+  const resultArray = idCollect.split(',').map(id => metadata.find(item => item.id === parseInt(id)));
+  console.log(coin)
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -93,7 +114,7 @@ export default function Coin(props) {
       <tbody className="">
         {coin.map((crypto,index) => {
 
-        
+        const currentmeta = resultArray[index]
         const truncatedName = crypto?.name ? <TruncatedText text={crypto.name} maxLength={8} /> : null;
         const fullName = crypto?.name ? crypto.name : null;
           return(
@@ -112,7 +133,7 @@ export default function Coin(props) {
               state={{type : table ? "normal" : "promoted",tables: table}}
             >
             <img
-              // src={currentmeta ? currentmeta.logo : ""}
+              src={currentmeta ? currentmeta.logo : ""}
               alt=""
               className="coin_image p-2"
             />
@@ -153,7 +174,7 @@ export default function Coin(props) {
               ${crypto?.quote.USD.price ? crypto.quote.USD.price.toLocaleString() : ""}
             </td>
             <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  min-w-[180px]">
-              <div className="flex justify-center">${crypto?.self_reported_market_cap ? crypto.self_reported_market_cap.toLocaleString() : null}</div>
+              <div className="flex justify-center">${crypto?.self_reported_market_cap ? crypto.self_reported_market_cap.toLocaleString() : crypto.quote.USD.market_cap.toLocaleString()}</div>
             </td>
             
      
