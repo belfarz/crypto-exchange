@@ -13,9 +13,10 @@ export default function Scroll({ data, metadata }) {
         dataArray.map((item, index) => (
           <Link 
               to={`coin/${item.slug}`} 
-              state={{type : "promoted"}}
+              state={{type : "normal",cmc_id : item?.id}}
+              key={item.slug}
           >
-            <div className='text-white flex justify-center items-center' key={index}>
+            <div className='text-white flex justify-center items-center'>
                 #{index + 1}
                 <img src={metaData[index].logo} alt="" width={19} className='py-1 pr-1 inline-block m-2'/>
                 {item.name} 
@@ -40,9 +41,10 @@ export default function Scroll({ data, metadata }) {
         dataArray.map((item, index) => (
           <Link 
               to={`coin/${item.slug}`} 
-              state={{type : "promoted"}}
+              state={{type : "normal",cmc_id : item?.id}}
+              key={item.slug}
           >
-            <div className='text-white flex justify-center items-center' key={index}>
+            <div className='text-white flex justify-center items-center'>
                   #{index + 1}
                 <img src={metaData[index].logo} alt="" width={19} className='py-1 pr-1 inline-block m-2'/>
                 {item.name} 
