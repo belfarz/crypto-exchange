@@ -11,7 +11,7 @@ export default function Scan() {
     async function getData() {
       try {
           const responsePromoted = await axios.get("https://kojocalls.onrender.com/api/payedpromotion");
-          const idsString = responsePromoted.data.map(item => item.coinId).join(',');
+          const idsString = responsePromoted.data.map(item => item.cmc_id).join(',');
   
           console.log("Promoted IDs:", idsString);
   
