@@ -47,12 +47,12 @@ export default function PromotedCoin(props) {
       const itemsPerPage = 10;
       const endOffset = itemOffset + itemsPerPage;
       const dataArray = currentItems.slice(itemOffset, endOffset);
-      const pageCount = Math.ceil(dataArray.length / itemsPerPage);
+      const pageCount = Math.ceil(currentItems.length / itemsPerPage);
       
     
       // Invoke when user click to request another page.
       const handlePageClick = (event) => {
-        const newOffset = (event.selected * itemsPerPage) % dataArray.length;
+        const newOffset = (event.selected * itemsPerPage) % currentItems.length;
         setItemOffset(newOffset);
       };
         //----------------------------------------------------//

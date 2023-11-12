@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import Chart from "./Chart"
 // import History from './History'
 import CoinAds from './CoinAds'
@@ -11,6 +11,7 @@ import Links from './Link'
 
 export default function CoinDetails() {
 
+  const params = useParams()
   const location = useLocation()
   const type = location?.state?.type || ''; 
   const cmc_id = location?.state?.cmc_id || ''; 
@@ -42,7 +43,7 @@ export default function CoinDetails() {
       }
     }
     fetchData();
-  },[cmc_id])
+  },[cmc_id,params.id])
 
   const TruncatedText = ({ text, maxLength }) => {
     const truncatedText = text?.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
