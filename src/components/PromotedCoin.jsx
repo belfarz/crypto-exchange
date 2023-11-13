@@ -47,6 +47,7 @@ export default function PromotedCoin(props) {
       const itemsPerPage = 10;
       const endOffset = itemOffset + itemsPerPage;
       const dataArray = currentItems.slice(itemOffset, endOffset);
+      const metaArray = metadata.slice(itemOffset, endOffset);
       const pageCount = Math.ceil(currentItems.length / itemsPerPage);
       
     
@@ -131,7 +132,7 @@ export default function PromotedCoin(props) {
         
         const truncatedName = crypto?.name ? <TruncatedText text={crypto.name} maxLength={8} /> : null;
         const fullName = crypto?.name ? crypto.name : null;
-        const currentmeta = metadata[index]
+        const currentmeta = metaArray[index]
         const truncatedAddress = currentmeta ? <TruncatedText text={currentmeta.contract_address[0].contract_address} maxLength={6} /> : null;
         const launchDate = currentmeta ? currentmeta.date_launched ? currentmeta.date_launched : currentmeta.date_added : null
           return(
