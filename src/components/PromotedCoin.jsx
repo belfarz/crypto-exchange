@@ -192,7 +192,7 @@ export default function PromotedCoin(props) {
               ${crypto?.quote.USD.price ? crypto.quote.USD.price.toFixed(5) : ""}
             </td>
             <td className=" pt-4 whitespace-no-wrap text-white-500 text-right  min-w-[150px]">
-              <div className="flex justify-center">${crypto?.self_reported_market_cap ? crypto.self_reported_market_cap.toLocaleString() : crypto?.quote.USD.market_cap.toLocaleString()}</div>
+              <div className="flex justify-center">${crypto?.self_reported_market_cap ? crypto?.self_reported_market_cap?.toLocaleString() : crypto?.quote.USD.market_cap?.toLocaleString()}</div>
             </td>
 
             <td className=" pt-4 whitespace-no-wrap text-white-500 text-right min-w-[200px] ">
