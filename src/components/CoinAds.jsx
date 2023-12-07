@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react'
-import add from "../image/ad-2.GIF"
+import ad from "../image/ad-1.jpg"
+import ad2 from "../image/ad-2.GIF"
 import add1 from "../image/add2.jpg"
 import add2 from "../image/add3.jpeg"
 import add3 from "../image/satoru.gif"
@@ -47,8 +48,9 @@ export default function CoinAds() {
 
   return (
     <div className='flex flex-col justify-center mt-2  lg:ml-64 '>
-      <div className='flex justify-center'>
-        <div className=' w-full lg:w-[1022px]  bg-white flex justify-center items-center m-2'id='ad-1' > <a href="http://t.me/FirstBankChina"><img src={add} className='rounded-lg cursor-pointer' alt="" /></a></div>
+      <div className='flex flex-col justify-center items-center'>
+        <div className=' w-full lg:w-[1022px]  bg-white flex justify-center items-center m-2'id='ad-1' > <a href="http://t.me/FirstBankChina"><img src={ad} className='rounded-lg cursor-pointer' alt="" /></a></div>
+        <div className=' w-full lg:w-[1022px]  bg-white flex justify-center items-center m-2'id='ad-1' > <a href="http://t.me/FirstBankChina"><img src={ad2} className='rounded-lg cursor-pointer' alt="" /></a></div>
       </div>
       <div className='flex justify-center  overflow-x-auto '>
         <div className='w-full md:w-[600px]  bg-black flex justify-center items-center m-2 ' ><a href={mobileUrl}> <img src={window.innerWidth < 768 ? imageUrl : add1} className='rounded-lg max-h-[200px] cursor-pointer' alt="" /></a></div>
