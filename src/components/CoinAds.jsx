@@ -4,6 +4,7 @@ import ad2 from "../image/ad-2.GIF"
 import add1 from "../image/add2.jpg"
 import add2 from "../image/add3.jpeg"
 import add3 from "../image/satoru.gif"
+// import FloatingAd from './FloatingAd'
 
 
 export default function CoinAds() {
@@ -47,6 +48,7 @@ export default function CoinAds() {
   },[imageUrl])
 
   return (
+    <>
     <div className='flex flex-col justify-center mt-2  lg:ml-64 '>
       <div className='flex flex-col justify-center items-center'>
         <div className=' w-full lg:w-[1022px]  bg-white flex justify-center items-center m-2'id='ad-1' > <a href="http://t.me/FirstBankChina"><img src={ad} className='rounded-lg cursor-pointer' alt="" /></a></div>
@@ -58,5 +60,7 @@ export default function CoinAds() {
         <div className=' md:block w-[600px] hidden  bg-black lg:flex justify-center items-center m-2 ' ><a href="https://t.me/KOJOCAllS"><img src={add3} className='rounded-lg cursor-pointer' alt="" /></a></div>
       </div>
     </div>
+    {/* <FloatingAd /> */}
+    </>
   )
 }

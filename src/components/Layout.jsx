@@ -9,6 +9,7 @@ import Scroll from './Scroll'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
+// import FloatingAd from './FloatingAd'
 // import Sticker from './Sticker'
 
 
@@ -96,7 +97,7 @@ export default function Layout() {
     <div className='flex '>
           <Navbar toggle={Openbar} />
         
-          
+          {/* <FloatingAd /> */}
             <Outlet />
        
         

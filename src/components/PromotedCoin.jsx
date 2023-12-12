@@ -30,7 +30,8 @@ export default function PromotedCoin(props) {
   const metaResultArray = meta && Object.values(meta)
   const idCollect = dataResult.map(item => item.id).join(',');
   const currentItems = idCollect.split(',').map(id => dataResult.find(item => item.id === parseInt(id)));
-  const metadata = idCollect.split(',').map(id => metaResultArray.find(item => item.id === parseInt(id))); 
+  const invertData = idCollect.split(',').map(id => metaResultArray.find(item => item.id === parseInt(id))); 
+  const metadata = invertData.reverse();
   console.log(metadata)
   const TruncatedText = ({ text, maxLength }) => {
     const truncatedText = text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
@@ -127,7 +128,7 @@ export default function PromotedCoin(props) {
         
       </thead>
       <tbody className="">
-        {dataArray?.map((crypto, index) => {
+        {dataArray?.slice().reverse().map((crypto, index) => {
 
         
         const truncatedName = crypto?.name ? <TruncatedText text={crypto.name} maxLength={8} /> : null;

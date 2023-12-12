@@ -393,3 +393,7 @@ input[type="submit"]{
   height: 30px;
   margin: 0 40px;
 }
+
+#popup{
+  width: 60%;
+}
