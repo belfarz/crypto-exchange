@@ -79,16 +79,16 @@ export default function CoinAdd() {
     }
 
     async function getCoin() {
-        const url = `https://api.coingecko.com/api/v3/coins/belfarz/contract/${address}`
+        const url = `https://api.dexscreener.com/latest/dex/tokens/${address}`
         
         axios.get(url).then((response)=>{
-            document.querySelector("#id").value = response.data.id 
-            document.querySelector("#name").value = response.data.name 
-            document.querySelector("#symbol").value = response.data.symbol 
-            document.querySelector("#description").value = response.data.description.en
-            console.log( response.data.description.en)
-            setImage(response.data.image.small)
-
+            //document.querySelector("#id").value = response.data.id 
+            document.querySelector("#name").value = response.data.pairs[0].baseToken.name 
+            document.querySelector("#symbol").value = response.data.pairs[0].baseToken.symbol 
+            //document.querySelector("#description").value = response.data.description.en
+            //console.log( response.data.description.en)
+            //setImage(response.data.image.small)
+/* 
 
             const secondApiUrl = `https://api.coingecko.com/api/v3/coins/${response.data.id}?localization=false&tickers=false&market_data=false&community_data=true`;
 
@@ -102,7 +102,7 @@ export default function CoinAdd() {
               })
               .catch((secondApiError) => {
                 console.error(secondApiError);
-              });
+              }); */
            
         }).catch((Error)=>{
             console.log(Error)
@@ -146,7 +146,7 @@ export default function CoinAdd() {
                     </select>
                 </div>
                 <div className='w-1/2'>
-                    <label htmlFor="address" className="block mb-2 text-gray-400">Contact Address</label>
+                    <label htmlFor="address" className="block mb-2 text-gray-400">Contract Address</label>
                     <input 
                         type="text" 
                         name="address" 
@@ -210,7 +210,7 @@ export default function CoinAdd() {
             <h1 className="text-[25px] text-gray-300 mt-8 mb-8">Links</h1>  
             <div className='flex mb-5 w-full'>
                 <div className='w-1/2 pr-4'>
-                    <label htmlFor="fruit" className="block mb-2 text-gray-400">Chain</label>
+                    <label htmlFor="fruit" className="block mb-2 text-gray-400">Platform</label>
                     <select id="chain" name="fruit" className="w-full p-2 border rounded-full  text-gray-400">
                     <option value="apple" className='text-gray-400 p-2 bg-white'>Twitter</option>
                     <option value="banana" className='text-gray-400 p-2 bg-white'>Instagram</option>
