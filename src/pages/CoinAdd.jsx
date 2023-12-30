@@ -8,7 +8,7 @@ import axios from 'axios'
 export async function action({request}){
     const formData = await request.formData()
    
-    const coinId = formData.get("id")
+    const coinId = "0"
     const address = formData.get("address")
     const chain = formData.get("chain")
 
