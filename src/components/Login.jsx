@@ -35,7 +35,7 @@ export default function Login({visible, onClose,onFormSwitch}) {
     id="modal-container"
     className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center z-[99]"
     onClick={handleClose}
->
+    >
   <div className=" p-5 rounded-lg w-[450px] aspect-w-1 aspect-h-1 bg-purple-800" id='login-container'>
     <h1 className="font-semibold text-center text-2xl text-white my-4">
       Log In
