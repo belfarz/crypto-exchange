@@ -15,7 +15,7 @@ export async function getCoin(coin) {
 
 export async function getData() {
     try {
-        const responsePromoted = await axios.get("https://kojocalls.onrender.com/api/promoted");
+        const responsePromoted = await axios.get("http://localhost:3005/api/promoted");
         const idsString = responsePromoted.data.map(item => item.coinId).join('%2C');
 
         console.log("Promoted IDs:", idsString);
@@ -37,7 +37,7 @@ export async function getData() {
 
 export async function loginUser(creds){
     
-    const res =  await fetch("https://kojocalls.onrender.com/api/login",
+    const res =  await fetch("http://localhost:3005/api/login",
     {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin

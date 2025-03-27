@@ -22,7 +22,7 @@ export async function action({request}){
 //   };
 
 
-    const cmc = await axios.get(`https://kojocalls.onrender.com/api/address/${address}`).catch((Error)=>{
+    const cmc = await axios.get(`http://localhost:3005/api/address/${address}`).catch((Error)=>{
         console.log(Error)
       })
     const cmc_id = cmc?.data[0] ? cmc?.data[0] : "0000"
@@ -34,7 +34,7 @@ export async function action({request}){
   try {
     // console.log(dataToSend);
     
-    const response = await axios.post('https://kojocalls.onrender.com/api/customers', {coinId, address, chain, cmc_id},{headers: {
+    const response = await axios.post('http://localhost:3005/api/customers', {coinId, address, chain, cmc_id},{headers: {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
       }});
@@ -135,7 +135,7 @@ export default function CoinAdd() {
             <div className='flex mb-5'>
                 <div className='w-1/2 pr-4'>
                     <label htmlFor="fruit" className="block mb-2 text-gray-400">Chain</label>
-                    <select id="chain" name="chain" className="w-full p-2 border rounded-full  text-gray-400" required>
+                    <select id="chain" name="chain" className="w-full p-2 border rounded-full  text-gray-400" multiple required>
                     <option value="eth" className='text-gray-400 p-2 '>ETH</option>
                     <option value="bnb" className='text-gray-400 p-2 '>BNB</option>
                     <option value="sol" className='text-gray-400 p-2 '>SOL</option>

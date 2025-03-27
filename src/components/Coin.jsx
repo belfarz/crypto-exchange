@@ -18,7 +18,7 @@ export default function Coin(props) {
   useEffect(()=>{
     const fetchCoinData = async () => {
       try {
-        const response = await axios.post('https://kojocalls.onrender.com/api/metadata', {
+        const response = await axios.post('http://localhost:3005/api/metadata', {
             coinIds: coin.map(item => item.id).join(','), // string of coin slugs
           });
           setMeta(response.data.data)

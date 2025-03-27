@@ -19,14 +19,14 @@ export default function CoinRanking() {
     const [latest, setLatest] = useState([])
     const [verifyMeta, setVerifyMeta] = useState([])
     const [verifyPromoted, setVerifyPromoted] = useState([])
-    const promUrl = table ? (idsString ? `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${idsString}&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en` : null) : ("https://kojocalls.onrender.com/api/latest");
+    const promUrl = table ? (idsString ? `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${idsString}&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d&locale=en` : null) : ("http://localhost:3005/api/latest");
     const [coinData, setCoinData] = useState([]);
     
   
     
 
     useEffect(()=>{
-          axios.get("https://kojocalls.onrender.com/api/payedpromotion").then((response)=>{
+          axios.get("http://localhost:3005/api/payedpromotion").then((response)=>{
             const idCollect = response.data.map(item => item.cmc_id).join(',');
             setPromString(idCollect)
           }).catch((Error)=>{
@@ -34,7 +34,7 @@ export default function CoinRanking() {
           })  
 
      
-        axios.get("https://kojocalls.onrender.com/api/promoted").then((response)=>{
+        axios.get("http://localhost:3005/api/promoted").then((response)=>{
           console.log(response.data.map(item => item.cmc_id).join(','))
           const idString = response.data.map(item => item.cmc_id).join(',');
           setIdsString(idString)
@@ -50,10 +50,10 @@ export default function CoinRanking() {
 
       const fetchCoinData = async () => {
         try {
-          const response = await axios.post('https://kojocalls.onrender.com/api/coinmarketcap', {
+          const response = await axios.post('http://localhost:3005/api/coinmarketcap', {
             coinIds: promString, // string of coin slugs
           });
-          const response2 = await axios.post('https://kojocalls.onrender.com/api/coinmarketcap', {
+          const response2 = await axios.post('http://localhost:3005/api/coinmarketcap', {
             coinIds: idsString, // string of coin slugs
           });
     
@@ -65,10 +65,10 @@ export default function CoinRanking() {
         }
 
         try {
-          const response = await axios.post('https://kojocalls.onrender.com/api/metadata', {
+          const response = await axios.post('http://localhost:3005/api/metadata', {
             coinIds: promString, // string of coin slugs
           });
-          const response2 = await axios.post('https://kojocalls.onrender.com/api/metadata', {
+          const response2 = await axios.post('http://localhost:3005/api/metadata', {
             coinIds: idsString, // string of coin slugs
           });
     
@@ -85,7 +85,7 @@ export default function CoinRanking() {
     
 
 
-      axios.get("https://kojocalls.onrender.com/api/latest").then((response)=>{
+      axios.get("http://localhost:3005/api/latest").then((response)=>{
         setLatest(response.data)
         const idlatest = response.data.map(item => item.id).join(',');
         console.log(idlatest)

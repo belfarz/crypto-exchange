@@ -20,16 +20,16 @@ export default function MoonSheet() {
   useEffect(()=>{
     async function getData() {
       try {
-          const responsePromoted = await axios.get("https://kojocalls.onrender.com/api/payedpromotion");
+          const responsePromoted = await axios.get("http://localhost:3005/payedpromotion");
           const idsString = responsePromoted.data.map(item => item.cmc_id).join(',');
   
           console.log("Promoted IDs:", idsString);    
   
-          const coindata = await axios.post('https://kojocalls.onrender.com/api/coinmarketcap', {
+          const coindata = await axios.post('http://localhost:3005/coinmarketcap', {
             coinIds: idsString, // Array of coin slugs
           });
 
-          const metadata = await axios.post('https://kojocalls.onrender.com/api/metadata', {
+          const metadata = await axios.post('http://localhost:3005/metadata', {
             coinIds: idsString, // Array of coin slugs
           });
           setData(coindata.data.data)
