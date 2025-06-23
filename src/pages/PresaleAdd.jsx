@@ -25,7 +25,7 @@ export async function action({request}){
   // Make a POST request to your API endpoint with the data
   try {
     console.log(dataToSend);
-    const response = await axios.post('http://localhost:3005/api/customers', {coinId, address},{headers: {
+    const response = await axios.post('https://cryto-server-amyo.onrender.com/api/customers', {coinId, address},{headers: {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
       }});

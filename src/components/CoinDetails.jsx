@@ -25,14 +25,14 @@ export default function CoinDetails() {
     const fetchData = async () =>{
       // const param = params.id === "binancecoin" ? "bnb" : params.id
       try {
-        const response = await axios.post('http://localhost:3005/api/coinmarketcap', {
+        const response = await axios.post('https://cryto-server-amyo.onrender.com/api/coinmarketcap', {
           coinIds: cmc_id, // Array of coin slugs
         });
-        const metadata = await axios.post('http://localhost:3005/api/metadata', {
+        const metadata = await axios.post('https://cryto-server-amyo.onrender.com/api/metadata', {
             coinIds: cmc_id, // Array of coin slugs
           }); 
 
-        const chartdetails = await axios.get(`http://localhost:3005/api/coindetails/${cmc_id}`)
+        const chartdetails = await axios.get(`https://cryto-server-amyo.onrender.com/api/coindetails/${cmc_id}`)
   
         setData(response.data.data);
         setMeta(metadata.data.data);

@@ -22,14 +22,14 @@ export default function Layout() {
   useEffect(()=>{
     async function getData() {
       try {
-          const responsePromoted = await axios.get("http://localhost:3005/api/payedpromotion");
+          const responsePromoted = await axios.get("https://cryto-server-amyo.onrender.com/api/payedpromotion");
           const idsString = responsePromoted.data.map(item => item.cmc_id).join(',');
   
-          const coindata = await axios.post('http://localhost:3005/api/coinmarketcap', {
+          const coindata = await axios.post('https://cryto-server-amyo.onrender.com/api/coinmarketcap', {
             coinIds: idsString, // Array of coin slugs
           });
 
-          const metadata = await axios.post('http://localhost:3005/api/metadata', {
+          const metadata = await axios.post('https://cryto-server-amyo.onrender.com/api/metadata', {
             coinIds: idsString, // Array of coin slugs
           });
           setScrollData(coindata.data.data)

@@ -22,7 +22,7 @@ export async function action({request}){
 //   };
 
 
-    const cmc = await axios.get(`http://localhost:3005/api/address/${address}`).catch((Error)=>{
+    const cmc = await axios.get(`https://cryto-server-amyo.onrender.com/api/address/${address}`).catch((Error)=>{
         console.log(Error)
       })
     const cmc_id = cmc?.data[0] ? cmc?.data[0] : "0000"
@@ -34,7 +34,7 @@ export async function action({request}){
   try {
     // console.log(dataToSend);
     
-    const response = await axios.post('http://localhost:3005/api/customers', {coinId, address, chain, cmc_id},{headers: {
+    const response = await axios.post('https://cryto-server-amyo.onrender.com/api/customers', {coinId, address, chain, cmc_id},{headers: {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
       }});
